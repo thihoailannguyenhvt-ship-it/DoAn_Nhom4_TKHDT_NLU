@@ -1,5 +1,5 @@
 package module1_DongBoHoa;
-
+import dinhDanh.*;
 // Lop luu du lieu da duoc dong bo
 public class DuLieuDongBo {
 
