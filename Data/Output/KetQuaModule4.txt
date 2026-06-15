@@ -1,0 +1,911 @@
+========================================
+          KET QUA MODULE 4
+========================================
+
+ID con vat              : 001-LonRung-CT
+Vi tri                 : (11.435684, 107.442002)
+Trang thai hanh vi     : BINH_THUONG
+ODBA                   : 0.0
+Ty le nang luong       : 0.0
+He so K                : 1.0
+Ban kinh Geofence      : 0.002
+Vung giao thoa lon nhat: KhuDanCu
+Phan tram giao thoa    : 78.5398165380388%
+Nguy co khong gian     : CANHBAO
+----------------------------------------
+ID con vat              : 001-LonRung-CT
+Vi tri                 : (11.435689, 107.442007)
+Trang thai hanh vi     : BINH_THUONG
+ODBA                   : 0.019999999999999907
+Ty le nang luong       : 0.012820512820512761
+He so K                : 1.0
+Ban kinh Geofence      : 0.0020599999999999998
+Vung giao thoa lon nhat: KhuDanCu
+Phan tram giao thoa    : 78.53981602211435%
+Nguy co khong gian     : CANHBAO
+----------------------------------------
+ID con vat              : 001-LonRung-CT
+Vi tri                 : (11.435694, 107.442012)
+Trang thai hanh vi     : DINH_BAY
+ODBA                   : 0.019999999999999907
+Ty le nang luong       : 0.025641025641025522
+He so K                : 4.0
+Ban kinh Geofence      : 0.002239999999999999
+Vung giao thoa lon nhat: KhuDanCu
+Phan tram giao thoa    : 78.53981606966781%
+Nguy co khong gian     : CANHBAO
+----------------------------------------
+ID con vat              : 001-LonRung-CT
+Vi tri                 : (11.435699, 107.442017)
+Trang thai hanh vi     : DINH_BAY
+ODBA                   : 0.013333333333333308
+Ty le nang luong       : 0.02564102564102559
+He so K                : 4.0
+Ban kinh Geofence      : 0.0021599999999999996
+Vung giao thoa lon nhat: KhuDanCu
+Phan tram giao thoa    : 78.53981558267859%
+Nguy co khong gian     : CANHBAO
+----------------------------------------
+ID con vat              : 001-LonRung-CT
+Vi tri                 : (11.435704, 107.442022)
+Trang thai hanh vi     : DINH_BAY
+ODBA                   : 0.010000000000000023
+Ty le nang luong       : 0.0256410256410257
+He so K                : 4.0
+Ban kinh Geofence      : 0.0021200000000000004
+Vung giao thoa lon nhat: KhuDanCu
+Phan tram giao thoa    : 78.53981729138863%
+Nguy co khong gian     : CANHBAO
+----------------------------------------
+ID con vat              : 001-LonRung-CT
+Vi tri                 : (11.435709, 107.442027)
+Trang thai hanh vi     : DINH_BAY
+ODBA                   : 0.008000000000000052
+Ty le nang luong       : 0.025641025641025807
+He so K                : 4.0
+Ban kinh Geofence      : 0.0020960000000000006
+Vung giao thoa lon nhat: KhuDanCu
+Phan tram giao thoa    : 78.53981553216043%
+Nguy co khong gian     : CANHBAO
+----------------------------------------
+ID con vat              : 001-LonRung-CT
+Vi tri                 : (11.435714, 107.442032)
+Trang thai hanh vi     : DINH_BAY
+ODBA                   : 0.010000000000000028
+Ty le nang luong       : 0.03846153846153857
+He so K                : 4.0
+Ban kinh Geofence      : 0.0021200000000000004
+Vung giao thoa lon nhat: KhuDanCu
+Phan tram giao thoa    : 78.53981629804764%
+Nguy co khong gian     : CANHBAO
+----------------------------------------
+ID con vat              : 001-LonRung-CT
+Vi tri                 : (11.435719, 107.442037)
+Trang thai hanh vi     : DINH_BAY
+ODBA                   : 0.00857142857142861
+Ty le nang luong       : 0.03846153846153864
+He so K                : 4.0
+Ban kinh Geofence      : 0.0021028571428571433
+Vung giao thoa lon nhat: KhuDanCu
+Phan tram giao thoa    : 78.53981563109413%
+Nguy co khong gian     : CANHBAO
+----------------------------------------
+ID con vat              : 001-LonRung-BD
+Vi tri                 : (11.445166, 107.45024)
+Trang thai hanh vi     : BINH_THUONG
+ODBA                   : 1.1102230246251565E-16
+Ty le nang luong       : 7.11681426041767E-17
+He so K                : 1.0
+Ban kinh Geofence      : 0.0020000000000000005
+Vung giao thoa lon nhat: KHONG_GIAO_THOA
+Phan tram giao thoa    : 0.0%
+Nguy co khong gian     : ANTOAN
+----------------------------------------
+ID con vat              : 001-LonRung-BD
+Vi tri                 : (11.431, 107.43724)
+Trang thai hanh vi     : BINH_THUONG
+ODBA                   : 5.551115123125783E-17
+Ty le nang luong       : 7.11681426041767E-17
+He so K                : 1.0
+Ban kinh Geofence      : 0.002
+Vung giao thoa lon nhat: KhuDanCu
+Phan tram giao thoa    : 56.90385945366029%
+Nguy co khong gian     : CANHBAO
+----------------------------------------
+ID con vat              : 001-LonRung-BD
+Vi tri                 : (11.435956, 107.4425)
+Trang thai hanh vi     : SUY_KIET
+ODBA                   : 7.401486830834377E-17
+Ty le nang luong       : 1.423362852083534E-16
+He so K                : 4.0
+Ban kinh Geofence      : 0.002000000000000001
+Vung giao thoa lon nhat: KhuDanCu
+Phan tram giao thoa    : 78.53981653803888%
+Nguy co khong gian     : CANHBAO
+----------------------------------------
+ID con vat              : 001-LonRung-BD
+Vi tri                 : (11.422463, 107.428921)
+Trang thai hanh vi     : SUY_KIET
+ODBA                   : 9.71445146547012E-17
+Ty le nang luong       : 2.4908849911461846E-16
+He so K                : 4.0
+Ban kinh Geofence      : 0.0020000000000000013
+Vung giao thoa lon nhat: TuyenDuongDuLich
+Phan tram giao thoa    : 78.53981542192099%
+Nguy co khong gian     : CANHBAO
+----------------------------------------
+ID con vat              : 001-LonRung-BD
+Vi tri                 : (11.4476, 107.457114)
+Trang thai hanh vi     : SUY_KIET
+ODBA                   : 0.019999999999999907
+Ty le nang luong       : 0.01282051282051301
+He so K                : 4.0
+Ban kinh Geofence      : 0.002239999999999999
+Vung giao thoa lon nhat: TramQuanSat
+Phan tram giao thoa    : 29.464502069655087%
+Nguy co khong gian     : TIENCANHBAO
+----------------------------------------
+ID con vat              : 001-LonRung-DN
+Vi tri                 : (11.445809, 107.449898)
+Trang thai hanh vi     : BINH_THUONG
+ODBA                   : 1.1102230246251565E-16
+Ty le nang luong       : 7.11681426041767E-17
+He so K                : 1.0
+Ban kinh Geofence      : 0.0020000000000000005
+Vung giao thoa lon nhat: KHONG_GIAO_THOA
+Phan tram giao thoa    : 0.0%
+Nguy co khong gian     : ANTOAN
+----------------------------------------
+ID con vat              : 001-LonRung-DN
+Vi tri                 : (11.430406, 107.4377)
+Trang thai hanh vi     : BINH_THUONG
+ODBA                   : 1.1102230246251565E-16
+Ty le nang luong       : 1.423362852083534E-16
+He so K                : 1.0
+Ban kinh Geofence      : 0.0020000000000000005
+Vung giao thoa lon nhat: KhuDanCu
+Phan tram giao thoa    : 52.76655648868523%
+Nguy co khong gian     : CANHBAO
+----------------------------------------
+ID con vat              : 001-LonRung-DN
+Vi tri                 : (11.435836, 107.442243)
+Trang thai hanh vi     : SUY_KIET
+ODBA                   : 1.295260195396016E-16
+Ty le nang luong       : 2.4908849911461846E-16
+He so K                : 4.0
+Ban kinh Geofence      : 0.0020000000000000018
+Vung giao thoa lon nhat: KhuDanCu
+Phan tram giao thoa    : 78.53981653803895%
+Nguy co khong gian     : CANHBAO
+----------------------------------------
+ID con vat              : 001-LonRung-DN
+Vi tri                 : (11.422179, 107.428719)
+Trang thai hanh vi     : SUY_KIET
+ODBA                   : 1.3877787807814457E-16
+Ty le nang luong       : 3.5584071302088347E-16
+He so K                : 4.0
+Ban kinh Geofence      : 0.0020000000000000018
+Vung giao thoa lon nhat: TuyenDuongDuLich
+Phan tram giao thoa    : 78.53981653803895%
+Nguy co khong gian     : CANHBAO
+----------------------------------------
+ID con vat              : 001-LonRung-DN
+Vi tri                 : (11.447766, 107.45691)
+Trang thai hanh vi     : SUY_KIET
+ODBA                   : 0.019999999999999907
+Ty le nang luong       : 0.012820512820513117
+He so K                : 4.0
+Ban kinh Geofence      : 0.002239999999999999
+Vung giao thoa lon nhat: TramQuanSat
+Phan tram giao thoa    : 30.74068016755508%
+Nguy co khong gian     : TIENCANHBAO
+----------------------------------------
+ID con vat              : 001-LonRung-DL
+Vi tri                 : (11.445562, 107.450011)
+Trang thai hanh vi     : BINH_THUONG
+ODBA                   : 1.6653345369377348E-16
+Ty le nang luong       : 1.0675221390626504E-16
+He so K                : 1.0
+Ban kinh Geofence      : 0.0020000000000000005
+Vung giao thoa lon nhat: KHONG_GIAO_THOA
+Phan tram giao thoa    : 0.0%
+Nguy co khong gian     : ANTOAN
+----------------------------------------
+ID con vat              : 001-LonRung-DL
+Vi tri                 : (11.430636, 107.437543)
+Trang thai hanh vi     : BINH_THUONG
+ODBA                   : 1.3877787807814457E-16
+Ty le nang luong       : 1.7792035651044174E-16
+He so K                : 1.0
+Ban kinh Geofence      : 0.0020000000000000005
+Vung giao thoa lon nhat: KhuDanCu
+Phan tram giao thoa    : 55.122327035043625%
+Nguy co khong gian     : CANHBAO
+----------------------------------------
+ID con vat              : 001-LonRung-DL
+Vi tri                 : (11.436212, 107.443111)
+Trang thai hanh vi     : SUY_KIET
+ODBA                   : 0.006666666666666728
+Ty le nang luong       : 0.012820512820512938
+He so K                : 4.0
+Ban kinh Geofence      : 0.0020800000000000007
+Vung giao thoa lon nhat: KhuDanCu
+Phan tram giao thoa    : 78.53981603281387%
+Nguy co khong gian     : CANHBAO
+----------------------------------------
+ID con vat              : 001-LonRung-DL
+Vi tri                 : (11.422935, 107.429299)
+Trang thai hanh vi     : SUY_KIET
+ODBA                   : 0.005000000000000074
+Ty le nang luong       : 0.01282051282051301
+He so K                : 4.0
+Ban kinh Geofence      : 0.002060000000000001
+Vung giao thoa lon nhat: TuyenDuongDuLich
+Phan tram giao thoa    : 78.53981602211445%
+Nguy co khong gian     : CANHBAO
+----------------------------------------
+ID con vat              : 002-HuouVang-CT
+Vi tri                 : (11.44, 107.44624)
+Trang thai hanh vi     : BINH_THUONG
+ODBA                   : 1.6653345369377348E-16
+Ty le nang luong       : 1.0675221390626504E-16
+He so K                : 1.0
+Ban kinh Geofence      : 0.0020000000000000005
+Vung giao thoa lon nhat: KhuDanCu
+Phan tram giao thoa    : 76.28018767800215%
+Nguy co khong gian     : CANHBAO
+----------------------------------------
+ID con vat              : 002-HuouVang-CT
+Vi tri                 : (11.4463, 107.449574)
+Trang thai hanh vi     : BINH_THUONG
+ODBA                   : 0.019999999999999907
+Ty le nang luong       : 0.012820512820512867
+He so K                : 1.0
+Ban kinh Geofence      : 0.0020599999999999998
+Vung giao thoa lon nhat: KHONG_GIAO_THOA
+Phan tram giao thoa    : 0.0%
+Nguy co khong gian     : ANTOAN
+----------------------------------------
+ID con vat              : 002-HuouVang-CT
+Vi tri                 : (11.429962, 107.438111)
+Trang thai hanh vi     : SUY_KIET
+ODBA                   : 0.010000000000000037
+Ty le nang luong       : 0.012820512820512974
+He so K                : 4.0
+Ban kinh Geofence      : 0.0021200000000000004
+Vung giao thoa lon nhat: KhuDanCu
+Phan tram giao thoa    : 47.77459420170963%
+Nguy co khong gian     : TIENCANHBAO
+----------------------------------------
+ID con vat              : 002-HuouVang-CT
+Vi tri                 : (11.43607, 107.442794)
+Trang thai hanh vi     : SUY_KIET
+ODBA                   : 0.006666666666666728
+Ty le nang luong       : 0.012820512820513046
+He so K                : 4.0
+Ban kinh Geofence      : 0.0020800000000000007
+Vung giao thoa lon nhat: KhuDanCu
+Phan tram giao thoa    : 78.53981603281387%
+Nguy co khong gian     : CANHBAO
+----------------------------------------
+ID con vat              : 002-HuouVang-CT
+Vi tri                 : (11.422715, 107.429102)
+Trang thai hanh vi     : SUY_KIET
+ODBA                   : 0.010000000000000023
+Ty le nang luong       : 0.025641025641025807
+He so K                : 4.0
+Ban kinh Geofence      : 0.0021200000000000004
+Vung giao thoa lon nhat: TuyenDuongDuLich
+Phan tram giao thoa    : 78.53981629804764%
+Nguy co khong gian     : CANHBAO
+----------------------------------------
+ID con vat              : 002-HuouVang-BD
+Vi tri                 : (11.447396, 107.457324)
+Trang thai hanh vi     : BINH_THUONG
+ODBA                   : 0.019999999999999907
+Ty le nang luong       : 0.012820512820512761
+He so K                : 1.0
+Ban kinh Geofence      : 0.0020599999999999998
+Vung giao thoa lon nhat: TramQuanSat
+Phan tram giao thoa    : 25.51643895199454%
+Nguy co khong gian     : TIENCANHBAO
+----------------------------------------
+ID con vat              : 002-HuouVang-BD
+Vi tri                 : (11.446066, 107.44975)
+Trang thai hanh vi     : BINH_THUONG
+ODBA                   : 0.019999999999999907
+Ty le nang luong       : 0.025641025641025522
+He so K                : 1.0
+Ban kinh Geofence      : 0.0020599999999999998
+Vung giao thoa lon nhat: KHONG_GIAO_THOA
+Phan tram giao thoa    : 0.0%
+Nguy co khong gian     : ANTOAN
+----------------------------------------
+ID con vat              : 002-HuouVang-BD
+Vi tri                 : (11.43017, 107.437894)
+Trang thai hanh vi     : SUY_KIET
+ODBA                   : 0.013333333333333308
+Ty le nang luong       : 0.02564102564102559
+He so K                : 4.0
+Ban kinh Geofence      : 0.0021599999999999996
+Vung giao thoa lon nhat: KhuDanCu
+Phan tram giao thoa    : 48.56555735247332%
+Nguy co khong gian     : TIENCANHBAO
+----------------------------------------
+ID con vat              : 002-HuouVang-BD
+Vi tri                 : (11.436389, 107.443418)
+Trang thai hanh vi     : SUY_KIET
+ODBA                   : 0.010000000000000023
+Ty le nang luong       : 0.0256410256410257
+He so K                : 4.0
+Ban kinh Geofence      : 0.0021200000000000004
+Vung giao thoa lon nhat: KhuDanCu
+Phan tram giao thoa    : 78.53981629804764%
+Nguy co khong gian     : CANHBAO
+----------------------------------------
+ID con vat              : 002-HuouVang-BD
+Vi tri                 : (11.423149, 107.429533)
+Trang thai hanh vi     : SUY_KIET
+ODBA                   : 0.00800000000000004
+Ty le nang luong       : 0.02564102564102577
+He so K                : 4.0
+Ban kinh Geofence      : 0.0020960000000000006
+Vung giao thoa lon nhat: TuyenDuongDuLich
+Phan tram giao thoa    : 78.5398165483799%
+Nguy co khong gian     : CANHBAO
+----------------------------------------
+ID con vat              : 002-HuouVang-DN
+Vi tri                 : (11.439874, 107.446042)
+Trang thai hanh vi     : BINH_THUONG
+ODBA                   : 0.019999999999999907
+Ty le nang luong       : 0.012820512820512761
+He so K                : 1.0
+Ban kinh Geofence      : 0.0020599999999999998
+Vung giao thoa lon nhat: KhuDanCu
+Phan tram giao thoa    : 80.45577203625034%
+Nguy co khong gian     : NGUYCAP
+----------------------------------------
+ID con vat              : 002-HuouVang-DN
+Vi tri                 : (11.446496, 107.449404)
+Trang thai hanh vi     : BINH_THUONG
+ODBA                   : 0.019999999999999907
+Ty le nang luong       : 0.025641025641025522
+He so K                : 1.0
+Ban kinh Geofence      : 0.0020599999999999998
+Vung giao thoa lon nhat: KHONG_GIAO_THOA
+Phan tram giao thoa    : 0.0%
+Nguy co khong gian     : ANTOAN
+----------------------------------------
+ID con vat              : 002-HuouVang-DN
+Vi tri                 : (11.429789, 107.438318)
+Trang thai hanh vi     : SUY_KIET
+ODBA                   : 0.010000000000000009
+Ty le nang luong       : 0.02564102564102559
+He so K                : 4.0
+Ban kinh Geofence      : 0.0021200000000000004
+Vung giao thoa lon nhat: KhuDanCu
+Phan tram giao thoa    : 46.82704377742963%
+Nguy co khong gian     : TIENCANHBAO
+----------------------------------------
+ID con vat              : 002-HuouVang-DN
+Vi tri                 : (11.43674, 107.443934)
+Trang thai hanh vi     : SUY_KIET
+ODBA                   : 0.013333333333333308
+Ty le nang luong       : 0.03846153846153835
+He so K                : 4.0
+Ban kinh Geofence      : 0.0021599999999999996
+Vung giao thoa lon nhat: KhuDanCu
+Phan tram giao thoa    : 78.53981558267859%
+Nguy co khong gian     : CANHBAO
+----------------------------------------
+ID con vat              : 003-NaiRung-CT
+Vi tri                 : (11.423668, 107.430037)
+Trang thai hanh vi     : BINH_THUONG
+ODBA                   : 1.6653345369377348E-16
+Ty le nang luong       : 1.0675221390626504E-16
+He so K                : 1.0
+Ban kinh Geofence      : 0.0020000000000000005
+Vung giao thoa lon nhat: TuyenDuongDuLich
+Phan tram giao thoa    : 78.53981653803885%
+Nguy co khong gian     : CANHBAO
+----------------------------------------
+ID con vat              : 003-NaiRung-CT
+Vi tri                 : (11.439526, 107.44562)
+Trang thai hanh vi     : BINH_THUONG
+ODBA                   : 1.3877787807814457E-16
+Ty le nang luong       : 1.7792035651044174E-16
+He so K                : 1.0
+Ban kinh Geofence      : 0.0020000000000000005
+Vung giao thoa lon nhat: KhuDanCu
+Phan tram giao thoa    : 95.33758812038869%
+Nguy co khong gian     : NGUYCAP
+----------------------------------------
+ID con vat              : 003-NaiRung-CT
+Vi tri                 : (11.426714, 107.432622)
+Trang thai hanh vi     : SUY_KIET
+ODBA                   : 1.4802973661668753E-16
+Ty le nang luong       : 2.846725704167068E-16
+He so K                : 4.0
+Ban kinh Geofence      : 0.0020000000000000018
+Vung giao thoa lon nhat: TuyenDuongDuLich
+Phan tram giao thoa    : 70.50065898717469%
+Nguy co khong gian     : CANHBAO
+----------------------------------------
+ID con vat              : 003-NaiRung-CT
+Vi tri                 : (11.42944, 107.438634)
+Trang thai hanh vi     : SUY_KIET
+ODBA                   : 0.019999999999999907
+Ty le nang luong       : 0.012820512820513046
+He so K                : 4.0
+Ban kinh Geofence      : 0.002239999999999999
+Vung giao thoa lon nhat: KhuDanCu
+Phan tram giao thoa    : 41.6692621307515%
+Nguy co khong gian     : TIENCANHBAO
+----------------------------------------
+ID con vat              : 003-NaiRung-CT
+Vi tri                 : (11.436576, 107.44369)
+Trang thai hanh vi     : SUY_KIET
+ODBA                   : 0.010000000000000009
+Ty le nang luong       : 0.012820512820513117
+He so K                : 4.0
+Ban kinh Geofence      : 0.0021200000000000004
+Vung giao thoa lon nhat: KhuDanCu
+Phan tram giao thoa    : 78.53981729138863%
+Nguy co khong gian     : CANHBAO
+----------------------------------------
+ID con vat              : 003-NaiRung-BD
+Vi tri                 : (11.423391, 107.42979)
+Trang thai hanh vi     : BINH_THUONG
+ODBA                   : 1.1102230246251565E-16
+Ty le nang luong       : 7.11681426041767E-17
+He so K                : 1.0
+Ban kinh Geofence      : 0.0020000000000000005
+Vung giao thoa lon nhat: TuyenDuongDuLich
+Phan tram giao thoa    : 78.53981653803885%
+Nguy co khong gian     : CANHBAO
+----------------------------------------
+ID con vat              : 003-NaiRung-BD
+Vi tri                 : (11.439716, 107.445823)
+Trang thai hanh vi     : BINH_THUONG
+ODBA                   : 1.3877787807814457E-16
+Ty le nang luong       : 1.7792035651044174E-16
+He so K                : 1.0
+Ban kinh Geofence      : 0.0020000000000000005
+Vung giao thoa lon nhat: KhuDanCu
+Phan tram giao thoa    : 89.18505276842984%
+Nguy co khong gian     : NGUYCAP
+----------------------------------------
+ID con vat              : 003-NaiRung-BD
+Vi tri                 : (11.4265, 107.43284)
+Trang thai hanh vi     : SUY_KIET
+ODBA                   : 1.4802973661668753E-16
+Ty le nang luong       : 2.846725704167068E-16
+He so K                : 4.0
+Ban kinh Geofence      : 0.0020000000000000018
+Vung giao thoa lon nhat: TuyenDuongDuLich
+Phan tram giao thoa    : 70.86797377947909%
+Nguy co khong gian     : CANHBAO
+----------------------------------------
+ID con vat              : 003-NaiRung-BD
+Vi tri                 : (11.429626, 107.43849)
+Trang thai hanh vi     : SUY_KIET
+ODBA                   : 0.019999999999999907
+Ty le nang luong       : 0.012820512820513046
+He so K                : 4.0
+Ban kinh Geofence      : 0.002239999999999999
+Vung giao thoa lon nhat: KhuDanCu
+Phan tram giao thoa    : 44.16916551716541%
+Nguy co khong gian     : TIENCANHBAO
+----------------------------------------
+ID con vat              : 003-NaiRung-BD
+Vi tri                 : (11.436866, 107.444184)
+Trang thai hanh vi     : SUY_KIET
+ODBA                   : 0.019999999999999907
+Ty le nang luong       : 0.025641025641025807
+He so K                : 4.0
+Ban kinh Geofence      : 0.002239999999999999
+Vung giao thoa lon nhat: KhuDanCu
+Phan tram giao thoa    : 78.53981695943018%
+Nguy co khong gian     : CANHBAO
+----------------------------------------
+ID con vat              : 003-NaiRung-DL
+Vi tri                 : (11.423955, 107.430249)
+Trang thai hanh vi     : BINH_THUONG
+ODBA                   : 1.1102230246251565E-16
+Ty le nang luong       : 7.11681426041767E-17
+He so K                : 1.0
+Ban kinh Geofence      : 0.0020000000000000005
+Vung giao thoa lon nhat: TuyenDuongDuLich
+Phan tram giao thoa    : 78.53981765415679%
+Nguy co khong gian     : CANHBAO
+----------------------------------------
+ID con vat              : 003-NaiRung-DL
+Vi tri                 : (11.43933, 107.445454)
+Trang thai hanh vi     : BINH_THUONG
+ODBA                   : 1.1102230246251565E-16
+Ty le nang luong       : 1.423362852083534E-16
+He so K                : 1.0
+Ban kinh Geofence      : 0.0020000000000000005
+Vung giao thoa lon nhat: KhuDanCu
+Phan tram giao thoa    : 99.97866043061128%
+Nguy co khong gian     : NGUYCAP
+----------------------------------------
+ID con vat              : 003-NaiRung-DL
+Vi tri                 : (11.426896, 107.432383)
+Trang thai hanh vi     : SUY_KIET
+ODBA                   : 1.295260195396016E-16
+Ty le nang luong       : 2.4908849911461846E-16
+He so K                : 4.0
+Ban kinh Geofence      : 0.0020000000000000018
+Vung giao thoa lon nhat: TuyenDuongDuLich
+Phan tram giao thoa    : 70.63708690296531%
+Nguy co khong gian     : CANHBAO
+----------------------------------------
+ID con vat              : 003-NaiRung-DL
+Vi tri                 : (11.429216, 107.438784)
+Trang thai hanh vi     : SUY_KIET
+ODBA                   : 0.019999999999999907
+Ty le nang luong       : 0.01282051282051301
+He so K                : 4.0
+Ban kinh Geofence      : 0.002239999999999999
+Vung giao thoa lon nhat: KhuDanCu
+Phan tram giao thoa    : 38.112176637828284%
+Nguy co khong gian     : TIENCANHBAO
+----------------------------------------
+ID con vat              : 004-BoTot-CT
+Vi tri                 : (11.4535, 107.45974)
+Trang thai hanh vi     : BINH_THUONG
+ODBA                   : 1.6653345369377348E-16
+Ty le nang luong       : 1.0675221390626504E-16
+He so K                : 1.0
+Ban kinh Geofence      : 0.0020000000000000005
+Vung giao thoa lon nhat: TramQuanSat
+Phan tram giao thoa    : 78.53981765415679%
+Nguy co khong gian     : CANHBAO
+----------------------------------------
+ID con vat              : 004-BoTot-CT
+Vi tri                 : (11.424219, 107.430433)
+Trang thai hanh vi     : BINH_THUONG
+ODBA                   : 0.019999999999999907
+Ty le nang luong       : 0.012820512820512867
+He so K                : 1.0
+Ban kinh Geofence      : 0.0020599999999999998
+Vung giao thoa lon nhat: TuyenDuongDuLich
+Phan tram giao thoa    : 78.53981707416254%
+Nguy co khong gian     : CANHBAO
+----------------------------------------
+ID con vat              : 004-BoTot-CT
+Vi tri                 : (11.439162, 107.445311)
+Trang thai hanh vi     : SUY_KIET
+ODBA                   : 0.010000000000000009
+Ty le nang luong       : 0.012820512820512938
+He so K                : 4.0
+Ban kinh Geofence      : 0.0021200000000000004
+Vung giao thoa lon nhat: KhuDanCu
+Phan tram giao thoa    : 98.86154526070243%
+Nguy co khong gian     : NGUYCAP
+----------------------------------------
+ID con vat              : 004-BoTot-CT
+Vi tri                 : (11.427046, 107.43216)
+Trang thai hanh vi     : SUY_KIET
+ODBA                   : 0.00666666666666671
+Ty le nang luong       : 0.01282051282051301
+He so K                : 4.0
+Ban kinh Geofence      : 0.0020800000000000007
+Vung giao thoa lon nhat: TuyenDuongDuLich
+Phan tram giao thoa    : 68.48561782634162%
+Nguy co khong gian     : CANHBAO
+----------------------------------------
+ID con vat              : 004-BoTot-DN
+Vi tri                 : (11.453654, 107.459882)
+Trang thai hanh vi     : BINH_THUONG
+ODBA                   : 1.6653345369377348E-16
+Ty le nang luong       : 1.0675221390626504E-16
+He so K                : 1.0
+Ban kinh Geofence      : 0.0020000000000000005
+Vung giao thoa lon nhat: TramQuanSat
+Phan tram giao thoa    : 78.53981653803885%
+Nguy co khong gian     : CANHBAO
+----------------------------------------
+ID con vat              : 004-BoTot-DN
+Vi tri                 : (11.424445, 107.430623)
+Trang thai hanh vi     : BINH_THUONG
+ODBA                   : 0.019999999999999907
+Ty le nang luong       : 0.012820512820512867
+He so K                : 1.0
+Ban kinh Geofence      : 0.0020599999999999998
+Vung giao thoa lon nhat: TuyenDuongDuLich
+Phan tram giao thoa    : 78.53981602211435%
+Nguy co khong gian     : CANHBAO
+----------------------------------------
+ID con vat              : 004-BoTot-DN
+Vi tri                 : (11.439029, 107.445158)
+Trang thai hanh vi     : SUY_KIET
+ODBA                   : 0.019999999999999907
+Ty le nang luong       : 0.025641025641025626
+He so K                : 4.0
+Ban kinh Geofence      : 0.002239999999999999
+Vung giao thoa lon nhat: KhuDanCu
+Phan tram giao thoa    : 97.47819928089831%
+Nguy co khong gian     : NGUYCAP
+----------------------------------------
+ID con vat              : 004-BoTot-DN
+Vi tri                 : (11.42719, 107.431974)
+Trang thai hanh vi     : SUY_KIET
+ODBA                   : 0.013333333333333308
+Ty le nang luong       : 0.0256410256410257
+He so K                : 4.0
+Ban kinh Geofence      : 0.0021599999999999996
+Vung giao thoa lon nhat: TuyenDuongDuLich
+Phan tram giao thoa    : 65.79445104691463%
+Nguy co khong gian     : CANHBAO
+----------------------------------------
+ID con vat              : 005-SonDuong-CT
+Vi tri                 : (11.453776, 107.460003)
+Trang thai hanh vi     : BINH_THUONG
+ODBA                   : 1.1102230246251565E-16
+Ty le nang luong       : 7.11681426041767E-17
+He so K                : 1.0
+Ban kinh Geofence      : 0.0020000000000000005
+Vung giao thoa lon nhat: TramQuanSat
+Phan tram giao thoa    : 78.53981542192093%
+Nguy co khong gian     : CANHBAO
+----------------------------------------
+ID con vat              : 005-SonDuong-CT
+Vi tri                 : (11.424657, 107.430845)
+Trang thai hanh vi     : BINH_THUONG
+ODBA                   : 0.019999999999999907
+Ty le nang luong       : 0.012820512820512832
+He so K                : 1.0
+Ban kinh Geofence      : 0.0020599999999999998
+Vung giao thoa lon nhat: TuyenDuongDuLich
+Phan tram giao thoa    : 78.53981602211435%
+Nguy co khong gian     : CANHBAO
+----------------------------------------
+ID con vat              : 005-SonDuong-CT
+Vi tri                 : (11.438906, 107.44497)
+Trang thai hanh vi     : SUY_KIET
+ODBA                   : 0.019999999999999907
+Ty le nang luong       : 0.02564102564102559
+He so K                : 4.0
+Ban kinh Geofence      : 0.002239999999999999
+Vung giao thoa lon nhat: KhuDanCu
+Phan tram giao thoa    : 98.98790296044947%
+Nguy co khong gian     : NGUYCAP
+----------------------------------------
+ID con vat              : 005-SonDuong-CT
+Vi tri                 : (11.427362, 107.431811)
+Trang thai hanh vi     : SUY_KIET
+ODBA                   : 0.013333333333333308
+Ty le nang luong       : 0.025641025641025664
+He so K                : 4.0
+Ban kinh Geofence      : 0.0021599999999999996
+Vung giao thoa lon nhat: TuyenDuongDuLich
+Phan tram giao thoa    : 64.06858971153888%
+Nguy co khong gian     : CANHBAO
+----------------------------------------
+ID con vat              : 005-SonDuong-DL
+Vi tri                 : (11.453866, 107.46014)
+Trang thai hanh vi     : BINH_THUONG
+ODBA                   : 1.1102230246251565E-16
+Ty le nang luong       : 7.11681426041767E-17
+He so K                : 1.0
+Ban kinh Geofence      : 0.0020000000000000005
+Vung giao thoa lon nhat: TramQuanSat
+Phan tram giao thoa    : 78.53981765415679%
+Nguy co khong gian     : CANHBAO
+----------------------------------------
+ID con vat              : 005-SonDuong-DL
+Vi tri                 : (11.449, 107.45524)
+Trang thai hanh vi     : BINH_THUONG
+ODBA                   : 5.551115123125783E-17
+Ty le nang luong       : 7.11681426041767E-17
+He so K                : 1.0
+Ban kinh Geofence      : 0.002
+Vung giao thoa lon nhat: TramQuanSat
+Phan tram giao thoa    : 27.181675522236347%
+Nguy co khong gian     : TIENCANHBAO
+----------------------------------------
+ID con vat              : 005-SonDuong-DL
+Vi tri                 : (11.43876, 107.444754)
+Trang thai hanh vi     : SUY_KIET
+ODBA                   : 0.019999999999999907
+Ty le nang luong       : 0.012820512820512832
+He so K                : 4.0
+Ban kinh Geofence      : 0.002239999999999999
+Vung giao thoa lon nhat: KhuDanCu
+Phan tram giao thoa    : 98.4284393864661%
+Nguy co khong gian     : NGUYCAP
+----------------------------------------
+ID con vat              : 005-SonDuong-DL
+Vi tri                 : (11.427569, 107.431638)
+Trang thai hanh vi     : SUY_KIET
+ODBA                   : 0.019999999999999907
+Ty le nang luong       : 0.02564102564102559
+He so K                : 4.0
+Ban kinh Geofence      : 0.002239999999999999
+Vung giao thoa lon nhat: TuyenDuongDuLich
+Phan tram giao thoa    : 59.625181753134186%
+Nguy co khong gian     : CANHBAO
+----------------------------------------
+ID con vat              : 006-KhiDuoiLon-CT
+Vi tri                 : (11.454062, 107.460511)
+Trang thai hanh vi     : BINH_THUONG
+ODBA                   : 1.6653345369377348E-16
+Ty le nang luong       : 1.0675221390626504E-16
+He so K                : 1.0
+Ban kinh Geofence      : 0.0020000000000000005
+Vung giao thoa lon nhat: TramQuanSat
+Phan tram giao thoa    : 78.53981653803885%
+Nguy co khong gian     : CANHBAO
+----------------------------------------
+ID con vat              : 006-KhiDuoiLon-CT
+Vi tri                 : (11.448676, 107.455663)
+Trang thai hanh vi     : BINH_THUONG
+ODBA                   : 1.3877787807814457E-16
+Ty le nang luong       : 1.7792035651044174E-16
+He so K                : 1.0
+Ban kinh Geofence      : 0.0020000000000000005
+Vung giao thoa lon nhat: TramQuanSat
+Phan tram giao thoa    : 29.534519525538677%
+Nguy co khong gian     : TIENCANHBAO
+----------------------------------------
+ID con vat              : 006-KhiDuoiLon-BD
+Vi tri                 : (11.4445, 107.45074)
+Trang thai hanh vi     : BINH_THUONG
+ODBA                   : 1.6653345369377348E-16
+Ty le nang luong       : 1.0675221390626504E-16
+He so K                : 1.0
+Ban kinh Geofence      : 0.0020000000000000005
+Vung giao thoa lon nhat: KHONG_GIAO_THOA
+Phan tram giao thoa    : 0.0%
+Nguy co khong gian     : ANTOAN
+----------------------------------------
+ID con vat              : 006-KhiDuoiLon-BD
+Vi tri                 : (11.42798, 107.431194)
+Trang thai hanh vi     : BINH_THUONG
+ODBA                   : 0.019999999999999907
+Ty le nang luong       : 0.012820512820512867
+He so K                : 1.0
+Ban kinh Geofence      : 0.0020599999999999998
+Vung giao thoa lon nhat: TuyenDuongDuLich
+Phan tram giao thoa    : 58.05094100790661%
+Nguy co khong gian     : CANHBAO
+----------------------------------------
+ID con vat              : 007-MangLon-CT
+Vi tri                 : (11.45395, 107.460314)
+Trang thai hanh vi     : BINH_THUONG
+ODBA                   : 1.1102230246251565E-16
+Ty le nang luong       : 7.11681426041767E-17
+He so K                : 1.0
+Ban kinh Geofence      : 0.0020000000000000005
+Vung giao thoa lon nhat: TramQuanSat
+Phan tram giao thoa    : 78.53981653803885%
+Nguy co khong gian     : CANHBAO
+----------------------------------------
+ID con vat              : 007-MangLon-CT
+Vi tri                 : (11.448854, 107.455462)
+Trang thai hanh vi     : BINH_THUONG
+ODBA                   : 0.010000000000000009
+Ty le nang luong       : 0.012820512820512832
+He so K                : 1.0
+Ban kinh Geofence      : 0.00203
+Vung giao thoa lon nhat: TramQuanSat
+Phan tram giao thoa    : 29.496036023649445%
+Nguy co khong gian     : TIENCANHBAO
+----------------------------------------
+ID con vat              : 007-MangLon-CT
+Vi tri                 : (11.438576, 107.444544)
+Trang thai hanh vi     : SUY_KIET
+ODBA                   : 0.019999999999999907
+Ty le nang luong       : 0.02564102564102559
+He so K                : 4.0
+Ban kinh Geofence      : 0.002239999999999999
+Vung giao thoa lon nhat: KhuDanCu
+Phan tram giao thoa    : 90.83328300686158%
+Nguy co khong gian     : NGUYCAP
+----------------------------------------
+ID con vat              : 007-MangLon-CT
+Vi tri                 : (11.427786, 107.43143)
+Trang thai hanh vi     : SUY_KIET
+ODBA                   : 0.010000000000000009
+Ty le nang luong       : 0.025641025641025664
+He so K                : 4.0
+Ban kinh Geofence      : 0.0021200000000000004
+Vung giao thoa lon nhat: TuyenDuongDuLich
+Phan tram giao thoa    : 59.36085664422802%
+Nguy co khong gian     : CANHBAO
+----------------------------------------
+ID con vat              : 008-CheoCheo-DN
+Vi tri                 : (11.454209, 107.460698)
+Trang thai hanh vi     : BINH_THUONG
+ODBA                   : 0.019999999999999907
+Ty le nang luong       : 0.012820512820512761
+He so K                : 1.0
+Ban kinh Geofence      : 0.0020599999999999998
+Vung giao thoa lon nhat: TramQuanSat
+Phan tram giao thoa    : 78.53981602211435%
+Nguy co khong gian     : CANHBAO
+----------------------------------------
+ID con vat              : 008-CheoCheo-DN
+Vi tri                 : (11.454219, 107.460708)
+Trang thai hanh vi     : DINH_BAY
+ODBA                   : 0.010000000000000009
+Ty le nang luong       : 0.012820512820512832
+He so K                : 4.0
+Ban kinh Geofence      : 0.0021200000000000004
+Vung giao thoa lon nhat: TramQuanSat
+Phan tram giao thoa    : 78.53981629804764%
+Nguy co khong gian     : CANHBAO
+----------------------------------------
+ID con vat              : 008-CheoCheo-DN
+Vi tri                 : (11.454229, 107.460718)
+Trang thai hanh vi     : DINH_BAY
+ODBA                   : 0.00666666666666671
+Ty le nang luong       : 0.012820512820512903
+He so K                : 4.0
+Ban kinh Geofence      : 0.0020800000000000007
+Vung giao thoa lon nhat: TramQuanSat
+Phan tram giao thoa    : 78.53981603281387%
+Nguy co khong gian     : CANHBAO
+----------------------------------------
+ID con vat              : 008-CheoCheo-DN
+Vi tri                 : (11.454239, 107.460728)
+Trang thai hanh vi     : SUY_KIET
+ODBA                   : 0.019999999999999907
+Ty le nang luong       : 0.025641025641025664
+He so K                : 4.0
+Ban kinh Geofence      : 0.002239999999999999
+Vung giao thoa lon nhat: TramQuanSat
+Phan tram giao thoa    : 78.53981695943018%
+Nguy co khong gian     : CANHBAO
+----------------------------------------
+ID con vat              : 008-CheoCheo-DN
+Vi tri                 : (11.454249, 107.460738)
+Trang thai hanh vi     : DINH_BAY
+ODBA                   : 0.019999999999999907
+Ty le nang luong       : 0.03846153846153842
+He so K                : 4.0
+Ban kinh Geofence      : 0.002239999999999999
+Vung giao thoa lon nhat: TramQuanSat
+Phan tram giao thoa    : 78.53981606966781%
+Nguy co khong gian     : CANHBAO
+----------------------------------------
+ID con vat              : 008-CheoCheo-DN
+Vi tri                 : (11.454259, 107.460748)
+Trang thai hanh vi     : DINH_BAY
+ODBA                   : 0.013333333333333308
+Ty le nang luong       : 0.03846153846153849
+He so K                : 4.0
+Ban kinh Geofence      : 0.0021599999999999996
+Vung giao thoa lon nhat: TramQuanSat
+Phan tram giao thoa    : 78.5398165395698%
+Nguy co khong gian     : CANHBAO
+----------------------------------------
+ID con vat              : 008-CheoCheo-DN
+Vi tri                 : (11.454269, 107.460758)
+Trang thai hanh vi     : DINH_BAY
+ODBA                   : 0.014999999999999958
+Ty le nang luong       : 0.05128205128205125
+He so K                : 4.0
+Ban kinh Geofence      : 0.0021799999999999996
+Vung giao thoa lon nhat: TramQuanSat
+Phan tram giao thoa    : 78.53981723921748%
+Nguy co khong gian     : CANHBAO
+----------------------------------------
+ID con vat              : 008-CheoCheo-DN
+Vi tri                 : (11.454279, 107.460768)
+Trang thai hanh vi     : SUY_KIET
+ODBA                   : 0.019999999999999907
+Ty le nang luong       : 0.06410256410256401
+He so K                : 4.0
+Ban kinh Geofence      : 0.002239999999999999
+Vung giao thoa lon nhat: TramQuanSat
+Phan tram giao thoa    : 78.53981606966781%
+Nguy co khong gian     : CANHBAO
+----------------------------------------
+
+Tong so ban ghi xuat Module 4: 82
+========================================
+MODULE 4 KET THUC
+========================================

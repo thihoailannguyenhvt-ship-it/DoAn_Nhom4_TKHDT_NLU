@@ -9,148 +9,214 @@ import java.util.ArrayList;
 import java.util.List;
 
 /**
- * Bộ đọc kết quả Module 2 – parse file CSV hoặc TXT đầu vào.
+ * Bộ đọc kết quả Module 2 – parse file TXT và CSV thực tế từ Module 2.
  *
- * <h3>Định dạng file hỗ trợ</h3>
+ * <h3>Format TXT thực tế từ KetQuaHanhVi.toString()</h3>
  * <pre>
  * KetQuaHanhVi[idConVat=001-LonRung-CT, trangThai=DINH_BAY,
- *   ODBA=0.019, tyLeNangLuong=0.025, t1=1781344800000,
- *   t2=1781424170295, doTreModule2=79370295 ms]
+ *   ODBA=0.019, tyLeNangLuong=0.025, doTreModule2=79370295 ms]
+ * </pre>
+ * Lưu ý: TXT KHÔNG có t1, t2 – chỉ có doTreModule2.
+ *
+ * <h3>Format CSV thực tế từ KetQuaHanhVi.toCSV()</h3>
+ * <pre>
+ * idConVat,trangThai,ODBA,tyLeNangLuong,t1,t2,doTreModule2
+ * 001-LonRung-CT,DINH_BAY,0.019,0.025,1781344800000,1781424170295,79370295
  * </pre>
  *
- * Module 3 chỉ trích xuất: {@code idConVat}, {@code trangThai}, {@code t1}.
- * Thời gian hệ thống lấy bằng {@code System.currentTimeMillis()}
- * tại thời điểm xử lý – không đọc từ file.
- *
- * <h3>Xử lý lỗi</h3>
- * Dòng không đúng định dạng được ghi log cảnh báo và bỏ qua –
- * không làm gián đoạn việc đọc các dòng còn lại.
+ * Module 3 chỉ trích xuất {@code idConVat} và {@code trangThai}.
+ * Tất cả trường còn lại bỏ qua – Module 1 đã xử lý thời gian rồi.
  */
 public class BoDocKetQuaModule2 {
 
-    private static final String TIEN_TO_DONG      = "KetQuaHanhVi[";
+    // ── Hằng số format TXT ────────────────────────────────────────────────
+    private static final String TIEN_TO_TXT       = "KetQuaHanhVi[";
     private static final String TRUONG_ID         = "idConVat=";
     private static final String TRUONG_TRANG_THAI = "trangThai=";
-    private static final String TRUONG_T1         = "t1=";
+
+    // ── Hằng số format CSV ────────────────────────────────────────────────
+    // Header thực tế: idConVat,trangThai,ODBA,tyLeNangLuong,t1,t2,doTreModule2
+    private static final int CSV_COT_ID          = 0;
+    private static final int CSV_COT_TRANG_THAI  = 1;
+    private static final int CSV_SO_COT_TOI_THIEU = 2;
 
     // ── Phương thức chính ──────────────────────────────────────────────────
 
     /**
-     * Đọc toàn bộ file và trả về danh sách bản ghi đã parse.
+     * Đọc file và tự động nhận diện format TXT hoặc CSV.
      *
-     * @param duongDanFile Đường dẫn file CSV hoặc TXT của Module 2
-     * @return Danh sách {@link BanGhiModule2}, rỗng nếu không có dòng hợp lệ
+     * @param duongDanFile Đường dẫn file Module 2 (TXT hoặc CSV)
+     * @return Danh sách {@link BanGhiModule2}
      * @throws IOException Nếu không đọc được file
      */
     public List<BanGhiModule2> docFile(String duongDanFile) throws IOException {
+    	if (duongDanFile == null || duongDanFile.trim().isEmpty()) {
+    	    throw new IllegalArgumentException(
+    	            "Duong dan file khong hop le");
+    	}
         List<BanGhiModule2> ketQua      = new ArrayList<>();
         int                 soDongHopLe = 0;
         int                 soDongBoQua = 0;
+        boolean             laCSV       = duongDanFile.toLowerCase().endsWith(".csv");
 
         try (BufferedReader reader = new BufferedReader(
                 new FileReader(duongDanFile))) {
 
-            String dong;
+            String  dong;
+            boolean boQuaHeader = laCSV;
+
             while ((dong = reader.readLine()) != null) {
                 dong = dong.trim();
+                if (dong.isEmpty()) continue;
 
-                // Bỏ qua dòng trống, tiêu đề, phân cách
-                if (dong.isEmpty()
-                        || dong.startsWith("=")
-                        || dong.startsWith("KET QUA")) {
+                // CSV: bỏ qua dòng header
+                if (boQuaHeader) {
+                    boQuaHeader = false;
                     continue;
                 }
 
-                if (!dong.startsWith(TIEN_TO_DONG)) {
-                    soDongBoQua++;
+                // TXT: bỏ qua tiêu đề và phân cách
+                if (!laCSV && (dong.startsWith("=")
+                        || dong.startsWith("KET QUA")
+                        || dong.startsWith("MODULE"))) {
                     continue;
                 }
 
                 try {
-                    BanGhiModule2 banGhi = parseDong(dong);
-                    ketQua.add(banGhi);
-                    soDongHopLe++;
+                    BanGhiModule2 banGhi = laCSV
+                        ? parseDongCSV(dong)
+                        : parseDongTXT(dong);
+
+                    if (banGhi != null) {
+                        ketQua.add(banGhi);
+                        soDongHopLe++;
+                    }
                 } catch (Exception e) {
                     soDongBoQua++;
                     System.err.printf(
-                        "[BoDocketQuaModule2] Bỏ qua dòng lỗi: %s%n  Lý do: %s%n",
+                        "[BoDocKetQuaModule2] Bo qua dong loi: %s%n  Ly do: %s%n",
                         dong, e.getMessage());
                 }
             }
         }
 
         System.out.printf(
-            "[BoDocketQuaModule2] '%s': %d bản ghi hợp lệ, %d dòng bỏ qua%n",
-            duongDanFile, soDongHopLe, soDongBoQua);
+            "[BoDocKetQuaModule2] '%s' (%s): %d ban ghi hop le, %d dong bo qua%n",
+            duongDanFile, laCSV ? "CSV" : "TXT", soDongHopLe, soDongBoQua);
 
         return ketQua;
     }
 
-    // ── Logic parse ───────────────────────────────────────────────────────
+    // ── Parse format TXT ──────────────────────────────────────────────────
 
     /**
-     * Parse một dòng dữ liệu thành {@link BanGhiModule2}.
-     * Chỉ đọc idConVat, trangThai, t1 – bỏ qua các trường còn lại.
+     * Parse dòng TXT thực tế từ KetQuaHanhVi.toString():
+     * KetQuaHanhVi[idConVat=..., trangThai=..., ODBA=...,
+     *              tyLeNangLuong=..., doTreModule2=... ms]
+     *
+     * Chỉ lấy idConVat và trangThai, bỏ qua phần còn lại.
+     * Trả về null nếu không phải dòng dữ liệu KetQuaHanhVi.
      */
-    private BanGhiModule2 parseDong(String dong) {
-        // Bóc nội dung trong [ ]
+    private BanGhiModule2 parseDongTXT(String dong) {
+    	if (dong == null || dong.trim().isEmpty()) {
+    	    return null;
+    	}
+        if (!dong.startsWith(TIEN_TO_TXT)) return null;
+
         int viTriMo   = dong.indexOf('[');
         int viTriDong = dong.lastIndexOf(']');
         if (viTriMo < 0 || viTriDong <= viTriMo) {
-            throw new IllegalArgumentException("Không tìm thấy cặp dấu [ ]");
+            return null;
         }
-        String noiDung = dong.substring(viTriMo + 1, viTriDong);
 
-        // Split theo ", " đứng trước chữ cái – tránh tách nhầm số khoa học
-        String[] truongs = noiDung.split(",\\s*(?=[a-zA-Z])");
+        // Split theo ", " trước chữ cái để tránh tách nhầm số khoa học (1.23E-16)
+        String   noiDung = dong.substring(viTriMo + 1, viTriDong);
+        String[] truongs =
+                noiDung
+                       .split(",\\s*(?=[a-zA-Z])");
 
         String        idConVat  = null;
         NhanTrangThai trangThai = null;
-        long          t1        = -1;
 
         for (String truong : truongs) {
             truong = truong.trim();
-
             if (truong.startsWith(TRUONG_ID)) {
-                idConVat = layGiaTri(truong, TRUONG_ID);
-
+                idConVat = truong.substring(TRUONG_ID.length()).trim();
             } else if (truong.startsWith(TRUONG_TRANG_THAI)) {
-                trangThai = parseNhan(layGiaTri(truong, TRUONG_TRANG_THAI));
-
-            } else if (truong.startsWith(TRUONG_T1)) {
-                // Chỉ lấy phần số nguyên, loại bỏ ký tự thừa nếu có
-                t1 = Long.parseLong(
-                    layGiaTri(truong, TRUONG_T1).replaceAll("[^0-9]", ""));
+                trangThai = parseNhan(
+                    truong.substring(TRUONG_TRANG_THAI.length()).trim());
             }
-            // t2, ODBA, tyLeNangLuong, doTreModule2 → bỏ qua hoàn toàn
+            // ODBA, tyLeNangLuong, doTreModule2 → bỏ qua hoàn toàn
         }
 
-        if (idConVat == null || trangThai == null || t1 < 0) {
-            throw new IllegalArgumentException(
-                String.format("Thiếu trường bắt buộc – id=%s, trangThai=%s, t1=%d",
-                    idConVat, trangThai, t1));
-        }
-
-        return new BanGhiModule2(idConVat, trangThai, t1);
+        kiemTraDuTruong(idConVat, trangThai);
+        return new BanGhiModule2(idConVat, trangThai);
     }
 
-    private String layGiaTri(String truong, String tenTruong) {
-        return truong.substring(tenTruong.length()).trim();
-    }
+    // ── Parse format CSV ──────────────────────────────────────────────────
 
     /**
-     * Ánh xạ chuỗi nhãn từ file sang {@link NhanTrangThai}.
-     * Không phân biệt hoa/thường.
+     * Parse dòng CSV thực tế từ KetQuaHanhVi.toCSV():
+     * idConVat,trangThai,ODBA,tyLeNangLuong,t1,t2,doTreModule2
+     *
+     * Chỉ lấy cột 0 (idConVat) và cột 1 (trangThai).
+     */
+    private BanGhiModule2 parseDongCSV(String dong) {
+        // Dùng split giới hạn để tránh nhầm dấu phẩy trong số
+        String[] cots = dong.split(",", -1);
+        if (dong.trim().isEmpty()) {
+            return null;
+        }
+
+        if (cots.length < CSV_SO_COT_TOI_THIEU) {
+            throw new IllegalArgumentException(
+                String.format("CSV thieu cot – can toi thieu %d, co %d",
+                    CSV_SO_COT_TOI_THIEU, cots.length));
+        }
+
+        String        idConVat  = cots[CSV_COT_ID].trim();
+        NhanTrangThai trangThai = parseNhan(cots[CSV_COT_TRANG_THAI].trim());
+
+        kiemTraDuTruong(idConVat, trangThai);
+        return new BanGhiModule2(idConVat, trangThai);
+    }
+
+    // ── Tiện ích ──────────────────────────────────────────────────────────
+
+    /**
+     * Ánh xạ chuỗi nhãn từ file sang NhanTrangThai.
+     * Không phân biệt hoa/thường để tránh lỗi định dạng file.
      */
     private NhanTrangThai parseNhan(String tenNhan) {
-        switch (tenNhan.toUpperCase().trim()) {
-            case "BINH_THUONG": return NhanTrangThai.BINH_THUONG;
-            case "DINH_BAY":    return NhanTrangThai.DINH_BAY;
-            case "SUY_KIET":    return NhanTrangThai.SUY_KIET;
+
+        if (tenNhan == null) {
+            throw new IllegalArgumentException("Nhan rong");
+        }
+
+        tenNhan = tenNhan.trim().toUpperCase();
+
+        switch (tenNhan) {
+            case "BINH_THUONG":
+                return NhanTrangThai.BINH_THUONG;
+
+            case "DINH_BAY":
+                return NhanTrangThai.DINH_BAY;
+
+            case "SUY_KIET":
+                return NhanTrangThai.SUY_KIET;
+
             default:
                 throw new IllegalArgumentException(
-                    "Nhãn không hợp lệ: '" + tenNhan + "'");
+                    "Nhan khong hop le: '" + tenNhan + "'");
+        }
+    }
+
+    private void kiemTraDuTruong(String idConVat, NhanTrangThai trangThai) {
+        if (idConVat == null || idConVat.isEmpty()) {
+            throw new IllegalArgumentException("Thieu idConVat");
+        }
+        if (trangThai == null) {
+            throw new IllegalArgumentException("Thieu trangThai");
         }
     }
 }
-

@@ -1,12 +1,10 @@
 package module3_GiamSatVaQuanLyNguong.NhanHanhVi;
 
+import dinhDanh.MucDoNghiemTrong;
 import module3_GiamSatVaQuanLyNguong.In.*;
 
-
-import dinhDanh.TrangThaiThamDinh;
-import dinhDanh.LoaiHanhDong;
-
 public class ChienLuocXuLySuyKiet implements ChienLuocDanhGia {
+
     private final BoDanhGiaHanhVi boDanhGia;
 
     public ChienLuocXuLySuyKiet(BoDanhGiaHanhVi boDanhGia) {
@@ -15,14 +13,14 @@ public class ChienLuocXuLySuyKiet implements ChienLuocDanhGia {
 
     @Override
     public KetQuaDanhGia thucHienDanhGia(BanGhiSinhHoc goiTin, BanGhiSinhHoc hoSo) {
-        // Sử dụng hàm layIdCaThe() chuẩn của bạn để giải phóng cửa sổ trượt
+        // Giải phóng cửa sổ trượt của cá thể này
         boDanhGia.xoaCuaSo(goiTin.layIdCaThe());
 
-        // Gửi thẳng thông tin đi xử lý khẩn cấp, kích hoạt xóa hồ sơ ở Bước 6 của BoXuLyNguong
-        return new KetQuaDanhGia(
-            TrangThaiThamDinh.DA_XAC_NHAN, 
-            LoaiHanhDong.GUI_THANG_M5, 
-            "Xác nhận cá thể có dấu hiệu SUY_KIỆT nghiêm trọng – gửi thẳng Module 5"
+        // Dùng static factory để tường minh MucDoNghiemTrong – không để tự suy luận
+        return KetQuaDanhGia.guiThangM5(
+            MucDoNghiemTrong.CANH_BAO,
+            "Xác nhận cá thể có dấu hiệu SUY_KIET nghiêm trọng – gửi thẳng Module 5"
         );
     }
 }
+

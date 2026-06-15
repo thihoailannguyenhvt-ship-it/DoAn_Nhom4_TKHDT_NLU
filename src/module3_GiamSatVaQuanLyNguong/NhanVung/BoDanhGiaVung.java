@@ -4,7 +4,6 @@ import dinhDanh.TinhTrangVung;
 import dinhDanh.MucDoNghiemTrong;
 import module3_GiamSatVaQuanLyNguong.In.*;
 
-
 import java.util.ArrayDeque;
 import java.util.Deque;
 import java.util.HashMap;
@@ -14,44 +13,18 @@ import java.util.Map;
  * Bộ đánh giá vùng – phần [B]: xét độc lập nhãn không gian.
  *
  * Đối xứng hoàn toàn với BoDanhGiaHanhVi ở phần [A].
- *
- * <h3>Logic xử lý</h3>
- *
- * [Ngoại lệ] NGUY_CAP → guiThangM5 KHAN_CAP ngay, không qua cửa sổ.
- *
- * [AN_TOAN] → xóa cửa sổ, dangTheoDoi.
- *
- * [TIEN_CANH_BAO / CANH_BAO] → tích lũy cửa sổ trượt T:
- *
- *   Chưa đủ 2 bản ghi → DANG_THEO_DOI
- *   (chưa có xu hướng để phán đoán)
- *
- *   Đồng nhất (không lần nào giảm, tối thiểu TIEN_CANH_BAO trở lên)
- *   + đủ thời gian T → guiThangM5 CANH_BAO
- *   + chưa đủ T      → DANG_THEO_DOI
- *
- *   Không đồng nhất (có lần giảm xuống) → chuyenMaTran
- *   (cần kết hợp nhãn hành vi từ M2 để có thêm bằng chứng)
- *
- * <h3>Định nghĩa "đồng nhất" cho nhãn vùng</h3>
- * Trong cửa sổ T, vùng KHÔNG có lần nào giảm so với lần trước —
- * chỉ tăng hoặc giữ nguyên, và tất cả đều >= TIEN_CANH_BAO.
- * Ví dụ:
- *   TIEN_CANH_BAO → CANH_BAO → CANH_BAO  ✓ đồng nhất
- *   TIEN_CANH_BAO → TIEN_CANH_BAO         ✓ đồng nhất
- *   CANH_BAO → TIEN_CANH_BAO → CANH_BAO  ✗ không đồng nhất (có lần giảm)
  */
 public class BoDanhGiaVung {
 
     private long cuaSoThoiGianMs;
 
-    /** Key: idCaThe → lịch sử tình trạng vùng trong cửa sổ trượt */
+    /** Key: idConVat → lịch sử tình trạng vùng trong cửa sổ trượt */
     private final Map<String, Deque<BanGhiVung>> lichSuVung;
 
     // ── Inner class ────────────────────────────────────────────────────────
     private static class BanGhiVung {
         final TinhTrangVung vung;
-        final long          thoiGian;
+        final long          thoiGian; // Giữ nguyên kiểu long để tính toán cửa sổ trượt chính xác
 
         BanGhiVung(TinhTrangVung vung, long thoiGian) {
             this.vung     = vung;
@@ -73,13 +46,18 @@ public class BoDanhGiaVung {
     // ── Phương thức chính ──────────────────────────────────────────────────
 
     public KetQuaDanhGia danhGia(BanGhiSinhHoc banGhi) {
-        TinhTrangVung vung    = banGhi.layTinhTrangVung();
-        String        idCaThe = banGhi.layIdCaThe();
-        long          thoiGian = System.currentTimeMillis();
+        TinhTrangVung vung     = banGhi.layTinhTrangVung();
+        String        idConVat = banGhi.layIdCaThe();
+        
+        // SỬA ĐỔI: Nhận chuỗi ngày tháng String từ gói tin
+        String thoiGianStr     = banGhi.layThoiGianSuKien(); 
+        
+        // SỬA ĐỔI: Chuyển đổi chuỗi ngày tháng sang số long (mili-giây) để chạy thuật toán cửa sổ trượt
+        long thoiGian          = chuyenDoiStringVeLong(thoiGianStr); 
 
         // ── Ngoại lệ: NGUY_CAP – phát ngay, không qua cửa sổ ─────────────
         if (vung == TinhTrangVung.NGUY_CAP) {
-            lichSuVung.remove(idCaThe);
+            lichSuVung.remove(idConVat);
             return KetQuaDanhGia.guiThangM5(
                 MucDoNghiemTrong.KHAN_CAP,
                 "Vùng NGUY_CAP – con vật ở khu dân cư, gửi thẳng Module 5"
@@ -88,7 +66,7 @@ public class BoDanhGiaVung {
 
         // ── AN_TOAN – reset cửa sổ, chờ tiếp ─────────────────────────────
         if (vung == TinhTrangVung.AN_TOAN) {
-            lichSuVung.remove(idCaThe);
+            lichSuVung.remove(idConVat);
             return KetQuaDanhGia.dangTheoDoi(
                 "AN_TOAN – cửa sổ vùng đã reset"
             );
@@ -96,9 +74,9 @@ public class BoDanhGiaVung {
 
         // ── TIEN_CANH_BAO / CANH_BAO – tích lũy cửa sổ ───────────────────
         Deque<BanGhiVung> cuaSo = lichSuVung
-            .computeIfAbsent(idCaThe, k -> new ArrayDeque<>());
+            .computeIfAbsent(idConVat, k -> new ArrayDeque<>());
 
-        // Loại bản ghi cũ hơn T (cửa sổ trượt theo thời gian thực)
+        // Loại bản ghi cũ hơn T (cửa sổ trượt theo thời gian sự kiện) -> LOGIC ĐƯỢC GIỮ NGUYÊN HOÀN TOÀN
         long nguong = thoiGian - cuaSoThoiGianMs;
         while (!cuaSo.isEmpty() && cuaSo.peekFirst().thoiGian < nguong) {
             cuaSo.pollFirst();
@@ -133,7 +111,7 @@ public class BoDanhGiaVung {
                 ? MucDoNghiemTrong.CANH_BAO
                 : MucDoNghiemTrong.GIAM_SAT;
 
-            lichSuVung.remove(idCaThe);
+            lichSuVung.remove(idConVat);
             return KetQuaDanhGia.guiThangM5(
                 mucDo,
                 String.format("Vùng đồng nhất %.0f phút (cao nhất: %s) – gửi thẳng Module 5",
@@ -151,27 +129,12 @@ public class BoDanhGiaVung {
 
     // ── Logic nội bộ ──────────────────────────────────────────────────────
 
-    /**
-     * Kiểm tra tính đồng nhất của chuỗi vùng trong cửa sổ.
-     *
-     * Đồng nhất khi:
-     *   1. Không có lần nào giảm so với lần trước (chỉ tăng hoặc giữ nguyên)
-     *   2. Tất cả bản ghi đều >= TIEN_CANH_BAO
-     *
-     * Ví dụ đồng nhất:
-     *   TIEN_CANH_BAO → CANH_BAO → CANH_BAO  ✓
-     *   TIEN_CANH_BAO → TIEN_CANH_BAO         ✓
-     * Ví dụ không đồng nhất:
-     *   CANH_BAO → TIEN_CANH_BAO → CANH_BAO  ✗ (có lần giảm)
-     */
     private boolean kiemTraDongNhat(Deque<BanGhiVung> cuaSo) {
         TinhTrangVung truoc = null;
         for (BanGhiVung b : cuaSo) {
-            // Điều kiện 2: phải >= TIEN_CANH_BAO
             if (b.vung.ordinal() < TinhTrangVung.TIEN_CANH_BAO.ordinal()) {
                 return false;
             }
-            // Điều kiện 1: không giảm so với lần trước
             if (truoc != null && b.vung.ordinal() < truoc.ordinal()) {
                 return false;
             }
@@ -180,9 +143,6 @@ public class BoDanhGiaVung {
         return true;
     }
 
-    /**
-     * Lấy mức vùng cao nhất trong cửa sổ để xác định mức độ nghiêm trọng.
-     */
     private TinhTrangVung layMucCaoNhat(Deque<BanGhiVung> cuaSo) {
         TinhTrangVung caoNhat = TinhTrangVung.AN_TOAN;
         for (BanGhiVung b : cuaSo) {
@@ -199,10 +159,33 @@ public class BoDanhGiaVung {
         this.cuaSoThoiGianMs = cuaSoThoiGianMs;
     }
 
-    public void xoaCuaSo(String idCaThe) {
-        lichSuVung.remove(idCaThe);
+    public void xoaCuaSo(String idConVat) {
+        lichSuVung.remove(idConVat);
     }
 
-    public int laySoCaTheDangTheoDoc() { return lichSuVung.size(); }
-}
+    public int laySoConVatDangTheoDoi() { 
+        return lichSuVung.size(); 
+    }
 
+    /**
+     * HÀM TIỆN ÍCH BỔ SUNG: Chuyển đổi an toàn chuỗi ngày tháng "yyyy-MM-dd HH:mm:ss" 
+     * sang số long (Epoch mili-giây) phục vụ tính toán khoảng thời gian trượt.
+     */
+    private long chuyenDoiStringVeLong(String thoiGianStr) {
+        if (thoiGianStr == null || thoiGianStr.trim().isEmpty()) return 0L;
+        try {
+            java.time.format.DateTimeFormatter formatter = 
+                java.time.format.DateTimeFormatter.ofPattern("yyyy-MM-dd HH:mm:ss")
+                                                   .withZone(java.time.ZoneId.systemDefault());
+            java.time.LocalDateTime ldt = java.time.LocalDateTime.parse(thoiGianStr.trim(), formatter);
+            return ldt.atZone(java.time.ZoneId.systemDefault()).toInstant().toEpochMilli();
+        } catch (Exception e) {
+            // Cơ chế phòng vệ: Nếu chuỗi đưa vào vô tình là chuỗi số mili-giây thuần túy
+            try {
+                return Long.parseLong(thoiGianStr.trim());
+            } catch (NumberFormatException nfe) {
+                return 0L;
+            }
+        }
+    }
+}

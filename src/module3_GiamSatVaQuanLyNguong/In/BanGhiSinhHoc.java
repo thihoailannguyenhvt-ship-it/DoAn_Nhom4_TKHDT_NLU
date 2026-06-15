@@ -15,10 +15,10 @@ public class BanGhiSinhHoc {
 	private final TinhTrangVung tinhTrangVung; // từ Module 4
 	private final double viDo;
 	private final double kinhDo;
-	private final long thoiGianSuKien; // ms Unix – T_event
+	private final String thoiGianSuKien; // ms Unix – T_event
 
 	public BanGhiSinhHoc(String idCaThe, NhanTrangThai nhanTrangThai, TinhTrangVung tinhTrangVung, double viDo,
-			double kinhDo, long thoiGianSuKien) {
+			double kinhDo, String thoiGianSuKien) {
 		this.idCaThe = idCaThe;
 		this.nhanTrangThai = nhanTrangThai;
 		this.tinhTrangVung = tinhTrangVung;
@@ -47,7 +47,7 @@ public class BanGhiSinhHoc {
 		return kinhDo;
 	}
 
-	public long layThoiGianSuKien() {
+	public String layThoiGianSuKien() {
 		return thoiGianSuKien;
 	}
 

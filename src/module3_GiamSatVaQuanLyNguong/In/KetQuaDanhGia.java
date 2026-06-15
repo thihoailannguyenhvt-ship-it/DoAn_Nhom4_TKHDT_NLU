@@ -14,7 +14,7 @@ public class KetQuaDanhGia {
 	private final LoaiHanhDong hanhDong;
 	private final MucDoNghiemTrong mucDoNghiemTrong;
 	private final String thongBao;
-
+	private String thoiGianSuKien;
 	// ==========================================
 	// 1. CÁC HÀM KHỞI TẠO (CONSTRUCTORS) LINH HOẠT
 	// ==========================================
@@ -77,6 +77,13 @@ public class KetQuaDanhGia {
 
 	public String getThongBao() {
 		return this.thongBao;
+	}
+	public void capNhatThoiGianSuKien(String thoiGian) {
+	    this.thoiGianSuKien = thoiGian;
+	}
+
+	public String layThoiGianSuKien() {
+	    return this.thoiGianSuKien;
 	}
 
 	public static KetQuaDanhGia chuyenMaTran(String thongBao) {

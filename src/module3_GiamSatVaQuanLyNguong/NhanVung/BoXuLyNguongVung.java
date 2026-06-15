@@ -64,8 +64,8 @@ public class BoXuLyNguongVung {
         boDanhGiaChung.xoaCuaSo(idCaThe);
     }
 
-    public int laySoCaTheDangTheoDoc() {
-        return boDanhGiaChung.laySoCaTheDangTheoDoc();
+    public int laySoConVatDangTheoDoi() {
+        return boDanhGiaChung.laySoConVatDangTheoDoi();
     }
 }
 
