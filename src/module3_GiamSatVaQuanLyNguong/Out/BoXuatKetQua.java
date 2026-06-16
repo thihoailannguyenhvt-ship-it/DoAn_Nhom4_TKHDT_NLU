@@ -27,7 +27,8 @@ public class BoXuatKetQua {
 
 	// ── Hằng số ────────────────────────────────────────────────────────────
 	private static final String PHAN_CACH_CSV = ",";
-	private static final String HEADER_CSV = "maSoDongVat,mucDoNghiemTrong,viDo,kinhDo,thoiGianSuKien,thoiGianGhiNhan,lyDo";
+	// Đã cập nhật Header CSV để chứa thêm dữ liệu vùng
+	private static final String HEADER_CSV = "maSoDongVat,mucDoNghiemTrong,viDo,kinhDo,thoiGianSuKien,thoiGianGhiNhan,lyDo,idVung,loaiVung,phanTramGiaoThoa";
 
 	private static final DateTimeFormatter DINH_DANG_NGAY = DateTimeFormatter.ofPattern("yyyy-MM-dd HH:mm:ss")
 			.withZone(ZoneId.systemDefault());
@@ -42,7 +43,7 @@ public class BoXuatKetQua {
 
 	/**
 	 * @param duongDanGoc Đường dẫn gốc không có đuôi. Sẽ tạo duongDanGoc.txt và
-	 *                    duongDanGoc.csv
+	 * duongDanGoc.csv
 	 */
 	public BoXuatKetQua(String duongDanGoc) {
 		this.duongDanGoc = duongDanGoc;
@@ -96,11 +97,19 @@ public class BoXuatKetQua {
 		String strSuKienInput = dinhDangThoiGianHienThi(thoiGianGoc != null ? thoiGianGoc : goiTin.layThoiGianSuKien());
 		String strGhiNhanInput = dinhDangThoiGianHienThi(thoiGianGhiNhan);
 
-		// [5] Tạo MenhLenhThucThi – đây là đầu ra chính thức gửi Module 5
-		MenhLenhThucThi lenh = new MenhLenhThucThi(goiTin.layIdCaThe(), ketQua.getMucDoNghiemTrong(),
-				goiTin.layKinhDo(), goiTin.layViDo(), strSuKienInput, // Sửa lỗi: Truyền String thay vì Long
-				strGhiNhanInput, // Sửa lỗi: Truyền String thay vì Long
-				ketQua.getThongBao());
+		// [5] Tạo MenhLenhThucThi – đã truyền thêm 3 thông số vùng mới
+		MenhLenhThucThi lenh = new MenhLenhThucThi(
+				goiTin.layIdCaThe(), 
+				ketQua.getMucDoNghiemTrong(),
+				goiTin.layKinhDo(), 
+				goiTin.layViDo(), 
+				strSuKienInput, 
+				strGhiNhanInput, 
+				ketQua.getThongBao(),
+				ketQua.layIdVung(),        // Truyền ID Vùng
+				ketQua.layLoaiVung(),      // Truyền Loại Vùng
+				ketQua.layPhanTramGiaoThoa() // Truyền % giao thoa
+		);
 
 		// ĐỒNG BỘ THỜI GIAN ĐẸP: Đổi số long sang dạng chuỗi yyyy-MM-dd HH:mm:ss trước
 		// khi ghi file
@@ -108,18 +117,27 @@ public class BoXuatKetQua {
 		String strGhiNhan = dinhDangThoiGianHienThi(lenh.getMocThoiGianGhiNhan());
 
 		// ── Ghi TXT ──────────────────────────────────────────────────────
+		// Đã bổ sung in thêm thông tin vùng và % giao thoa
 		writerTxt.write(String.format(
-				"BanGhiKetQua[maSoDongVat=%s, mucDoNghiemTrong=%s," + " viDo=%.6f, kinhDo=%.6f,"
-						+ " thoiGianSuKien=%s, thoiGianGhiNhan=%s, lyDo=%s]",
+				"BanGhiKetQua[maSoDongVat=%s, mucDoNghiemTrong=%s, viDo=%.6f, kinhDo=%.6f, thoiGianSuKien=%s, thoiGianGhiNhan=%s, lyDo=%s, idVung=%s, loaiVung=%s, %%GiaoThoa=%.2f%%]",
 				lenh.getMaSoDongVat(), lenh.getMucDoNghiemTrong(), lenh.getViDo(), lenh.getKinhDo(), strSuKien,
-				strGhiNhan, lenh.getLyDo()));
+				strGhiNhan, lenh.getLyDo(), lenh.getIdVung(), lenh.getLoaiVung(), lenh.getPhanTramGiaoThoa()));
 		writerTxt.newLine();
 
 		// ── Ghi CSV ──────────────────────────────────────────────────────
+		// Bổ sung ghi thêm 3 cột mới vào file CSV
 		writerCsv.write(
-				String.join(PHAN_CACH_CSV, thoatCSV(lenh.getMaSoDongVat()), thoatCSV(lenh.getMucDoNghiemTrong().name()),
-						String.format("%.6f", lenh.getViDo()), String.format("%.6f", lenh.getKinhDo()),
-						thoatCSV(strSuKien), thoatCSV(strGhiNhan), thoatCSV(lenh.getLyDo())));
+				String.join(PHAN_CACH_CSV, 
+						thoatCSV(lenh.getMaSoDongVat()), 
+						thoatCSV(lenh.getMucDoNghiemTrong().name()),
+						String.format("%.6f", lenh.getViDo()), 
+						String.format("%.6f", lenh.getKinhDo()),
+						thoatCSV(strSuKien), 
+						thoatCSV(strGhiNhan), 
+						thoatCSV(lenh.getLyDo()),
+						thoatCSV(lenh.getIdVung()),
+						thoatCSV(lenh.getLoaiVung()),
+						String.valueOf(lenh.getPhanTramGiaoThoa())));
 		writerCsv.newLine();
 
 		soBanGhi++;

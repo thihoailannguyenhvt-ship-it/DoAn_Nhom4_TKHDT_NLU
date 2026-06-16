@@ -88,13 +88,16 @@ public class TestMainModule3 {
             // Trường hợp 1: Dữ liệu toàn vẹn (Tìm thấy đủ thông tin đi kèm ở cả M1 lẫn M2)
             if (m1 != null && m2 != null) {
                 // Tạo gói tin tổng hợp BanGhiSinhHoc - tích hợp dữ liệu không gian (M4) + hành vi (M2) + timestamp gốc (M1)
-                BanGhiSinhHoc goiTin = new BanGhiSinhHoc(
+            	BanGhiSinhHoc goiTin = new BanGhiSinhHoc(
                         id,
                         m2.layTrangThai(),
                         bg4.layNhanVung(),
                         bg4.layViDo(),
                         bg4.layKinhDo(),
-                        m1.layThoiGianSuKien()
+                        m1.layThoiGianSuKien(),
+                        bg4.layIdVung(),
+                        bg4.layLoaiVung(),
+                        bg4.layPhanTramGiaoThoa()
                 );
                 danhSachBanGhiHopNhat.add(goiTin);
             } 

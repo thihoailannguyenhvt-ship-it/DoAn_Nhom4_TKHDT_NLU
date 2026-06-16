@@ -1,75 +1,87 @@
 package module4_GeofenceDongVaNguCanhKhongGian;
 
-import java.util.List;
-
 public class GeofenceDong {
+	private String idConVat;
+	private Diem tamHienTai; // Vị trí GPS (Kinh độ, Vĩ độ) cập nhật mới nhất
+	private double banKinhBaseMet; // R_base: Bán kính cơ sở cố định (Đơn vị: MÉT)
+	private double currentK; // Hệ số k ngữ cảnh hiện tại từ Module 2
+	private double odbaHienTai; // Chỉ số ODBA tính toán thực tế (Đơn vị: g)
 
-    private Diem tamHienTai;
-    private double banKinhR;
-    private List<Diem> dsDinh;
+	// ==========================================
+	// CÁC HẰNG SỐ CƠ SỞ KHOA HỌC (ĐỂ ĐẢM BẢO TÍNH CHÍNH XÁC)
+	// ==========================================
+	private static final double METERS_PER_DEGREE = 111320.0; // Định lý trắc địa: 1 độ vĩ độ = 111,320 mét
+	private static final double ALPHA_LOCOMOTION = 11.0 / 1.5; // Hệ số sinh học: Vận tốc bứt tốc (11m/s) / ODBA đỉnh
+																// (1.5g) ~7.333
+	private static final double R_MAX_METERS = 0.02 * METERS_PER_DEGREE; // Giới hạn chặn trên nghiêm ngặt (2226.4 mét)
 
-    public GeofenceDong(Diem tamHienTai, double banKinhR, List<Diem> dsDinh) {
-        this.tamHienTai = tamHienTai;
-        this.banKinhR = banKinhR;
-        this.dsDinh = dsDinh;
-    }
+	/**
+	 * Hàm khởi tạo (Constructor)
+	 */
+	public GeofenceDong(String idConVat, double banKinhBaseMet, double kNormal) {
+		this.idConVat = idConVat;
+		this.banKinhBaseMet = banKinhBaseMet;
+		this.currentK = kNormal;
+		this.odbaHienTai = 0.0;
+	}
 
-    public Diem getTamHienTai() {
-        return tamHienTai;
-    }
+	public void capNhatTam(Diem viTriMoi) {
+		this.tamHienTai = viTriMoi;
+	}
 
-    public void setTamHienTai(Diem tamHienTai) {
-        this.tamHienTai = tamHienTai;
-    }
+	public void capNhatHeSoK(double kMoi) {
+		this.currentK = kMoi;
+	}
 
-    public double getBanKinhR() {
-        return banKinhR;
-    }
+	public void setOdbaHienTai(double odbaHienTai) {
+		this.odbaHienTai = odbaHienTai;
+	}
 
-    public void setBanKinhR(double banKinhR) {
-        this.banKinhR = banKinhR;
-    }
+	/**
+	 * BẢN CHẤT TOÁN HỌC 1: Tính bán kính động chuẩn vật lý theo đơn vị MÉT
+	 * 
+	 * @param thoiGianTreGiay Độ trễ tính toán trích xuất từ trường doTre của bản
+	 *                        ghi (giây)
+	 */
+	public double getBanKinhRInMeters(double thoiGianTreGiay) {
+		// 1. Chuyển đổi ODBA sang vận tốc tức thời (m/s) dựa trên cơ học động vật
+		double vanTocTucThoi = ALPHA_LOCOMOTION * this.odbaHienTai;
 
-    public List<Diem> getDsDinh() {
-        return dsDinh;
-    }
+		// 2. Tính khoảng cách con vật có khả năng di chuyển động học trong thời gian
+		// trễ: d = v * t
+		double khoangCachDuPhong = vanTocTucThoi * thoiGianTreGiay;
 
-    public void setDsDinh(List<Diem> dsDinh) {
-        this.dsDinh = dsDinh;
-    }
+		// 3. Cộng đồng nhất thứ nguyên (Mét + Mét): R_dynamic = R_base + K * d_buffer
+		double rMeters = this.banKinhBaseMet + (this.currentK * khoangCachDuPhong);
 
-    public void capNhatTam(Diem viTriMoi) {
-        this.tamHienTai = viTriMoi;
-    }
+		// 4. Kiểm soát biên giới hạn (Clamping) an toàn dữ liệu
+		return Math.max(this.banKinhBaseMet, Math.min(rMeters, R_MAX_METERS));
+	}
 
-    public void capNhatBanKinh(double banKinhMoi) {
-        this.banKinhR = banKinhMoi;
-    }
+	/**
+	 * BẢN CHẤT TOÁN HỌC 2: Quy đổi bán kính ra ĐỘ (Decimal Degrees) phục vụ thuật
+	 * toán GIS Hàm này sẽ được Module 4 gọi khi chạy vòng lặp kiểm tra giao thoa
+	 * không gian.
+	 */
+	public double getBanKinhRInDegrees(double thoiGianTreGiay) {
+		// Lấy kết quả tính toán bằng Mét chia cho hệ số trắc địa địa cầu
+		return this.getBanKinhRInMeters(thoiGianTreGiay) / METERS_PER_DEGREE;
+	}
 
-    public double layBanKinh() {
-        return banKinhR;
-    }
+	// Các hàm Getter phục vụ biểu diễn dữ liệu
+	public String getIdConVat() {
+		return idConVat;
+	}
 
-    public List<Diem> getDanhSachDiem() {
-        return dsDinh;
-    }
+	public Diem getTamHienTai() {
+		return tamHienTai;
+	}
 
-    public double tinhDienTichDaGiac() {
-        if (dsDinh == null || dsDinh.size() < 3) {
-            return 0;
-        }
+	public double getOdbaHienTai() {
+		return odbaHienTai;
+	}
 
-        double tong1 = 0;
-        double tong2 = 0;
-
-        for (int i = 0; i < dsDinh.size(); i++) {
-            Diem p1 = dsDinh.get(i);
-            Diem p2 = dsDinh.get((i + 1) % dsDinh.size());
-
-            tong1 += p1.getKinhDo() * p2.getViDo();
-            tong2 += p1.getViDo() * p2.getKinhDo();
-        }
-
-        return Math.abs(tong1 - tong2) / 2.0;
-    }
+	public double getCurrentK() {
+		return currentK;
+	}
 }

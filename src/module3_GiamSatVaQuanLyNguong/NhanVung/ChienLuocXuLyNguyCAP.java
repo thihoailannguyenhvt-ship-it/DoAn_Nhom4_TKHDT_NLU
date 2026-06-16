@@ -21,10 +21,14 @@ public class ChienLuocXuLyNguyCAP implements ChienLuocDanhGiaVung {
     public KetQuaDanhGia thucHienDanhGia(BanGhiSinhHoc goiTin) {
         // Dọn cửa sổ cũ nếu có
         boDanhGia.xoaCuaSo(goiTin.layIdCaThe());
+        
+        // Đã cập nhật: truyền thêm dữ liệu không gian từ gói tin vào cảnh báo
         return KetQuaDanhGia.guiThangM5(
             MucDoNghiemTrong.KHAN_CAP,
-            "Vùng NGUY_CAP – con vật ở khu dân cư, gửi thẳng Module 5"
+            "Vùng NGUY_CAP – con vật ở khu dân cư, gửi thẳng Module 5",
+            goiTin.layIdVung(),
+            goiTin.layLoaiVung(),
+            goiTin.layPhanTramGiaoThoa()
         );
     }
 }
-

@@ -10,9 +10,12 @@ public class MenhLenhThucThi {
 	private String mocThoiGianSuKien;
 	private String mocThoiGianGhiNhan;
 	private final String lyDo;
+	private final String idVung;
+    private final String loaiVung;
+    private final double phanTramGiaoThoa;
 
 	public MenhLenhThucThi(String maSoDongVat, MucDoNghiemTrong mucDoNghiemTrong, double kinhDo, double viDo,
-			String mocThoiGianSuKien, String mocThoiGianGhiNhan, String lyDo) {
+			String mocThoiGianSuKien, String mocThoiGianGhiNhan, String lyDo, String idVung, String loaiVung, double phanTramGiaoThoa) {
 		this.maSoDongVat = maSoDongVat;
 		this.mucDoNghiemTrong = mucDoNghiemTrong;
 		this.kinhDo = kinhDo;
@@ -20,6 +23,21 @@ public class MenhLenhThucThi {
 		this.mocThoiGianSuKien = mocThoiGianSuKien;
 		this.mocThoiGianGhiNhan = mocThoiGianGhiNhan;
 		this.lyDo = lyDo;
+		this.idVung = idVung;
+        this.loaiVung = loaiVung;
+        this.phanTramGiaoThoa = phanTramGiaoThoa;
+	}
+
+	public String getIdVung() {
+		return idVung;
+	}
+
+	public String getLoaiVung() {
+		return loaiVung;
+	}
+
+	public double getPhanTramGiaoThoa() {
+		return phanTramGiaoThoa;
 	}
 
 	public String getLyDo() {

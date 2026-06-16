@@ -13,12 +13,12 @@ import java.util.Map;
  * Bộ đánh giá hành vi – phần [A]: xét độc lập nhãn hành vi.
  *
  * Ba nhánh xử lý rõ ràng:
- *   SUY_KIET    → guiThangM5 CANH_BAO ngay, không qua cửa sổ
- *   BINH_THUONG → xóa cửa sổ, dangTheoDoi
- *   DINH_BAY    → tích lũy cửa sổ 15 phút:
- *                   đồng nhất đủ thời gian → guiThangM5 KHAN_CAP
- *                   không đồng nhất        → chuyenMaTran
- *                   chưa đủ thời gian      → dangTheoDoi
+ * SUY_KIET    → guiThangM5 CANH_BAO ngay, không qua cửa sổ
+ * BINH_THUONG → xóa cửa sổ, dangTheoDoi
+ * DINH_BAY    → tích lũy cửa sổ 15 phút:
+ * đồng nhất đủ thời gian → guiThangM5 KHAN_CAP
+ * không đồng nhất        → chuyenMaTran
+ * chưa đủ thời gian      → dangTheoDoi
  */
 public class BoDanhGiaHanhVi {
 
@@ -56,7 +56,10 @@ public class BoDanhGiaHanhVi {
             lichSuNhan.remove(idCaThe); // dọn cửa sổ cũ nếu có
             return KetQuaDanhGia.guiThangM5(
                 MucDoNghiemTrong.CANH_BAO,
-                "SUY_KIET phát hiện – gửi thẳng Module 5"
+                "SUY_KIET phát hiện – gửi thẳng Module 5",
+                banGhi.layIdVung(),
+                banGhi.layLoaiVung(),
+                banGhi.layPhanTramGiaoThoa()
             );
         }
 
@@ -96,7 +99,10 @@ public class BoDanhGiaHanhVi {
             return KetQuaDanhGia.guiThangM5(
                 MucDoNghiemTrong.KHAN_CAP,
                 String.format("DINH_BAY đồng nhất liên tục %.0f phút – xác nhận dính bẫy",
-                    cuaSoThoiGianMs / 60_000.0)
+                    cuaSoThoiGianMs / 60_000.0),
+                banGhi.layIdVung(),
+                banGhi.layLoaiVung(),
+                banGhi.layPhanTramGiaoThoa()
             );
         }
 
@@ -126,4 +132,3 @@ public class BoDanhGiaHanhVi {
 
     public int laySoCaTheDangTheoDoc() { return lichSuNhan.size(); }
 }
-

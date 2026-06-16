@@ -58,9 +58,13 @@ public class BoDanhGiaVung {
         // ── Ngoại lệ: NGUY_CAP – phát ngay, không qua cửa sổ ─────────────
         if (vung == TinhTrangVung.NGUY_CAP) {
             lichSuVung.remove(idConVat);
+            // Đã bổ sung dữ liệu không gian
             return KetQuaDanhGia.guiThangM5(
                 MucDoNghiemTrong.KHAN_CAP,
-                "Vùng NGUY_CAP – con vật ở khu dân cư, gửi thẳng Module 5"
+                "Vùng NGUY_CAP – con vật ở khu dân cư, gửi thẳng Module 5",
+                banGhi.layIdVung(),
+                banGhi.layLoaiVung(),
+                banGhi.layPhanTramGiaoThoa()
             );
         }
 
@@ -112,10 +116,14 @@ public class BoDanhGiaVung {
                 : MucDoNghiemTrong.GIAM_SAT;
 
             lichSuVung.remove(idConVat);
+            // Đã bổ sung dữ liệu không gian
             return KetQuaDanhGia.guiThangM5(
                 mucDo,
                 String.format("Vùng đồng nhất %.0f phút (cao nhất: %s) – gửi thẳng Module 5",
-                    cuaSoThoiGianMs / 60_000.0, mucCaoBaGio)
+                    cuaSoThoiGianMs / 60_000.0, mucCaoBaGio),
+                banGhi.layIdVung(),
+                banGhi.layLoaiVung(),
+                banGhi.layPhanTramGiaoThoa()
             );
         }
 

@@ -35,6 +35,7 @@ public class BoPhanTichCaThe implements IPhanTichHanhVi {
    
 
     // Tiep nhan du lieu tu file KetQuaModule1.csv
+    @Override
     public void tiepNhanDuLieu(BangGhiSinhHoc data) {
 
         duLieuMoiNhat = data;

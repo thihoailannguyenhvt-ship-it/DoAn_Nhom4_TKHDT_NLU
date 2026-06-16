@@ -15,75 +15,93 @@ public class KetQuaDanhGia {
 	private final MucDoNghiemTrong mucDoNghiemTrong;
 	private final String thongBao;
 	private String thoiGianSuKien;
+	
+	// CÁC TRƯỜNG MỚI CHO DỮ LIỆU KHÔNG GIAN
+	private final String idVung;
+	private final String loaiVung;
+	private final double phanTramGiaoThoa;
+
 	// ==========================================
 	// 1. CÁC HÀM KHỞI TẠO (CONSTRUCTORS) LINH HOẠT
 	// ==========================================
 
 	/**
-	 * Constructor đầy đủ 4 tham số. Thường dùng cho Ma trận quyết định hoặc khi cần
-	 * chỉ định rõ mức độ nghiêm trọng.
+	 * Constructor đầy đủ 4 tham số (Phiên bản cũ).
+	 * Giữ lại để tránh lỗi code cũ. Các trường mới sẽ để mặc định.
 	 */
 	public KetQuaDanhGia(TrangThaiThamDinh trangThai, LoaiHanhDong hanhDong, MucDoNghiemTrong mucDoNghiemTrong,
 			String thongBao) {
+		this(trangThai, hanhDong, mucDoNghiemTrong, thongBao, null, null, 0.0);
+	}
+
+	/**
+	 * Constructor mở rộng: Hỗ trợ truyền đầy đủ thông tin không gian.
+	 */
+	public KetQuaDanhGia(TrangThaiThamDinh trangThai, LoaiHanhDong hanhDong, MucDoNghiemTrong mucDoNghiemTrong,
+			String thongBao, String idVung, String loaiVung, double phanTramGiaoThoa) {
 		this.trangThai = trangThai;
 		this.hanhDong = hanhDong;
 		this.mucDoNghiemTrong = mucDoNghiemTrong;
 		this.thongBao = thongBao;
+		this.idVung = idVung;
+		this.loaiVung = loaiVung;
+		this.phanTramGiaoThoa = phanTramGiaoThoa;
 	}
 
 	/**
 	 * Constructor 3 tham số: (TrangThaiThamDinh, LoaiHanhDong, String). Khớp 100%
-	 * với cách viết trong các lớp Chiến lược (như ảnh bạn chụp lỗi trước đó).
+	 * với cách viết trong các lớp Chiến lược.
 	 */
 	public KetQuaDanhGia(TrangThaiThamDinh trangThai, LoaiHanhDong hanhDong, String thongBao) {
+		this(trangThai, hanhDong, thongBao, null, null, 0.0);
+	}
+
+	// Constructor phụ hỗ trợ cho hàm 3 tham số
+	private KetQuaDanhGia(TrangThaiThamDinh trangThai, LoaiHanhDong hanhDong, String thongBao, String idVung, String loaiVung, double phanTram) {
 		this.trangThai = trangThai;
 		this.hanhDong = hanhDong;
-		// Tự động suy luận mức độ nghiêm trọng dựa trên trạng thái thẩm định để tránh
-		// truyền thừa tham số
 		this.mucDoNghiemTrong = (trangThai == TrangThaiThamDinh.DA_XAC_NHAN) ? MucDoNghiemTrong.CANH_BAO
 				: MucDoNghiemTrong.BINH_THUONG;
 		this.thongBao = thongBao;
+		this.idVung = idVung;
+		this.loaiVung = loaiVung;
+		this.phanTramGiaoThoa = phanTram;
 	}
 
 	/**
-	 * Constructor dự phòng 3 tham số: (LoaiHanhDong, MucDoNghiemTrong, String). Đảm
-	 * bảo nếu có Module khác gọi theo dạng này thì hệ thống vẫn bắt được và tự điền
-	 * TrangThaiThamDinh.
+	 * Constructor dự phòng 3 tham số: (LoaiHanhDong, MucDoNghiemTrong, String).
 	 */
 	public KetQuaDanhGia(LoaiHanhDong hanhDong, MucDoNghiemTrong mucDoNghiemTrong, String thongBao) {
 		this.hanhDong = hanhDong;
 		this.mucDoNghiemTrong = mucDoNghiemTrong;
 		this.thongBao = thongBao;
-		// Tự động suy luận trạng thái dựa trên mức độ nghiêm trọng
 		this.trangThai = (mucDoNghiemTrong == MucDoNghiemTrong.BINH_THUONG) ? TrangThaiThamDinh.DANG_THEO_DOI
 				: TrangThaiThamDinh.DA_XAC_NHAN;
+		this.idVung = null;
+		this.loaiVung = null;
+		this.phanTramGiaoThoa = 0.0;
 	}
 
 	// ==========================================
 	// 2. CÁC PHƯƠNG THỨC GETTER (Khớp với BoXuLyNguong)
 	// ==========================================
 
-	public TrangThaiThamDinh getTrangThai() {
-		return this.trangThai;
-	}
+	public TrangThaiThamDinh getTrangThai() { return this.trangThai; }
+	public LoaiHanhDong getHanhDong() { return this.hanhDong; }
+	public MucDoNghiemTrong getMucDoNghiemTrong() { return this.mucDoNghiemTrong; }
+	public String getThongBao() { return this.thongBao; }
+	
+	// Getter cho các trường dữ liệu không gian mới
+	public String layIdVung() { return idVung; }
+	public String layLoaiVung() { return loaiVung; }
+	public double layPhanTramGiaoThoa() { return phanTramGiaoThoa; }
 
-	public LoaiHanhDong getHanhDong() {
-		return this.hanhDong;
-	}
-
-	public MucDoNghiemTrong getMucDoNghiemTrong() {
-		return this.mucDoNghiemTrong;
-	}
-
-	public String getThongBao() {
-		return this.thongBao;
-	}
 	public void capNhatThoiGianSuKien(String thoiGian) {
-	    this.thoiGianSuKien = thoiGian;
+		this.thoiGianSuKien = thoiGian;
 	}
 
 	public String layThoiGianSuKien() {
-	    return this.thoiGianSuKien;
+		return this.thoiGianSuKien;
 	}
 
 	public static KetQuaDanhGia chuyenMaTran(String thongBao) {
@@ -92,11 +110,10 @@ public class KetQuaDanhGia {
 	}
 
 	/**
-	 * PHÁT LỆNH KHẨN CẤP: Khớp chính xác với lệnh gọi của bạn khi đủ ngưỡng 15
-	 * phút.
+	 * PHÁT LỆNH KHẨN CẤP: Đã bổ sung tham số không gian để Module 5 nhận đủ thông tin.
 	 */
-	public static KetQuaDanhGia guiThangM5(MucDoNghiemTrong mucDo, String thongBao) {
-		return new KetQuaDanhGia(TrangThaiThamDinh.DA_XAC_NHAN, LoaiHanhDong.GUI_THANG_M5, mucDo, thongBao);
+	public static KetQuaDanhGia guiThangM5(MucDoNghiemTrong mucDo, String thongBao, String idVung, String loaiVung, double phanTram) {
+		return new KetQuaDanhGia(TrangThaiThamDinh.DA_XAC_NHAN, LoaiHanhDong.GUI_THANG_M5, mucDo, thongBao, idVung, loaiVung, phanTram);
 	}
 
 	/**
@@ -111,6 +128,8 @@ public class KetQuaDanhGia {
 	@Override
 	public String toString() {
 		return "KetQuaDanhGia{" + "trangThai=" + trangThai + ", hanhDong=" + hanhDong + ", mucDoNghiemTrong="
-				+ mucDoNghiemTrong + ", thongBao='" + thongBao + '\'' + '}';
+				+ mucDoNghiemTrong + ", thongBao='" + thongBao + '\'' + 
+				", idVung='" + idVung + '\'' + ", loaiVung='" + loaiVung + '\'' + 
+				", phanTram=" + phanTramGiaoThoa + '}';
 	}
 }
