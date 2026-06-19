@@ -1,153 +1,118 @@
 package module2_PhanTichHanhVi;
 
-import java.util.LinkedList;
 import java.util.Queue;
 
-// Lop tinh toan cac chi so sinh hoc nhu ODBA, variance, movement
 public class BoTinhToanSinhHoc {
 
-    // Tinh gia toc tinh
-    public double tinhGiaTocTinh(double runningSum, int n) {
+	public double tinhODBA(Queue<BangGhiSinhHoc> buffer) {
+		if (buffer == null || buffer.isEmpty())
+			return 0;
+		double tong = 0;
+		for (BangGhiSinhHoc bg : buffer)
+			tong += tinhODBATungBanGhi(bg);
+		return tong / buffer.size();
+	}
 
-        if (n == 0) {
-            return 0;
-        }
+	public double tinhTongODBA(Queue<BangGhiSinhHoc> buffer) {
+		if (buffer == null || buffer.isEmpty())
+			return 0;
+		double tong = 0;
+		for (BangGhiSinhHoc bg : buffer)
+			tong += tinhODBATungBanGhi(bg);
+		return tong;
+	}
 
-        return runningSum / n;
-    }
+	public double tinhODBATungBanGhi(BangGhiSinhHoc bg) {
+		if (bg == null || bg.getGiaToc() == null)
+			return 0;
 
-    // Tinh gia toc dong
-    public double tinhGiaTocDong(double giaTocTho, double giaTocTinh) {
+		BangGhiGiaToc gt = bg.getGiaToc();
+		double[] x = gt.getTrucX();
+		double[] y = gt.getTrucY();
+		double[] z = gt.getTrucZ();
+		int n = x.length;
+		if (n == 0)
+			return 0;
 
-        return Math.abs(giaTocTho - giaTocTinh);
-    }
+		double meanX = gt.getGiaTocTinhX();
+		double meanY = gt.getGiaTocTinhY();
+		double meanZ = gt.getGiaTocTinhZ();
 
-    // Tinh ODBA trung binh trong buffer
-    public double tinhODBA(Queue<BangGhiSinhHoc> buffer) {
+		double odba = 0;
+		for (int i = 0; i < n; i++) {
+			odba += Math.abs(x[i] - meanX) + Math.abs(y[i] - meanY) + Math.abs(z[i] - meanZ);
+		}
+		return odba;
+	}
 
-        if (buffer == null || buffer.isEmpty()) {
-            return 0;
-        }
+	public double tinhVarianceODBA(Queue<BangGhiSinhHoc> buffer) {
+		if (buffer == null || buffer.size() < 2)
+			return 0;
 
-        double tongODBA = 0;
+		double[] dsODBA = new double[buffer.size()];
+		int i = 0;
+		double tong = 0;
+		for (BangGhiSinhHoc bg : buffer) {
+			dsODBA[i] = tinhODBATungBanGhi(bg);
+			tong += dsODBA[i];
+			i++;
+		}
+		double mean = tong / dsODBA.length;
 
-        for (BangGhiSinhHoc bg : buffer) {
-            tongODBA += tinhODBATungBanGhi(bg);
-        }
+		double tongBinhPhuong = 0;
+		for (double odba : dsODBA) {
+			tongBinhPhuong += Math.pow(odba - mean, 2);
+		}
 
-        return tongODBA / buffer.size();
-    }
+		return tongBinhPhuong / dsODBA.length;
+	}
 
-    // Tinh tong ODBA tich luy trong cua so
-    public double tinhTongODBA(Queue<BangGhiSinhHoc> buffer) {
+	public double tinhTongDiChuyen(Queue<BangGhiSinhHoc> buffer) {
+		if (buffer == null || buffer.size() < 2)
+			return 0;
 
-        if (buffer == null || buffer.isEmpty()) {
-            return 0;
-        }
+		double tongDiChuyen = 0;
+		BangGhiSinhHoc truoc = null;
 
-        double tong = 0;
+		for (BangGhiSinhHoc bg : buffer) {
+			if (truoc != null) {
 
-        for (BangGhiSinhHoc bg : buffer) {
-            tong += tinhODBATungBanGhi(bg);
-        }
+				tongDiChuyen += tinhKhoangCachHaversine(truoc.getViDo(), truoc.getKinhDo(), bg.getViDo(),
+						bg.getKinhDo());
+			}
+			truoc = bg;
+		}
+		return tongDiChuyen;
+	}
 
-        return tong;
-    }
+	private double tinhKhoangCachHaversine(double lat1, double lon1, double lat2, double lon2) {
+		final double R = 6_371_000.0; // Bán kính trái đất (mét)
 
-    // Tinh ODBA cua tung ban ghi
-    public double tinhODBATungBanGhi(BangGhiSinhHoc bg) {
+		double phi1 = Math.toRadians(lat1);
+		double phi2 = Math.toRadians(lat2);
+		double deltaPhi = Math.toRadians(lat2 - lat1);
+		double deltaLambda = Math.toRadians(lon2 - lon1);
 
-        if (bg == null || bg.getGiaToc() == null) {
-            return 0;
-        }
+		double a = Math.sin(deltaPhi / 2) * Math.sin(deltaPhi / 2)
+				+ Math.cos(phi1) * Math.cos(phi2) * Math.sin(deltaLambda / 2) * Math.sin(deltaLambda / 2);
 
-        BangGhiGiaToc gt = bg.getGiaToc();
+		return R * 2 * Math.atan2(Math.sqrt(a), Math.sqrt(1 - a));
+	}
 
-        double trungBinhTinh =
-                (gt.getTrucX() + gt.getTrucY() + gt.getTrucZ()) / 3.0;
+	public double tinhTyLeNangLuong(Queue<BangGhiSinhHoc> buffer, Loai loai) {
+		if (buffer == null || buffer.isEmpty() || loai == null)
+			return 0;
 
-        double dx = Math.abs(gt.getTrucX() - trungBinhTinh);
-        double dy = Math.abs(gt.getTrucY() - trungBinhTinh);
-        double dz = Math.abs(gt.getTrucZ() - trungBinhTinh);
+		double normal12h = loai.tinhNormal12h(240, 300, 180);
+		if (normal12h == 0)
+			return 0;
 
-        return dx + dy + dz;
-    }
+		return tinhTongODBA(buffer) / normal12h;
+	}
 
-    // Tinh phuong sai cua ODBA trong cua so
-    public double tinhVarianceODBA(Queue<BangGhiSinhHoc> buffer) {
-
-        if (buffer == null || buffer.size() < 2) {
-            return 0;
-        }
-
-        Queue<Double> dsODBA = new LinkedList<>();
-
-        double tong = 0;
-
-        for (BangGhiSinhHoc bg : buffer) {
-            double odba = tinhODBATungBanGhi(bg);
-            dsODBA.add(odba);
-            tong += odba;
-        }
-
-        double trungBinh = tong / dsODBA.size();
-
-        double tongBinhPhuong = 0;
-
-        for (double odba : dsODBA) {
-            tongBinhPhuong += Math.pow(odba - trungBinh, 2);
-        }
-
-        return tongBinhPhuong / dsODBA.size();
-    }
-
-    // Tinh khoang cach GPS giua 2 ban ghi
-    public double tinhKhoangCach(String gps1, String gps2) {
-
-        String[] p1 = gps1.split(",");
-        String[] p2 = gps2.split(",");
-
-        double lat1 = Double.parseDouble(p1[0]);
-        double lon1 = Double.parseDouble(p1[1]);
-
-        double lat2 = Double.parseDouble(p2[0]);
-        double lon2 = Double.parseDouble(p2[1]);
-
-        return Math.sqrt(
-                Math.pow(lat2 - lat1, 2)
-                        + Math.pow(lon2 - lon1, 2)
-        );
-    }
-
-    // Tinh ti le nang luong so voi dinh muc loai
-    public double tinhTyLeNangLuong(Queue<BangGhiSinhHoc> buffer, Loai loai) {
-
-        if (buffer == null || buffer.isEmpty() || loai == null) {
-            return 0;
-        }
-
-        int tNghi = 240;
-        int tDi = 300;
-        int tBay = 180;
-
-        double normal12h = loai.tinhNormal12h(tNghi, tDi, tBay);
-
-        if (normal12h == 0) {
-            return 0;
-        }
-
-        double eThucTe = tinhTongODBA(buffer);
-
-        return eThucTe / normal12h;
-    }
-
-    // Ham cu de tuong thich code cu
-    public double tinhRatio(double eTichLuy, double normal12h) {
-
-        if (normal12h == 0) {
-            return 0;
-        }
-
-        return eTichLuy / normal12h;
-    }
+	public double tinhKhoangCach(BangGhiSinhHoc b1, BangGhiSinhHoc b2) {
+		if (b1 == null || b2 == null)
+			return 0;
+		return tinhKhoangCachHaversine(b1.getViDo(), b1.getKinhDo(), b2.getViDo(), b2.getKinhDo());
+	}
 }

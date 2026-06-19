@@ -1,173 +1,155 @@
 package module1_DongBoHoa;
 
-import java.io.BufferedReader;
-import java.io.File;
-import java.io.FileReader;
-import java.io.PrintWriter;
+import dinhDanh.TrangThaiDuLieu;
+
+import java.io.*;
+import java.nio.charset.StandardCharsets;
+
 import java.util.ArrayList;
-import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
+import java.util.HashMap;
 
-// Lop chay thu Module 1
+
 public class MainTest {
 
-    // Ham main la diem bat dau chuong trinh
+    private static final String DUONG_DAN_INPUT  = "Data\\Input\\Wildlife_Professional.csv";
+    private static final String DUONG_DAN_OUTPUT_TXT = "Data\\Output\\KetQuaModule1.txt";
+    private static final String DUONG_DAN_OUTPUT_CSV = "Data\\Output\\KetQuaModule1.csv";
+    private static final String KY_TU_PHAN_CACH  = ";";
+
+    private static int tongBanGhi     = 0;
+    private static int thucTe         = 0;
+    private static int noiSuy         = 0;
+    private static int loi            = 0;
+    private static int khoiDongLanh   = 0;
+
     public static void main(String[] args) {
 
-        // Duong dan file dau vao
-        String path = "Data/Input/Wildlife_Professional_Module2_Fixed.csv";
+        System.out.println("╔══════════════════════════════════════════════════════╗");
+        System.out.println("║        MODULE 1 - ĐỒNG BỘ HÓA DỮ LIỆU              ║");
+        System.out.println("╚══════════════════════════════════════════════════════╝");
 
-        // Danh sach luu ket qua dau ra
-        List<BanGhiSinhHoc> ketQua = new ArrayList<>();
+        BoChuyenDoiDuLieu   boChuyenDoi     = new BoChuyenDoiDuLieu("CSV", KY_TU_PHAN_CACH);
 
-        // Tao bo kiem tra du lieu
-        BoKiemTraDuLieu boKiemTra = new BoKiemTraDuLieu();
+        QuanLyCauHinh.napCauHinh("Data/Input/dongvat.txt");
+        Map<String, BoNoiSuyGPS>   registry        = new HashMap<>();
+        // FIX BUG 3: QuanLyTrangThai per-species thay vì global
+        Map<String, QuanLyTrangThai> trangThaiMap  = new HashMap<>();
 
-        // Tao bo chuyen doi du lieu
-        BoChuyenDoiDuLieu boChuyenDoi = new BoChuyenDoiDuLieu("CSV", ";", boKiemTra);
+        String[] danhSachLoai = {"CHEO_CHEO", "SON_DUONG", "MANG_LON", "NAI_RUNG", "BO_TOT", "LON_RUNG", "KHI_DUOI_LON"};
 
-        // Tao bo noi suy GPS
-        BoNoiSuyGPS boNoiSuy = new BoNoiSuyGPS();
+        for (String loai : danhSachLoai) {
+            QuanLyCauHinh.ThongSo ts = QuanLyCauHinh.get(loai);
+            GiaLapGPS gps = new GiaLapGPS(loai, ts.theta, ts.sigma);
+            registry.put(loai, new BoNoiSuyGPS(gps));
+            trangThaiMap.put(loai, new QuanLyTrangThai());
+        }
 
-        // Tao quan ly thoi gian
-        QuanLyThoiGian quanLyThoiGian = new QuanLyThoiGian();
+        List<BanGhiSinhHoc> danhSachKetQua = new ArrayList<>();
+        List<String>        danhSachLoi    = new ArrayList<>();
 
-        // Tao cau hinh dong bo
-        CauHinhDongBo cauHinh = new CauHinhDongBo(5000, 10000);
+        try (BufferedReader reader = new BufferedReader(
+                new InputStreamReader(new FileInputStream(DUONG_DAN_INPUT), "UTF-8"))) {
+            String dong;
+            boolean boQuaHeader = false;
+            while ((dong = reader.readLine()) != null) {
+                dong = dong.trim();
+                if (dong.isEmpty() || dong.startsWith("\u0000") || dong.startsWith("ÐÏ")) continue;
+                if (!boQuaHeader && dong.contains("event-id")) { boQuaHeader = true; continue; }
+                if (!dong.contains(KY_TU_PHAN_CACH)) continue;
 
-        // Tao doi tuong dieu phoi dong bo
-        DieuPhoiDongBo module1 = new DieuPhoiDongBo(
-                boChuyenDoi,
-                boKiemTra,
-                boNoiSuy,
-                quanLyThoiGian,
-                cauHinh
-        );
-
-        // Doc file CSV
-        try (BufferedReader br = new BufferedReader(new FileReader(path))) {
-
-            // Bien luu tung dong doc duoc
-            String line;
-
-            // Doc tung dong trong file
-            while ((line = br.readLine()) != null) {
-
-                // Bo qua dong rong
-                if (line.trim().isEmpty()) {
-                    continue;
-                }
-
-                // Chi xu ly dong du lieu that
-                if (!line.contains(";") || !line.contains("acceleration")) {
-                    continue;
-                }
-
-                try {
-
-                    // Goi module 1 xu ly tung dong du lieu
-                    BanGhiSinhHoc banGhi = module1.thucHienDongBo(line);
-
-                    // Neu ban ghi hop le thi them vao ket qua
-                    if (banGhi != null) {
-                        ketQua.add(banGhi);
-                    }
-
-                } catch (Exception e) {
-
-                    // Neu dong du lieu loi thi bo qua
-                    continue;
-                }
+                tongBanGhi++;
+                BanGhiSinhHoc banGhi = xuLyMotDong(dong, boChuyenDoi, trangThaiMap, registry, danhSachLoi);
+                if (banGhi != null) danhSachKetQua.add(banGhi);
             }
-
-        } catch (Exception e) {
-
-            // Bao loi neu khong doc duoc file
-            System.out.println("Loi doc file CSV: " + e.getMessage());
+        } catch (IOException e) {
+            System.err.println("[CRITICAL] Lỗi đọc file: " + e.getMessage());
+            return;
         }
 
-        // In ket qua tong quan
-        System.out.println("\n===== KET QUA MODULE 1 =====");
-        System.out.println("Tong so ban ghi dong bo thanh cong : " + ketQua.size());
-
-        // In 20 ban ghi dau tien
-       
-
-        System.out.println("\n===== 20 BAN GHI DAU =====");
-
-        for (int i = 0; i < Math.min(20, ketQua.size()); i++) {
-            System.out.println(ketQua.get(i));
-        }
-
-        // Tao map thong ke theo con vat
-        Map<String, Integer> thongKe = new HashMap<>();
-
-        // Duyet danh sach ket qua de thong ke
-        for (BanGhiSinhHoc banGhi : ketQua) {
-
-            // Lay ma con vat
-            String idConVat = banGhi.getIdConVat();
-
-            // Tang so ban ghi cua con vat
-            thongKe.put(idConVat, thongKe.getOrDefault(idConVat, 0) + 1);
-        }
-
-        // In bang thong ke
-        System.out.println();
-        System.out.println("\n===== THONG KE THEO CON VAT =====");
-        for (String idConVat : thongKe.keySet()) {
-
-            System.out.printf("%-30s : %5d ban ghi%n",
-                    idConVat,
-                    thongKe.get(idConVat));
-        }
-
-        // Tao thu muc output neu chua co
-        new File("Data/Output").mkdirs();
-
-        // Ghi ket qua ra file TXT
-        try (PrintWriter out = new PrintWriter("Data/Output/KetQuaModule1.txt")) {
-
-            out.println("====================================================");
-            out.println("                  KET QUA MODULE 1");
-        
-            out.println("Tong so ban ghi dong bo thanh cong : " + ketQua.size());
-            out.println();
-
-            for (BanGhiSinhHoc banGhi : ketQua) {
-
-                out.println(banGhi);
-            }
-
-            System.out.println();
-            System.out.println("Da xuat file TXT: Data/Output/KetQuaModule1.txt");
-
-        } catch (Exception e) {
-
-            System.out.println("Loi ghi file TXT: " + e.getMessage());
-        }
-
-        // Ghi ket qua ra file CSV
-        try (PrintWriter out = new PrintWriter("Data/Output/KetQuaModule1.csv")) {
-
-            out.println("idConVat,viDo,kinhDo,trucX,trucY,trucZ,mocThoiGianSuKien,mocThoiGianHeThong,trangThai,t1,doTre");
-
-            for (BanGhiSinhHoc banGhi : ketQua) {
-                out.println(banGhi.toCSV());
-            }
-
-            System.out.println("Da xuat file CSV: Data/Output/KetQuaModule1.csv");
-
-        } catch (Exception e) {
-
-            System.out.println("Loi ghi file CSV: " + e.getMessage());
-        }
-
-        // In thong bao ket thuc
-        System.out.println();
-        
-        System.out.println("              MODULE 1 KET THUC            ");
-        System.out.println("====================================================");
+        xuatFileTXT(danhSachKetQua, danhSachLoi);
+        xuatFileCSV(danhSachKetQua);
+        inThongKe(danhSachKetQua.size());
     }
-}
+
+    private static BanGhiSinhHoc xuLyMotDong(
+            String rawLine, BoChuyenDoiDuLieu boChuyenDoi,
+            Map<String, QuanLyTrangThai> trangThaiMap,
+            Map<String, BoNoiSuyGPS> registry, List<String> danhSachLoi) {
+        try {
+            BanGhiGiaTocBD giaToc = boChuyenDoi.chuyenDoiGiaToc(rawLine);
+            if (!BoKiemTraDuLieu.laDuLieuGiaTocHopLe(giaToc.getTrucX(), giaToc.getTrucY(), giaToc.getTrucZ())) {
+                loi++; return null;
+            }
+
+            // FIX BUG 3: Lấy QuanLyTrangThai theo từng loài
+            String tenLoai = trichXuatTenLoai(giaToc.getIdConVat());
+            QuanLyTrangThai quanLyTrangThai = trangThaiMap.getOrDefault(
+                    tenLoai, trangThaiMap.get("BO_TOT"));
+
+            ToaDo toaDo;
+            TrangThaiDuLieu trangThai;
+
+            if (boChuyenDoi.coGPS(rawLine)) {
+                toaDo    = boChuyenDoi.chuyenDoiToaDoTuDongCSV(rawLine);
+                trangThai = TrangThaiDuLieu.THUC_TE;
+                thucTe++;
+            } else {
+                if (!quanLyTrangThai.daCoDuLieu()) {
+                    
+                    toaDo    = new ToaDo(11.422179, 107.428679);
+                    trangThai = TrangThaiDuLieu.KHOI_DONG_LANH;
+                    khoiDongLanh++;
+                } else {
+                	
+                    BoNoiSuyGPS boNoiSuy = registry.getOrDefault(tenLoai, registry.get("BO_TOT"));
+                    toaDo    = boNoiSuy.noiSuyToaDoTheoThoiGian(giaToc.getMocThoiGianSuKien());
+                    trangThai = TrangThaiDuLieu.GIA_LAP;
+                    noiSuy++;
+                }
+            }
+
+            quanLyTrangThai.luuVet(toaDo, giaToc.getMocThoiGianSuKien());
+            long time = QuanLyThoiGian.layThoiGianHeThongHienTai();
+            return new BanGhiSinhHoc(giaToc.getIdConVat(), toaDo, giaToc,
+                    giaToc.getMocThoiGianSuKien(), time, trangThai, time);
+        } catch (Exception e) {
+            loi++; return null;
+        }
+    }
+
+    private static String trichXuatTenLoai(String id) {
+        try {
+            String ten = id.split("-")[1];
+            return ten.replaceAll("([a-z])([A-Z]+)", "$1_$2").toUpperCase();
+        } catch (Exception e) { return "BO_TOT"; }
+    }
+
+    private static void xuatFileTXT(List<BanGhiSinhHoc> danhSach, List<String> danhSachLoi) {
+        new File(DUONG_DAN_OUTPUT_TXT).getParentFile().mkdirs();
+        try (PrintWriter pw = new PrintWriter(new OutputStreamWriter(new FileOutputStream(DUONG_DAN_OUTPUT_TXT), StandardCharsets.UTF_8))) {
+            for (BanGhiSinhHoc bg : danhSach) pw.println(bg.toString());
+            System.out.println(" Đã xuất TXT: " + DUONG_DAN_OUTPUT_TXT);
+        } catch (IOException e) { System.err.println("[ERROR] Lỗi xuất TXT: " + e.getMessage()); }
+    }
+
+    private static void xuatFileCSV(List<BanGhiSinhHoc> danhSach) {
+        new File(DUONG_DAN_OUTPUT_CSV).getParentFile().mkdirs();
+        try (PrintWriter pw = new PrintWriter(new OutputStreamWriter(new FileOutputStream(DUONG_DAN_OUTPUT_CSV), StandardCharsets.UTF_8))) {
+            pw.println(BanGhiSinhHoc.CSV_HEADER);
+            for (BanGhiSinhHoc bg : danhSach) pw.println(bg.toCSV());
+            System.out.println("[OK] Đã xuất CSV: " + DUONG_DAN_OUTPUT_CSV);
+        } catch (IOException e) { System.err.println("[ERROR] Lỗi xuất CSV: " + e.getMessage()); }
+    }
+
+    private static void inThongKe(int thanhCong) {
+        System.out.println("          KẾT QUẢ TỔNG HỢP       ");
+        System.out.printf( " Tổng dòng đọc    : %-11d%n", tongBanGhi);
+        System.out.printf( " Thành công       : %-11d%n", thanhCong);
+        System.out.printf( " Thực tế GPS      : %-11d%n", thucTe);
+        System.out.printf( " Nội suy          : %-11d%n", noiSuy);
+        System.out.printf( " Khởi động lạnh   : %-11d%n", khoiDongLanh);
+        System.out.printf( " Lỗi bỏ qua       : %-11d%n", loi);
+    }
+}   

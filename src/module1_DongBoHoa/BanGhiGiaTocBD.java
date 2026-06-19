@@ -1,70 +1,74 @@
 package module1_DongBoHoa;
 
-import java.util.List;
 
-// Lop luu du lieu gia toc dang danh sach
-public class BanGhiGiaTocBD {
+import java.util.Arrays;
 
-    // Moc thoi gian su kien cua du lieu gia toc
-    private long thoiDiemSuKien;
 
-    // Danh sach gia toc truc X
-    private List<Double> trucX;
 
-    // Danh sach gia toc truc Y
-    private List<Double> trucY;
+public final class BanGhiGiaTocBD {
 
-    // Danh sach gia toc truc Z
-    private List<Double> trucZ;
+	private final String idConVat;
+	private final long mocThoiGianSuKien;
 
-    // Ham khoi tao ban ghi gia toc
-    public BanGhiGiaTocBD(long thoiDiemSuKien,
-                        List<Double> trucX,
-                        List<Double> trucY,
-                        List<Double> trucZ) {
+	// Sử dụng mảng nguyên thủy
+	private final double[] trucX;
+	private final double[] trucY;
+	private final double[] trucZ;
 
-        // Gan moc thoi gian su kien
-        this.thoiDiemSuKien = thoiDiemSuKien;
+	public BanGhiGiaTocBD(String idConVat, long mocThoiGianSuKien, double[] trucX, double[] trucY, double[] trucZ) {
 
-        // Gan danh sach truc X
-        this.trucX = trucX;
+		
+		if (idConVat == null || idConVat.trim().isEmpty())
+			throw new IllegalArgumentException("ID invalid");
+		if (mocThoiGianSuKien <= 0)
+			throw new IllegalArgumentException("Time invalid");
+		if (trucX == null || trucY == null || trucZ == null)
+			throw new IllegalArgumentException("Data cannot be null");
+		if (trucX.length == 0)
+			throw new IllegalArgumentException("Data empty");
+		if (trucX.length != trucY.length || trucX.length != trucZ.length) {
+			throw new IllegalArgumentException("Array sizes mismatch");
+		}
 
-        // Gan danh sach truc Y
-        this.trucY = trucY;
+		this.idConVat = idConVat.trim();
+		this.mocThoiGianSuKien = mocThoiGianSuKien;
 
-        // Gan danh sach truc Z
-        this.trucZ = trucZ;
-    }
+		
+		this.trucX = trucX.clone();
+		this.trucY = trucY.clone();
+		this.trucZ = trucZ.clone();
+	}
 
-    // Lay thoi diem su kien
-    public long getThoiDiemSuKien() {
-        return thoiDiemSuKien;
-    }
+	public String getIdConVat() {
+		return idConVat;
+	}
 
-    // Lay danh sach truc X
-    public List<Double> getTrucX() {
-        return trucX;
-    }
+	public long getMocThoiGianSuKien() {
+		return mocThoiGianSuKien;
+	}
 
-    // Lay danh sach truc Y
-    public List<Double> getTrucY() {
-        return trucY;
-    }
+	public int getKichThuocMau() {
+		return trucX.length;
+	} // Dùng .length thay cho .size()
 
-    // Lay danh sach truc Z
-    public List<Double> getTrucZ() {
-        return trucZ;
-    }
+	public double[] getTrucX() {
+		return trucX;
+	}
 
-    
+	public double[] getTrucY() {
+		return trucY;
+	}
 
-    // Chuyen doi thanh chuoi de in ra
-    @Override
-    public String toString() {
-        return "GiaToc["
-                + "trucX=" + trucX
-                + ", trucY=" + trucY
-                + ", trucZ=" + trucZ
-                + "]";
-    }
+	public double[] getTrucZ() {
+		return trucZ;
+	}
+
+	@Override
+	public String toString() {
+	    return "GiaToc[" +
+	           "trucX=" + Arrays.toString(trucX) +
+	           ", trucY=" + Arrays.toString(trucY) +
+	           ", trucZ=" + Arrays.toString(trucZ) +
+	           "]";
+	}
 }

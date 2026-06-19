@@ -21,7 +21,8 @@ public abstract class QuyTac {
 
 		return null;
 	}
-
+	
+    public abstract String getLoaiCuaSoCanThiet();
 	protected abstract boolean duDieuKien(CuaSoTruot cuaSo);
 
 	protected abstract boolean kiemTraChiTiet(DongVat dv, CuaSoTruot cuaSo, ThuVienDinhMucSinhHoc dinhMuc);

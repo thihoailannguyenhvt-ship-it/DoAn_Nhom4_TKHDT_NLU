@@ -6,236 +6,195 @@ import java.time.format.DateTimeFormatter;
 import java.util.ArrayList;
 import java.util.List;
 
-// Lop chuyen doi du lieu tho thanh du lieu co cau truc
+
 public class BoChuyenDoiDuLieu {
 
-    // Dinh dang nguon du lieu
-    private String dinhDangNguon;
+    
+    private final String dinhDangNguon;
+    private final String kyTuPhanCach;
 
-    // Ky tu phan cach
-    private String kyTuPhanCach;
-
-    // Bo kiem tra du lieu
-    private BoKiemTraDuLieu boKiemTra;
-
-    // Ham khoi tao
-    public BoChuyenDoiDuLieu(String dinhDangNguon,
-                             String kyTuPhanCach,
-                             BoKiemTraDuLieu boKiemTra) {
-
+   
+    public BoChuyenDoiDuLieu(String dinhDangNguon, String kyTuPhanCach) {
+        if (kyTuPhanCach == null || kyTuPhanCach.isEmpty()) {
+            throw new IllegalArgumentException("Loi kieu: Ky tu phan cach dong du lieu khong duoc de trong.");
+        }
         this.dinhDangNguon = dinhDangNguon;
         this.kyTuPhanCach = kyTuPhanCach;
-        this.boKiemTra = boKiemTra;
     }
 
-    // Chuyen du lieu tho thanh ban ghi gia toc
+  
     public BanGhiGiaTocBD chuyenDoiGiaToc(String rawLine) throws NgoaiLeDuLieuLoi {
-
         if (rawLine == null || rawLine.trim().isEmpty()) {
-            throw new NgoaiLeDuLieuLoi("Dong du lieu rong");
+            throw new NgoaiLeDuLieuLoi("Loi dong bo: Dong du lieu thô truyen vao bi rong.");
         }
 
         String[] parts = rawLine.split(kyTuPhanCach, -1);
-
         if (parts.length < 12) {
-            throw new NgoaiLeDuLieuLoi(rawLine);
+            throw new NgoaiLeDuLieuLoi("Loi cau truc: Dong du lieu thieu cot thuoc tinh bat buoc: " + rawLine);
         }
 
         try {
+            long thoiDiemSuKien = chuyenTimestampSangMillis(parts[2].trim());
+            String idConVat = parts[11].trim();
+            if (!BoKiemTraDuLieu.laIdHopLe(idConVat)) {
+                idConVat = "ANIMAL_001";
+            }
 
-            // Cot 2 la timestamp
-            long thoiDiem = chuyenTimestampSangMillis(parts[2].trim());
-
-            // Cot 5 la accelerations-raw
             String rawAcc = parts[5].trim();
-
             if (rawAcc.isEmpty()) {
-                throw new NgoaiLeDuLieuLoi(rawLine);
+                throw new NgoaiLeDuLieuLoi("Loi cam bien: Chuoi gia toc truc X,Y,Z trong: " + rawLine);
             }
 
             String[] values = rawAcc.split("\\s+");
-
-            List<Double> trucX = new ArrayList<>();
-            List<Double> trucY = new ArrayList<>();
-            List<Double> trucZ = new ArrayList<>();
+            List<Double> listX = new ArrayList<>();
+            List<Double> listY = new ArrayList<>();
+            List<Double> listZ = new ArrayList<>();
 
             for (int i = 0; i + 2 < values.length; i += 3) {
-
-                trucX.add(Double.parseDouble(values[i]));
-                trucY.add(Double.parseDouble(values[i + 1]));
-                trucZ.add(Double.parseDouble(values[i + 2]));
+                listX.add(Double.parseDouble(values[i]));
+                listY.add(Double.parseDouble(values[i + 1]));
+                listZ.add(Double.parseDouble(values[i + 2]));
             }
 
-            if (trucX.isEmpty()) {
-                throw new NgoaiLeDuLieuLoi(rawLine);
+            if (listX.isEmpty()) {
+                throw new NgoaiLeDuLieuLoi("Loi phan tich: Khong trich xuat duoc mau gia toc nao.");
             }
 
-            return new BanGhiGiaTocBD(
-                    thoiDiem,
-                    trucX,
-                    trucY,
-                    trucZ
-            );
+            
+            double[] arrX = listX.stream().mapToDouble(Double::doubleValue).toArray();
+            double[] arrY = listY.stream().mapToDouble(Double::doubleValue).toArray();
+            double[] arrZ = listZ.stream().mapToDouble(Double::doubleValue).toArray();
+
+            
+            return new BanGhiGiaTocBD(idConVat, thoiDiemSuKien, arrX, arrY, arrZ);
 
         } catch (NgoaiLeDuLieuLoi e) {
-
             throw e;
-
         } catch (Exception e) {
-
-            throw new NgoaiLeDuLieuLoi(rawLine);
+            throw new NgoaiLeDuLieuLoi("Loi ngoai le parse du lieu dong: " + rawLine);
         }
     }
 
-    // Chuyen raw GPS dang "viDo;kinhDo" thanh toa do
+   
     public ToaDo chuyenDoiToaDo(String rawLine) throws NgoaiLeDuLieuLoi {
-
         if (rawLine == null || rawLine.trim().isEmpty()) {
-            throw new NgoaiLeDuLieuLoi("Dong GPS rong");
+            throw new NgoaiLeDuLieuLoi("Loi: Chuoi toa do doc lap bi rong.");
         }
 
         String[] parts = rawLine.split(kyTuPhanCach, -1);
 
         try {
-
             double viDo = Double.parseDouble(parts[0].trim());
             double kinhDo = Double.parseDouble(parts[1].trim());
 
-            ToaDo toaDo = new ToaDo(viDo, kinhDo);
-
-            if (!boKiemTra.laToaDoVatly(toaDo)) {
-                throw new NgoaiLeDuLieuLoi(rawLine);
+           
+            if (!BoKiemTraDuLieu.laToaDoHopLe(viDo, kinhDo)) {
+                throw new NgoaiLeDuLieuLoi("Toa do vuot bien vat ly trai dat: " + rawLine);
             }
 
-            return toaDo;
-
+            return new ToaDo(viDo, kinhDo);
         } catch (Exception e) {
-
-            throw new NgoaiLeDuLieuLoi(rawLine);
+            throw new NgoaiLeDuLieuLoi("Loi định dang chuoi toa do thô: " + rawLine);
         }
     }
 
-    // Chuyen doi toa do tu dong CSV
-    // File CSV co cac cot goc 0-12 va them viDo, kinhDo o cuoi file
+  
     public ToaDo chuyenDoiToaDoTuDongCSV(String rawLine) throws NgoaiLeDuLieuLoi {
-
         if (rawLine == null || rawLine.trim().isEmpty()) {
-            throw new NgoaiLeDuLieuLoi("Dong du lieu rong");
+            throw new NgoaiLeDuLieuLoi("Loi dong du lieu rong.");
         }
 
         String[] parts = rawLine.split(kyTuPhanCach, -1);
 
         try {
-
-            // Neu file co them 2 cot viDo va kinhDo o cuoi
-            if (parts.length >= 15) {
-
-                // Cot ke cuoi la viDo
+            
+            if (parts.length >= 14) {
+                
                 double viDo = Double.parseDouble(parts[parts.length - 2].trim());
-
-                // Cot cuoi la kinhDo
                 double kinhDo = Double.parseDouble(parts[parts.length - 1].trim());
 
-                ToaDo toaDo = new ToaDo(viDo, kinhDo);
-
-                if (!boKiemTra.laToaDoVatly(toaDo)) {
-                    throw new NgoaiLeDuLieuLoi(rawLine);
+                if (!BoKiemTraDuLieu.laToaDoHopLe(viDo, kinhDo)) {
+                    throw new NgoaiLeDuLieuLoi("Toa do trong file CSV sai vi tri vat ly.");
                 }
 
-                return toaDo;
+                return new ToaDo(viDo, kinhDo);
             }
-
-            // Neu file khong co GPS thi bao loi de ben DieuPhoiDongBo noi suy
-            throw new NgoaiLeDuLieuLoi("Khong co cot GPS trong CSV");
+            throw new NgoaiLeDuLieuLoi("Khong co du cot GPS mo rong trong file CSV.");
 
         } catch (NgoaiLeDuLieuLoi e) {
-
             throw e;
-
         } catch (Exception e) {
-
-            throw new NgoaiLeDuLieuLoi(rawLine);
+            throw new NgoaiLeDuLieuLoi("Loi trich xuat toa do tu dong CSV: " + rawLine);
         }
     }
 
-    // Kiem tra dong CSV co GPS khong
+   
     public boolean coGPS(String rawLine) {
-
         if (rawLine == null || rawLine.trim().isEmpty()) {
             return false;
         }
 
         String[] parts = rawLine.split(kyTuPhanCach, -1);
-
-        // File co GPS khi co it nhat 15 cot
-        if (parts.length < 15) {
-            return false;
+        if (parts.length < 14) {
+            return false; 
         }
 
         try {
-
+           
             Double.parseDouble(parts[parts.length - 2].trim());
             Double.parseDouble(parts[parts.length - 1].trim());
-
             return true;
-
         } catch (Exception e) {
-
             return false;
         }
     }
 
-    // Trich xuat ID con vat
+    
     public String trichXuatIDConVat(String rawLine) throws NgoaiLeDuLieuLoi {
-
         if (rawLine == null || rawLine.trim().isEmpty()) {
-            throw new NgoaiLeDuLieuLoi("Dong du lieu rong");
+            throw new NgoaiLeDuLieuLoi("Dong thô rong.");
         }
 
         String[] parts = rawLine.split(kyTuPhanCach, -1);
-
         if (parts.length >= 12 && !parts[11].trim().isEmpty()) {
             return parts[11].trim();
         }
-
         return "ANIMAL_001";
     }
 
-    // Trich xuat thoi diem su kien
+ 
     public long trichXuatThoiDiemSuKien(String rawLine) throws NgoaiLeDuLieuLoi {
-
         if (rawLine == null || rawLine.trim().isEmpty()) {
-            throw new NgoaiLeDuLieuLoi("Dong du lieu rong");
+            throw new NgoaiLeDuLieuLoi("Dong thô de lay thoi gian bi rong.");
         }
 
         String[] parts = rawLine.split(kyTuPhanCach, -1);
-
         if (parts.length < 3) {
-            throw new NgoaiLeDuLieuLoi(rawLine);
+            throw new NgoaiLeDuLieuLoi("Thieu truong thoi gian su kien: " + rawLine);
         }
 
         return chuyenTimestampSangMillis(parts[2].trim());
     }
 
-    // Chuyen timestamp dang yyyy-MM-dd HH:mm:ss.SSS sang milliseconds
+   
     private long chuyenTimestampSangMillis(String timestamp) throws NgoaiLeDuLieuLoi {
-
         try {
-
-            DateTimeFormatter formatter =
-                    DateTimeFormatter.ofPattern("yyyy-MM-dd HH:mm:ss.SSS");
-
-            LocalDateTime localDateTime =
-                    LocalDateTime.parse(timestamp, formatter);
-
+            DateTimeFormatter formatter = DateTimeFormatter.ofPattern("yyyy-MM-dd HH:mm:ss.SSS");
+            LocalDateTime localDateTime = LocalDateTime.parse(timestamp, formatter);
+            
             return localDateTime
                     .atZone(ZoneId.systemDefault())
                     .toInstant()
                     .toEpochMilli();
-
         } catch (Exception e) {
+            throw new NgoaiLeDuLieuLoi("Sai dinh dang thoi gian chuan: " + timestamp);
+        }
+    }
 
-            throw new NgoaiLeDuLieuLoi(timestamp);
+    
+    public static class NgoaiLeDuLieuLoi extends Exception {
+        public NgoaiLeDuLieuLoi(String thongBao) {
+            super(thongBao);
         }
     }
 }

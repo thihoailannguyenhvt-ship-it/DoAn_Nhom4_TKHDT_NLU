@@ -8,15 +8,12 @@ import java.util.List;
 
 public class TxtDataInitializer {
 
-    /**
-     * Hàm đọc file TXT bằng Java thuần để nạp tọa độ vùng tĩnh lên RAM
-     * @param duongDanFileTxt Đường dẫn tới file vung_tinh_config.txt
-     */
+    
     public static void napCauHinhVungTinhTuTxt(String duongDanFileTxt) {
         KhoLuuTruKhongGian khoRAM = KhoLuuTruKhongGian.getInstance();
         String line = "";
         
-        // Sử dụng dấu | làm ký hiệu cắt cột dữ liệu
+       
         String splitDelimiter = "\\|"; 
 
         try (BufferedReader br = new BufferedReader(new FileReader(duongDanFileTxt))) {
@@ -24,10 +21,10 @@ public class TxtDataInitializer {
             System.out.println(">>> [HỆ THỐNG] Đang nạp cấu hình vùng tĩnh từ file TXT thuần...");
 
             while ((line = br.readLine()) != null) {
-                // Bỏ qua dòng trống nếu có
+              
                 if (line.trim().isEmpty()) continue;
 
-                // Cắt dòng thành các phần dựa vào dấu |
+                
                 String[] data = line.split(splitDelimiter);
                 if (data.length < 6) continue;
 
@@ -38,15 +35,15 @@ public class TxtDataInitializer {
                 double viDoTam = Double.parseDouble(data[4]);
                 double banKinhMet = Double.parseDouble(data[5]);
 
-                // Xử lý chuỗi tọa độ các đỉnh ở cột cuối cùng (nếu có)
+                
                 List<Diem> danhSachDinh = new ArrayList<>();
                 if (data.length == 7 && !data[6].trim().isEmpty()) {
-                    String chuoiToaDoRaw = data[6]; // Ví dụ: "107.4270,11.4210;107.4320,11.4210"
+                    String chuoiToaDoRaw = data[6]; 
                     
-                    // Bước A: Cắt bằng dấu chấm phẩy để lấy từng đỉnh ";"
+                    
                     String[] mangCacDinh = chuoiToaDoRaw.split(";");
                     for (String dinhRaw : mangCacDinh) {
-                        // Bước B: Cắt bằng dấu phẩy để lấy Kinh độ và Vĩ độ ","
+                        
                         String[] kinhVi = dinhRaw.split(",");
                         if (kinhVi.length == 2) {
                             double lon = Double.parseDouble(kinhVi[0]);
@@ -56,7 +53,6 @@ public class TxtDataInitializer {
                     }
                 }
 
-                // Dùng Factory để đúc đối tượng hình học tương ứng
                 VungKhongGian vungMoi = null;
                 Diem tam = new Diem(kinhDoTam, viDoTam);
 
@@ -73,7 +69,7 @@ public class TxtDataInitializer {
                         break;
                 }
 
-                // Đẩy đối tượng vào kho RAM duy nhất của hệ thống
+               
                 if (vungMoi != null) {
                     khoRAM.themVung(vungMoi);
                     System.out.println("   + Đã nạp thành công lên RAM vùng: " + vungMoi.getTenVung());

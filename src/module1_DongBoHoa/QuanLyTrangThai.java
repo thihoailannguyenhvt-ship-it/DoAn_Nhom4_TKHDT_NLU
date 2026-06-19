@@ -1,35 +1,45 @@
 package module1_DongBoHoa;
 
-// Lop quan ly trang thai GPS cuoi cung
+
+import java.util.concurrent.locks.ReentrantLock;
+
+
 public class QuanLyTrangThai {
 
-    // Vi tri cuoi cung
     private ToaDo viTriCuoiCung;
+    private long thoiDiemGpsCuoi = -1; 
+    private final ReentrantLock lock = new ReentrantLock();
 
-    // Thoi diem GPS cuoi cung
-    private long thoiDiemGpsCuoi;
-
-    // Luu vet vi tri va thoi diem moi nhat
+   
     public void luuVet(ToaDo viTri, long thoiDiem) {
-
-        // Gan vi tri cuoi cung
-        this.viTriCuoiCung = viTri;
-
-        // Gan thoi diem GPS cuoi
-        this.thoiDiemGpsCuoi = thoiDiem;
+        lock.lock();
+        try {
+          
+            if (viTri != null && thoiDiem > this.thoiDiemGpsCuoi) {
+                this.viTriCuoiCung = viTri;
+                this.thoiDiemGpsCuoi = thoiDiem;
+            }
+        } finally {
+            lock.unlock();
+        }
     }
 
-    // Lay vi tri cuoi cung
+   
     public ToaDo layViTriCuoi() {
-
-        // Tra ve vi tri cuoi cung
-        return viTriCuoiCung;
+        lock.lock();
+        try {
+            return this.viTriCuoiCung;
+        } finally {
+            lock.unlock();
+        }
     }
 
-    // Lay thoi diem GPS cuoi
-    public long getThoiDiemGpsCuoi() {
+   
+    public boolean daCoDuLieu() {
+        return this.thoiDiemGpsCuoi != -1;
+    }
 
-        // Tra ve thoi diem GPS cuoi
+    public long getThoiDiemGpsCuoi() {
         return thoiDiemGpsCuoi;
     }
 }

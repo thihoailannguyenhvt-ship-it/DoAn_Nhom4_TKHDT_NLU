@@ -1,182 +1,30 @@
 ========================================
-ID con vat              : 001-LonRung-CT
-Vi tri                  : (11.435684, 107.442002)
-ID vung                 : KHONG_GIAO_THOA
-Loai Vung               : KHONG_XAC_DINH
-Phan tram giao thoa     : 0.00%
-Nguy co khong gian      : ANTOAN
-----------------------------------------
-========================================
-ID con vat              : 001-LonRung-CT
-Vi tri                  : (11.435689, 107.442007)
-ID vung                 : KHONG_GIAO_THOA
-Loai Vung               : KHONG_XAC_DINH
-Phan tram giao thoa     : 0.00%
-Nguy co khong gian      : ANTOAN
-----------------------------------------
-========================================
-ID con vat              : 001-LonRung-CT
-Vi tri                  : (11.435694, 107.442012)
-ID vung                 : KHONG_GIAO_THOA
-Loai Vung               : KHONG_XAC_DINH
-Phan tram giao thoa     : 0.00%
-Nguy co khong gian      : ANTOAN
-----------------------------------------
-========================================
-ID con vat              : 001-LonRung-CT
-Vi tri                  : (11.435699, 107.442017)
-ID vung                 : KHONG_GIAO_THOA
-Loai Vung               : KHONG_XAC_DINH
-Phan tram giao thoa     : 0.00%
-Nguy co khong gian      : ANTOAN
-----------------------------------------
-========================================
-ID con vat              : 001-LonRung-CT
-Vi tri                  : (11.435704, 107.442022)
-ID vung                 : KHONG_GIAO_THOA
-Loai Vung               : KHONG_XAC_DINH
-Phan tram giao thoa     : 0.00%
-Nguy co khong gian      : ANTOAN
-----------------------------------------
-========================================
-ID con vat              : 001-LonRung-CT
-Vi tri                  : (11.435709, 107.442027)
-ID vung                 : KHONG_GIAO_THOA
-Loai Vung               : KHONG_XAC_DINH
-Phan tram giao thoa     : 0.00%
-Nguy co khong gian      : ANTOAN
-----------------------------------------
-========================================
-ID con vat              : 001-LonRung-CT
-Vi tri                  : (11.435714, 107.442032)
-ID vung                 : KHONG_GIAO_THOA
-Loai Vung               : KHONG_XAC_DINH
-Phan tram giao thoa     : 0.00%
-Nguy co khong gian      : ANTOAN
-----------------------------------------
-========================================
-ID con vat              : 001-LonRung-CT
-Vi tri                  : (11.435719, 107.442037)
-ID vung                 : KHONG_GIAO_THOA
-Loai Vung               : KHONG_XAC_DINH
-Phan tram giao thoa     : 0.00%
-Nguy co khong gian      : ANTOAN
-----------------------------------------
-========================================
-ID con vat              : 001-LonRung-BD
-Vi tri                  : (11.445166, 107.450240)
-ID vung                 : D01
-Loai Vung               : TUYEN_DUONG_DU_LICH
-Phan tram giao thoa     : 100.00%
-Nguy co khong gian      : NGUYCAP
-----------------------------------------
-========================================
-ID con vat              : 001-LonRung-BD
-Vi tri                  : (11.431000, 107.437240)
-ID vung                 : KHONG_GIAO_THOA
-Loai Vung               : KHONG_XAC_DINH
-Phan tram giao thoa     : 0.00%
-Nguy co khong gian      : ANTOAN
-----------------------------------------
-========================================
-ID con vat              : 001-LonRung-BD
-Vi tri                  : (11.435956, 107.442500)
-ID vung                 : KHONG_GIAO_THOA
-Loai Vung               : KHONG_XAC_DINH
-Phan tram giao thoa     : 0.00%
-Nguy co khong gian      : ANTOAN
-----------------------------------------
-========================================
-ID con vat              : 001-LonRung-BD
-Vi tri                  : (11.422463, 107.428921)
+ID con vat              : 001-LonRung-DN
+Vi tri                  : (11.422179, 107.428679)
 ID vung                 : K01
 Loai Vung               : KHU_DAN_CU
-Phan tram giao thoa     : 56.77%
+Phan tram giao thoa     : 50.72%
+Nguy co khong gian      : CANHBAO
+----------------------------------------
+========================================
+ID con vat              : 003-NaiRung-BD
+Vi tri                  : (11.422179, 107.428679)
+ID vung                 : K01
+Loai Vung               : KHU_DAN_CU
+Phan tram giao thoa     : 50.72%
 Nguy co khong gian      : CANHBAO
 ----------------------------------------
 ========================================
 ID con vat              : 001-LonRung-BD
-Vi tri                  : (11.447600, 107.457114)
-ID vung                 : D01
-Loai Vung               : TUYEN_DUONG_DU_LICH
-Phan tram giao thoa     : 100.00%
-Nguy co khong gian      : NGUYCAP
-----------------------------------------
-========================================
-ID con vat              : 001-LonRung-DN
-Vi tri                  : (11.445809, 107.449898)
-ID vung                 : D01
-Loai Vung               : TUYEN_DUONG_DU_LICH
-Phan tram giao thoa     : 100.00%
-Nguy co khong gian      : NGUYCAP
-----------------------------------------
-========================================
-ID con vat              : 001-LonRung-DN
-Vi tri                  : (11.430406, 107.437700)
+Vi tri                  : (11.423536, 107.420701)
 ID vung                 : KHONG_GIAO_THOA
 Loai Vung               : KHONG_XAC_DINH
 Phan tram giao thoa     : 0.00%
 Nguy co khong gian      : ANTOAN
 ----------------------------------------
 ========================================
-ID con vat              : 001-LonRung-DN
-Vi tri                  : (11.435836, 107.442243)
-ID vung                 : KHONG_GIAO_THOA
-Loai Vung               : KHONG_XAC_DINH
-Phan tram giao thoa     : 0.00%
-Nguy co khong gian      : ANTOAN
-----------------------------------------
-========================================
-ID con vat              : 001-LonRung-DN
-Vi tri                  : (11.422179, 107.428719)
-ID vung                 : K01
-Loai Vung               : KHU_DAN_CU
-Phan tram giao thoa     : 51.18%
-Nguy co khong gian      : CANHBAO
-----------------------------------------
-========================================
-ID con vat              : 001-LonRung-DN
-Vi tri                  : (11.447766, 107.456910)
-ID vung                 : D01
-Loai Vung               : TUYEN_DUONG_DU_LICH
-Phan tram giao thoa     : 100.00%
-Nguy co khong gian      : NGUYCAP
-----------------------------------------
-========================================
-ID con vat              : 001-LonRung-DL
-Vi tri                  : (11.445562, 107.450011)
-ID vung                 : D01
-Loai Vung               : TUYEN_DUONG_DU_LICH
-Phan tram giao thoa     : 100.00%
-Nguy co khong gian      : NGUYCAP
-----------------------------------------
-========================================
-ID con vat              : 001-LonRung-DL
-Vi tri                  : (11.430636, 107.437543)
-ID vung                 : KHONG_GIAO_THOA
-Loai Vung               : KHONG_XAC_DINH
-Phan tram giao thoa     : 0.00%
-Nguy co khong gian      : ANTOAN
-----------------------------------------
-========================================
-ID con vat              : 001-LonRung-DL
-Vi tri                  : (11.436212, 107.443111)
-ID vung                 : KHONG_GIAO_THOA
-Loai Vung               : KHONG_XAC_DINH
-Phan tram giao thoa     : 0.00%
-Nguy co khong gian      : ANTOAN
-----------------------------------------
-========================================
-ID con vat              : 001-LonRung-DL
-Vi tri                  : (11.422935, 107.429299)
-ID vung                 : K01
-Loai Vung               : KHU_DAN_CU
-Phan tram giao thoa     : 61.52%
-Nguy co khong gian      : CANHBAO
-----------------------------------------
-========================================
-ID con vat              : 002-HuouVang-CT
-Vi tri                  : (11.440000, 107.446240)
+ID con vat              : 001-LonRung-CT
+Vi tri                  : (11.420516, 107.423401)
 ID vung                 : KHONG_GIAO_THOA
 Loai Vung               : KHONG_XAC_DINH
 Phan tram giao thoa     : 0.00%
@@ -184,79 +32,63 @@ Nguy co khong gian      : ANTOAN
 ----------------------------------------
 ========================================
 ID con vat              : 002-HuouVang-CT
-Vi tri                  : (11.446300, 107.449574)
-ID vung                 : D01
-Loai Vung               : TUYEN_DUONG_DU_LICH
-Phan tram giao thoa     : 100.00%
-Nguy co khong gian      : NGUYCAP
-----------------------------------------
-========================================
-ID con vat              : 002-HuouVang-CT
-Vi tri                  : (11.429962, 107.438111)
-ID vung                 : KHONG_GIAO_THOA
-Loai Vung               : KHONG_XAC_DINH
-Phan tram giao thoa     : 0.00%
-Nguy co khong gian      : ANTOAN
-----------------------------------------
-========================================
-ID con vat              : 002-HuouVang-CT
-Vi tri                  : (11.436070, 107.442794)
-ID vung                 : KHONG_GIAO_THOA
-Loai Vung               : KHONG_XAC_DINH
-Phan tram giao thoa     : 0.00%
-Nguy co khong gian      : ANTOAN
-----------------------------------------
-========================================
-ID con vat              : 002-HuouVang-CT
-Vi tri                  : (11.422715, 107.429102)
+Vi tri                  : (11.422179, 107.428679)
 ID vung                 : K01
 Loai Vung               : KHU_DAN_CU
-Phan tram giao thoa     : 59.87%
+Phan tram giao thoa     : 50.72%
 Nguy co khong gian      : CANHBAO
 ----------------------------------------
 ========================================
-ID con vat              : 002-HuouVang-BD
-Vi tri                  : (11.447396, 107.457324)
-ID vung                 : D01
-Loai Vung               : TUYEN_DUONG_DU_LICH
-Phan tram giao thoa     : 100.00%
-Nguy co khong gian      : NGUYCAP
-----------------------------------------
-========================================
-ID con vat              : 002-HuouVang-BD
-Vi tri                  : (11.446066, 107.449750)
-ID vung                 : D01
-Loai Vung               : TUYEN_DUONG_DU_LICH
-Phan tram giao thoa     : 100.00%
-Nguy co khong gian      : NGUYCAP
-----------------------------------------
-========================================
-ID con vat              : 002-HuouVang-BD
-Vi tri                  : (11.430170, 107.437894)
-ID vung                 : KHONG_GIAO_THOA
-Loai Vung               : KHONG_XAC_DINH
-Phan tram giao thoa     : 0.00%
-Nguy co khong gian      : ANTOAN
-----------------------------------------
-========================================
-ID con vat              : 002-HuouVang-BD
-Vi tri                  : (11.436389, 107.443418)
-ID vung                 : KHONG_GIAO_THOA
-Loai Vung               : KHONG_XAC_DINH
-Phan tram giao thoa     : 0.00%
-Nguy co khong gian      : ANTOAN
-----------------------------------------
-========================================
-ID con vat              : 002-HuouVang-BD
-Vi tri                  : (11.423149, 107.429533)
+ID con vat              : 006-KhiDuoiLon-BD
+Vi tri                  : (11.422179, 107.428679)
 ID vung                 : K01
 Loai Vung               : KHU_DAN_CU
-Phan tram giao thoa     : 60.98%
+Phan tram giao thoa     : 50.72%
 Nguy co khong gian      : CANHBAO
 ----------------------------------------
 ========================================
-ID con vat              : 002-HuouVang-DN
-Vi tri                  : (11.439874, 107.446042)
+ID con vat              : 005-SonDuong-DL
+Vi tri                  : (11.422179, 107.428679)
+ID vung                 : K01
+Loai Vung               : KHU_DAN_CU
+Phan tram giao thoa     : 50.72%
+Nguy co khong gian      : CANHBAO
+----------------------------------------
+========================================
+ID con vat              : 004-BoTot-CT
+Vi tri                  : (11.411342, 107.437923)
+ID vung                 : KHONG_GIAO_THOA
+Loai Vung               : KHONG_XAC_DINH
+Phan tram giao thoa     : 0.00%
+Nguy co khong gian      : ANTOAN
+----------------------------------------
+========================================
+ID con vat              : 001-LonRung-BD
+Vi tri                  : (11.365646, 107.439370)
+ID vung                 : KHONG_GIAO_THOA
+Loai Vung               : KHONG_XAC_DINH
+Phan tram giao thoa     : 0.00%
+Nguy co khong gian      : ANTOAN
+----------------------------------------
+========================================
+ID con vat              : 003-NaiRung-CT
+Vi tri                  : (11.422815, 107.441682)
+ID vung                 : KHONG_GIAO_THOA
+Loai Vung               : KHONG_XAC_DINH
+Phan tram giao thoa     : 0.00%
+Nguy co khong gian      : ANTOAN
+----------------------------------------
+========================================
+ID con vat              : 001-LonRung-CT
+Vi tri                  : (11.391654, 107.428558)
+ID vung                 : KHONG_GIAO_THOA
+Loai Vung               : KHONG_XAC_DINH
+Phan tram giao thoa     : 0.00%
+Nguy co khong gian      : ANTOAN
+----------------------------------------
+========================================
+ID con vat              : 001-LonRung-CT
+Vi tri                  : (11.389862, 107.401494)
 ID vung                 : KHONG_GIAO_THOA
 Loai Vung               : KHONG_XAC_DINH
 Phan tram giao thoa     : 0.00%
@@ -264,103 +96,39 @@ Nguy co khong gian      : ANTOAN
 ----------------------------------------
 ========================================
 ID con vat              : 002-HuouVang-DN
-Vi tri                  : (11.446496, 107.449404)
-ID vung                 : D01
-Loai Vung               : TUYEN_DUONG_DU_LICH
-Phan tram giao thoa     : 100.00%
-Nguy co khong gian      : NGUYCAP
-----------------------------------------
-========================================
-ID con vat              : 002-HuouVang-DN
-Vi tri                  : (11.429789, 107.438318)
+Vi tri                  : (11.443517, 107.417970)
 ID vung                 : KHONG_GIAO_THOA
 Loai Vung               : KHONG_XAC_DINH
 Phan tram giao thoa     : 0.00%
 Nguy co khong gian      : ANTOAN
 ----------------------------------------
 ========================================
-ID con vat              : 002-HuouVang-DN
-Vi tri                  : (11.436740, 107.443934)
+ID con vat              : 008-CheoCheo-DN
+Vi tri                  : (11.438513, 107.408528)
 ID vung                 : KHONG_GIAO_THOA
 Loai Vung               : KHONG_XAC_DINH
 Phan tram giao thoa     : 0.00%
 Nguy co khong gian      : ANTOAN
 ----------------------------------------
 ========================================
-ID con vat              : 003-NaiRung-CT
-Vi tri                  : (11.423668, 107.430037)
+ID con vat              : 007-MangLon-CT
+Vi tri                  : (11.422179, 107.428679)
 ID vung                 : K01
 Loai Vung               : KHU_DAN_CU
-Phan tram giao thoa     : 55.10%
+Phan tram giao thoa     : 50.72%
 Nguy co khong gian      : CANHBAO
 ----------------------------------------
 ========================================
-ID con vat              : 003-NaiRung-CT
-Vi tri                  : (11.439526, 107.445620)
-ID vung                 : T01
-Loai Vung               : TRAM_QUAN_SAT
-Phan tram giao thoa     : 1.68%
-Nguy co khong gian      : ANTOAN
-----------------------------------------
-========================================
-ID con vat              : 003-NaiRung-CT
-Vi tri                  : (11.426714, 107.432622)
-ID vung                 : K01
-Loai Vung               : KHU_DAN_CU
-Phan tram giao thoa     : 0.26%
-Nguy co khong gian      : ANTOAN
-----------------------------------------
-========================================
-ID con vat              : 003-NaiRung-CT
-Vi tri                  : (11.429440, 107.438634)
+ID con vat              : 004-BoTot-DN
+Vi tri                  : (11.422442, 107.411686)
 ID vung                 : KHONG_GIAO_THOA
 Loai Vung               : KHONG_XAC_DINH
 Phan tram giao thoa     : 0.00%
 Nguy co khong gian      : ANTOAN
 ----------------------------------------
 ========================================
-ID con vat              : 003-NaiRung-CT
-Vi tri                  : (11.436576, 107.443690)
-ID vung                 : KHONG_GIAO_THOA
-Loai Vung               : KHONG_XAC_DINH
-Phan tram giao thoa     : 0.00%
-Nguy co khong gian      : ANTOAN
-----------------------------------------
-========================================
-ID con vat              : 003-NaiRung-BD
-Vi tri                  : (11.423391, 107.429790)
-ID vung                 : K01
-Loai Vung               : KHU_DAN_CU
-Phan tram giao thoa     : 58.72%
-Nguy co khong gian      : CANHBAO
-----------------------------------------
-========================================
-ID con vat              : 003-NaiRung-BD
-Vi tri                  : (11.439716, 107.445823)
-ID vung                 : T01
-Loai Vung               : TRAM_QUAN_SAT
-Phan tram giao thoa     : 0.11%
-Nguy co khong gian      : ANTOAN
-----------------------------------------
-========================================
-ID con vat              : 003-NaiRung-BD
-Vi tri                  : (11.426500, 107.432840)
-ID vung                 : K01
-Loai Vung               : KHU_DAN_CU
-Phan tram giao thoa     : 0.48%
-Nguy co khong gian      : ANTOAN
-----------------------------------------
-========================================
-ID con vat              : 003-NaiRung-BD
-Vi tri                  : (11.429626, 107.438490)
-ID vung                 : KHONG_GIAO_THOA
-Loai Vung               : KHONG_XAC_DINH
-Phan tram giao thoa     : 0.00%
-Nguy co khong gian      : ANTOAN
-----------------------------------------
-========================================
-ID con vat              : 003-NaiRung-BD
-Vi tri                  : (11.436866, 107.444184)
+ID con vat              : 002-HuouVang-CT
+Vi tri                  : (11.414609, 107.408603)
 ID vung                 : KHONG_GIAO_THOA
 Loai Vung               : KHONG_XAC_DINH
 Phan tram giao thoa     : 0.00%
@@ -368,159 +136,39 @@ Nguy co khong gian      : ANTOAN
 ----------------------------------------
 ========================================
 ID con vat              : 003-NaiRung-DL
-Vi tri                  : (11.423955, 107.430249)
-ID vung                 : K01
-Loai Vung               : KHU_DAN_CU
-Phan tram giao thoa     : 49.18%
-Nguy co khong gian      : TIENCANHBAO
-----------------------------------------
-========================================
-ID con vat              : 003-NaiRung-DL
-Vi tri                  : (11.439330, 107.445454)
-ID vung                 : T01
-Loai Vung               : TRAM_QUAN_SAT
-Phan tram giao thoa     : 3.36%
-Nguy co khong gian      : ANTOAN
-----------------------------------------
-========================================
-ID con vat              : 003-NaiRung-DL
-Vi tri                  : (11.426896, 107.432383)
-ID vung                 : K01
-Loai Vung               : KHU_DAN_CU
-Phan tram giao thoa     : 0.08%
-Nguy co khong gian      : ANTOAN
-----------------------------------------
-========================================
-ID con vat              : 003-NaiRung-DL
-Vi tri                  : (11.429216, 107.438784)
+Vi tri                  : (11.395745, 107.406634)
 ID vung                 : KHONG_GIAO_THOA
 Loai Vung               : KHONG_XAC_DINH
 Phan tram giao thoa     : 0.00%
 Nguy co khong gian      : ANTOAN
 ----------------------------------------
 ========================================
-ID con vat              : 004-BoTot-CT
-Vi tri                  : (11.453500, 107.459740)
+ID con vat              : 001-LonRung-DL
+Vi tri                  : (11.359899, 107.407761)
 ID vung                 : KHONG_GIAO_THOA
 Loai Vung               : KHONG_XAC_DINH
 Phan tram giao thoa     : 0.00%
 Nguy co khong gian      : ANTOAN
 ----------------------------------------
 ========================================
-ID con vat              : 004-BoTot-CT
-Vi tri                  : (11.424219, 107.430433)
-ID vung                 : K01
-Loai Vung               : KHU_DAN_CU
-Phan tram giao thoa     : 42.93%
-Nguy co khong gian      : TIENCANHBAO
-----------------------------------------
-========================================
-ID con vat              : 004-BoTot-CT
-Vi tri                  : (11.439162, 107.445311)
-ID vung                 : T01
-Loai Vung               : TRAM_QUAN_SAT
-Phan tram giao thoa     : 4.88%
-Nguy co khong gian      : ANTOAN
-----------------------------------------
-========================================
-ID con vat              : 004-BoTot-CT
-Vi tri                  : (11.427046, 107.432160)
+ID con vat              : 001-LonRung-DN
+Vi tri                  : (11.351944, 107.418758)
 ID vung                 : KHONG_GIAO_THOA
 Loai Vung               : KHONG_XAC_DINH
 Phan tram giao thoa     : 0.00%
 Nguy co khong gian      : ANTOAN
 ----------------------------------------
 ========================================
-ID con vat              : 004-BoTot-DN
-Vi tri                  : (11.453654, 107.459882)
+ID con vat              : 003-NaiRung-BD
+Vi tri                  : (11.412301, 107.424513)
 ID vung                 : KHONG_GIAO_THOA
 Loai Vung               : KHONG_XAC_DINH
 Phan tram giao thoa     : 0.00%
 Nguy co khong gian      : ANTOAN
 ----------------------------------------
 ========================================
-ID con vat              : 004-BoTot-DN
-Vi tri                  : (11.424445, 107.430623)
-ID vung                 : K01
-Loai Vung               : KHU_DAN_CU
-Phan tram giao thoa     : 37.34%
-Nguy co khong gian      : TIENCANHBAO
-----------------------------------------
-========================================
-ID con vat              : 004-BoTot-DN
-Vi tri                  : (11.439029, 107.445158)
-ID vung                 : T01
-Loai Vung               : TRAM_QUAN_SAT
-Phan tram giao thoa     : 6.73%
-Nguy co khong gian      : ANTOAN
-----------------------------------------
-========================================
-ID con vat              : 004-BoTot-DN
-Vi tri                  : (11.427190, 107.431974)
-ID vung                 : KHONG_GIAO_THOA
-Loai Vung               : KHONG_XAC_DINH
-Phan tram giao thoa     : 0.00%
-Nguy co khong gian      : ANTOAN
-----------------------------------------
-========================================
-ID con vat              : 005-SonDuong-CT
-Vi tri                  : (11.453776, 107.460003)
-ID vung                 : KHONG_GIAO_THOA
-Loai Vung               : KHONG_XAC_DINH
-Phan tram giao thoa     : 0.00%
-Nguy co khong gian      : ANTOAN
-----------------------------------------
-========================================
-ID con vat              : 005-SonDuong-CT
-Vi tri                  : (11.424657, 107.430845)
-ID vung                 : K01
-Loai Vung               : KHU_DAN_CU
-Phan tram giao thoa     : 31.82%
-Nguy co khong gian      : TIENCANHBAO
-----------------------------------------
-========================================
-ID con vat              : 005-SonDuong-CT
-Vi tri                  : (11.438906, 107.444970)
-ID vung                 : T01
-Loai Vung               : TRAM_QUAN_SAT
-Phan tram giao thoa     : 9.31%
-Nguy co khong gian      : ANTOAN
-----------------------------------------
-========================================
-ID con vat              : 005-SonDuong-CT
-Vi tri                  : (11.427362, 107.431811)
-ID vung                 : KHONG_GIAO_THOA
-Loai Vung               : KHONG_XAC_DINH
-Phan tram giao thoa     : 0.00%
-Nguy co khong gian      : ANTOAN
-----------------------------------------
-========================================
-ID con vat              : 005-SonDuong-DL
-Vi tri                  : (11.453866, 107.460140)
-ID vung                 : KHONG_GIAO_THOA
-Loai Vung               : KHONG_XAC_DINH
-Phan tram giao thoa     : 0.00%
-Nguy co khong gian      : ANTOAN
-----------------------------------------
-========================================
-ID con vat              : 005-SonDuong-DL
-Vi tri                  : (11.449000, 107.455240)
-ID vung                 : D01
-Loai Vung               : TUYEN_DUONG_DU_LICH
-Phan tram giao thoa     : 100.00%
-Nguy co khong gian      : NGUYCAP
-----------------------------------------
-========================================
-ID con vat              : 005-SonDuong-DL
-Vi tri                  : (11.438760, 107.444754)
-ID vung                 : T01
-Loai Vung               : TRAM_QUAN_SAT
-Phan tram giao thoa     : 12.21%
-Nguy co khong gian      : ANTOAN
-----------------------------------------
-========================================
-ID con vat              : 005-SonDuong-DL
-Vi tri                  : (11.427569, 107.431638)
+ID con vat              : 008-CheoCheo-DN
+Vi tri                  : (11.426412, 107.389717)
 ID vung                 : KHONG_GIAO_THOA
 Loai Vung               : KHONG_XAC_DINH
 Phan tram giao thoa     : 0.00%
@@ -528,7 +176,199 @@ Nguy co khong gian      : ANTOAN
 ----------------------------------------
 ========================================
 ID con vat              : 006-KhiDuoiLon-CT
-Vi tri                  : (11.454062, 107.460511)
+Vi tri                  : (11.409626, 107.440973)
+ID vung                 : KHONG_GIAO_THOA
+Loai Vung               : KHONG_XAC_DINH
+Phan tram giao thoa     : 0.00%
+Nguy co khong gian      : ANTOAN
+----------------------------------------
+========================================
+ID con vat              : 005-SonDuong-CT
+Vi tri                  : (11.416824, 107.428001)
+ID vung                 : KHONG_GIAO_THOA
+Loai Vung               : KHONG_XAC_DINH
+Phan tram giao thoa     : 0.00%
+Nguy co khong gian      : ANTOAN
+----------------------------------------
+========================================
+ID con vat              : 001-LonRung-DL
+Vi tri                  : (11.335279, 107.442815)
+ID vung                 : KHONG_GIAO_THOA
+Loai Vung               : KHONG_XAC_DINH
+Phan tram giao thoa     : 0.00%
+Nguy co khong gian      : ANTOAN
+----------------------------------------
+========================================
+ID con vat              : 004-BoTot-CT
+Vi tri                  : (11.424757, 107.436316)
+ID vung                 : KHONG_GIAO_THOA
+Loai Vung               : KHONG_XAC_DINH
+Phan tram giao thoa     : 0.00%
+Nguy co khong gian      : ANTOAN
+----------------------------------------
+========================================
+ID con vat              : 001-LonRung-DN
+Vi tri                  : (11.383885, 107.443250)
+ID vung                 : KHONG_GIAO_THOA
+Loai Vung               : KHONG_XAC_DINH
+Phan tram giao thoa     : 0.00%
+Nguy co khong gian      : ANTOAN
+----------------------------------------
+========================================
+ID con vat              : 001-LonRung-BD
+Vi tri                  : (11.395732, 107.433351)
+ID vung                 : KHONG_GIAO_THOA
+Loai Vung               : KHONG_XAC_DINH
+Phan tram giao thoa     : 0.00%
+Nguy co khong gian      : ANTOAN
+----------------------------------------
+========================================
+ID con vat              : 003-NaiRung-CT
+Vi tri                  : (11.437683, 107.420286)
+ID vung                 : KHONG_GIAO_THOA
+Loai Vung               : KHONG_XAC_DINH
+Phan tram giao thoa     : 0.00%
+Nguy co khong gian      : ANTOAN
+----------------------------------------
+========================================
+ID con vat              : 001-LonRung-BD
+Vi tri                  : (11.384532, 107.403693)
+ID vung                 : KHONG_GIAO_THOA
+Loai Vung               : KHONG_XAC_DINH
+Phan tram giao thoa     : 0.00%
+Nguy co khong gian      : ANTOAN
+----------------------------------------
+========================================
+ID con vat              : 008-CheoCheo-DN
+Vi tri                  : (11.442507, 107.393816)
+ID vung                 : KHONG_GIAO_THOA
+Loai Vung               : KHONG_XAC_DINH
+Phan tram giao thoa     : 0.00%
+Nguy co khong gian      : ANTOAN
+----------------------------------------
+========================================
+ID con vat              : 005-SonDuong-DL
+Vi tri                  : (11.421422, 107.427596)
+ID vung                 : K01
+Loai Vung               : KHU_DAN_CU
+Phan tram giao thoa     : 26.99%
+Nguy co khong gian      : TIENCANHBAO
+----------------------------------------
+========================================
+ID con vat              : 002-HuouVang-BD
+Vi tri                  : (11.436730, 107.397445)
+ID vung                 : KHONG_GIAO_THOA
+Loai Vung               : KHONG_XAC_DINH
+Phan tram giao thoa     : 0.00%
+Nguy co khong gian      : ANTOAN
+----------------------------------------
+========================================
+ID con vat              : 004-BoTot-DN
+Vi tri                  : (11.437774, 107.399080)
+ID vung                 : KHONG_GIAO_THOA
+Loai Vung               : KHONG_XAC_DINH
+Phan tram giao thoa     : 0.00%
+Nguy co khong gian      : ANTOAN
+----------------------------------------
+========================================
+ID con vat              : 002-HuouVang-BD
+Vi tri                  : (11.444011, 107.398498)
+ID vung                 : KHONG_GIAO_THOA
+Loai Vung               : KHONG_XAC_DINH
+Phan tram giao thoa     : 0.00%
+Nguy co khong gian      : ANTOAN
+----------------------------------------
+========================================
+ID con vat              : 002-HuouVang-CT
+Vi tri                  : (11.430116, 107.397161)
+ID vung                 : KHONG_GIAO_THOA
+Loai Vung               : KHONG_XAC_DINH
+Phan tram giao thoa     : 0.00%
+Nguy co khong gian      : ANTOAN
+----------------------------------------
+========================================
+ID con vat              : 003-NaiRung-DL
+Vi tri                  : (11.407376, 107.434165)
+ID vung                 : KHONG_GIAO_THOA
+Loai Vung               : KHONG_XAC_DINH
+Phan tram giao thoa     : 0.00%
+Nguy co khong gian      : ANTOAN
+----------------------------------------
+========================================
+ID con vat              : 001-LonRung-CT
+Vi tri                  : (11.417899, 107.422299)
+ID vung                 : KHONG_GIAO_THOA
+Loai Vung               : KHONG_XAC_DINH
+Phan tram giao thoa     : 0.00%
+Nguy co khong gian      : ANTOAN
+----------------------------------------
+========================================
+ID con vat              : 008-CheoCheo-DN
+Vi tri                  : (11.410378, 107.422044)
+ID vung                 : KHONG_GIAO_THOA
+Loai Vung               : KHONG_XAC_DINH
+Phan tram giao thoa     : 0.00%
+Nguy co khong gian      : ANTOAN
+----------------------------------------
+========================================
+ID con vat              : 007-MangLon-CT
+Vi tri                  : (11.419049, 107.423147)
+ID vung                 : KHONG_GIAO_THOA
+Loai Vung               : KHONG_XAC_DINH
+Phan tram giao thoa     : 0.00%
+Nguy co khong gian      : ANTOAN
+----------------------------------------
+========================================
+ID con vat              : 003-NaiRung-BD
+Vi tri                  : (11.414413, 107.430735)
+ID vung                 : KHONG_GIAO_THOA
+Loai Vung               : KHONG_XAC_DINH
+Phan tram giao thoa     : 0.00%
+Nguy co khong gian      : ANTOAN
+----------------------------------------
+========================================
+ID con vat              : 005-SonDuong-CT
+Vi tri                  : (11.427164, 107.435167)
+ID vung                 : KHONG_GIAO_THOA
+Loai Vung               : KHONG_XAC_DINH
+Phan tram giao thoa     : 0.00%
+Nguy co khong gian      : ANTOAN
+----------------------------------------
+========================================
+ID con vat              : 002-HuouVang-CT
+Vi tri                  : (11.418728, 107.425001)
+ID vung                 : KHONG_GIAO_THOA
+Loai Vung               : KHONG_XAC_DINH
+Phan tram giao thoa     : 0.00%
+Nguy co khong gian      : ANTOAN
+----------------------------------------
+========================================
+ID con vat              : 001-LonRung-DL
+Vi tri                  : (11.462254, 107.401322)
+ID vung                 : KHONG_GIAO_THOA
+Loai Vung               : KHONG_XAC_DINH
+Phan tram giao thoa     : 0.00%
+Nguy co khong gian      : ANTOAN
+----------------------------------------
+========================================
+ID con vat              : 004-BoTot-CT
+Vi tri                  : (11.420308, 107.435385)
+ID vung                 : KHONG_GIAO_THOA
+Loai Vung               : KHONG_XAC_DINH
+Phan tram giao thoa     : 0.00%
+Nguy co khong gian      : ANTOAN
+----------------------------------------
+========================================
+ID con vat              : 001-LonRung-DL
+Vi tri                  : (11.435218, 107.400766)
+ID vung                 : KHONG_GIAO_THOA
+Loai Vung               : KHONG_XAC_DINH
+Phan tram giao thoa     : 0.00%
+Nguy co khong gian      : ANTOAN
+----------------------------------------
+========================================
+ID con vat              : 001-LonRung-CT
+Vi tri                  : (11.414997, 107.405586)
 ID vung                 : KHONG_GIAO_THOA
 Loai Vung               : KHONG_XAC_DINH
 Phan tram giao thoa     : 0.00%
@@ -536,23 +376,231 @@ Nguy co khong gian      : ANTOAN
 ----------------------------------------
 ========================================
 ID con vat              : 006-KhiDuoiLon-CT
-Vi tri                  : (11.448676, 107.455663)
-ID vung                 : D01
-Loai Vung               : TUYEN_DUONG_DU_LICH
-Phan tram giao thoa     : 100.00%
-Nguy co khong gian      : NGUYCAP
+Vi tri                  : (11.520195, 107.509957)
+ID vung                 : KHONG_GIAO_THOA
+Loai Vung               : KHONG_XAC_DINH
+Phan tram giao thoa     : 0.00%
+Nguy co khong gian      : ANTOAN
+----------------------------------------
+========================================
+ID con vat              : 003-NaiRung-CT
+Vi tri                  : (11.419658, 107.415961)
+ID vung                 : KHONG_GIAO_THOA
+Loai Vung               : KHONG_XAC_DINH
+Phan tram giao thoa     : 0.00%
+Nguy co khong gian      : ANTOAN
+----------------------------------------
+========================================
+ID con vat              : 005-SonDuong-DL
+Vi tri                  : (11.420952, 107.428340)
+ID vung                 : K01
+Loai Vung               : KHU_DAN_CU
+Phan tram giao thoa     : 27.20%
+Nguy co khong gian      : TIENCANHBAO
+----------------------------------------
+========================================
+ID con vat              : 002-HuouVang-DN
+Vi tri                  : (11.408331, 107.418078)
+ID vung                 : KHONG_GIAO_THOA
+Loai Vung               : KHONG_XAC_DINH
+Phan tram giao thoa     : 0.00%
+Nguy co khong gian      : ANTOAN
+----------------------------------------
+========================================
+ID con vat              : 002-HuouVang-BD
+Vi tri                  : (11.414354, 107.407729)
+ID vung                 : KHONG_GIAO_THOA
+Loai Vung               : KHONG_XAC_DINH
+Phan tram giao thoa     : 0.00%
+Nguy co khong gian      : ANTOAN
+----------------------------------------
+========================================
+ID con vat              : 004-BoTot-DN
+Vi tri                  : (11.417837, 107.404987)
+ID vung                 : KHONG_GIAO_THOA
+Loai Vung               : KHONG_XAC_DINH
+Phan tram giao thoa     : 0.00%
+Nguy co khong gian      : ANTOAN
+----------------------------------------
+========================================
+ID con vat              : 001-LonRung-DN
+Vi tri                  : (11.407283, 107.402847)
+ID vung                 : KHONG_GIAO_THOA
+Loai Vung               : KHONG_XAC_DINH
+Phan tram giao thoa     : 0.00%
+Nguy co khong gian      : ANTOAN
+----------------------------------------
+========================================
+ID con vat              : 001-LonRung-CT
+Vi tri                  : (11.418071, 107.411415)
+ID vung                 : KHONG_GIAO_THOA
+Loai Vung               : KHONG_XAC_DINH
+Phan tram giao thoa     : 0.00%
+Nguy co khong gian      : ANTOAN
+----------------------------------------
+========================================
+ID con vat              : 008-CheoCheo-DN
+Vi tri                  : (11.443483, 107.396679)
+ID vung                 : KHONG_GIAO_THOA
+Loai Vung               : KHONG_XAC_DINH
+Phan tram giao thoa     : 0.00%
+Nguy co khong gian      : ANTOAN
+----------------------------------------
+========================================
+ID con vat              : 003-NaiRung-DL
+Vi tri                  : (11.447354, 107.409461)
+ID vung                 : KHONG_GIAO_THOA
+Loai Vung               : KHONG_XAC_DINH
+Phan tram giao thoa     : 0.00%
+Nguy co khong gian      : ANTOAN
+----------------------------------------
+========================================
+ID con vat              : 007-MangLon-CT
+Vi tri                  : (11.458168, 107.464872)
+ID vung                 : KHONG_GIAO_THOA
+Loai Vung               : KHONG_XAC_DINH
+Phan tram giao thoa     : 0.00%
+Nguy co khong gian      : ANTOAN
+----------------------------------------
+========================================
+ID con vat              : 003-NaiRung-BD
+Vi tri                  : (11.443897, 107.409947)
+ID vung                 : KHONG_GIAO_THOA
+Loai Vung               : KHONG_XAC_DINH
+Phan tram giao thoa     : 0.00%
+Nguy co khong gian      : ANTOAN
+----------------------------------------
+========================================
+ID con vat              : 003-NaiRung-CT
+Vi tri                  : (11.435356, 107.412627)
+ID vung                 : KHONG_GIAO_THOA
+Loai Vung               : KHONG_XAC_DINH
+Phan tram giao thoa     : 0.00%
+Nguy co khong gian      : ANTOAN
+----------------------------------------
+========================================
+ID con vat              : 005-SonDuong-CT
+Vi tri                  : (11.431444, 107.428044)
+ID vung                 : KHONG_GIAO_THOA
+Loai Vung               : KHONG_XAC_DINH
+Phan tram giao thoa     : 0.00%
+Nguy co khong gian      : ANTOAN
+----------------------------------------
+========================================
+ID con vat              : 002-HuouVang-BD
+Vi tri                  : (11.427400, 107.421916)
+ID vung                 : KHONG_GIAO_THOA
+Loai Vung               : KHONG_XAC_DINH
+Phan tram giao thoa     : 0.00%
+Nguy co khong gian      : ANTOAN
+----------------------------------------
+========================================
+ID con vat              : 001-LonRung-DN
+Vi tri                  : (11.395083, 107.426123)
+ID vung                 : KHONG_GIAO_THOA
+Loai Vung               : KHONG_XAC_DINH
+Phan tram giao thoa     : 0.00%
+Nguy co khong gian      : ANTOAN
+----------------------------------------
+========================================
+ID con vat              : 008-CheoCheo-DN
+Vi tri                  : (11.426833, 107.425012)
+ID vung                 : KHONG_GIAO_THOA
+Loai Vung               : KHONG_XAC_DINH
+Phan tram giao thoa     : 0.00%
+Nguy co khong gian      : ANTOAN
+----------------------------------------
+========================================
+ID con vat              : 004-BoTot-CT
+Vi tri                  : (11.432047, 107.441180)
+ID vung                 : KHONG_GIAO_THOA
+Loai Vung               : KHONG_XAC_DINH
+Phan tram giao thoa     : 0.00%
+Nguy co khong gian      : ANTOAN
 ----------------------------------------
 ========================================
 ID con vat              : 006-KhiDuoiLon-BD
-Vi tri                  : (11.444500, 107.450740)
-ID vung                 : D01
-Loai Vung               : TUYEN_DUONG_DU_LICH
-Phan tram giao thoa     : 100.00%
-Nguy co khong gian      : NGUYCAP
+Vi tri                  : (11.407465, 107.442642)
+ID vung                 : KHONG_GIAO_THOA
+Loai Vung               : KHONG_XAC_DINH
+Phan tram giao thoa     : 0.00%
+Nguy co khong gian      : ANTOAN
 ----------------------------------------
 ========================================
-ID con vat              : 006-KhiDuoiLon-BD
-Vi tri                  : (11.427980, 107.431194)
+ID con vat              : 003-NaiRung-CT
+Vi tri                  : (11.457854, 107.415316)
+ID vung                 : KHONG_GIAO_THOA
+Loai Vung               : KHONG_XAC_DINH
+Phan tram giao thoa     : 0.00%
+Nguy co khong gian      : ANTOAN
+----------------------------------------
+========================================
+ID con vat              : 002-HuouVang-DN
+Vi tri                  : (11.447498, 107.446491)
+ID vung                 : KHONG_GIAO_THOA
+Loai Vung               : KHONG_XAC_DINH
+Phan tram giao thoa     : 0.00%
+Nguy co khong gian      : ANTOAN
+----------------------------------------
+========================================
+ID con vat              : 005-SonDuong-DL
+Vi tri                  : (11.424478, 107.427690)
+ID vung                 : K01
+Loai Vung               : KHU_DAN_CU
+Phan tram giao thoa     : 29.35%
+Nguy co khong gian      : TIENCANHBAO
+----------------------------------------
+========================================
+ID con vat              : 002-HuouVang-CT
+Vi tri                  : (11.455346, 107.434284)
+ID vung                 : KHONG_GIAO_THOA
+Loai Vung               : KHONG_XAC_DINH
+Phan tram giao thoa     : 0.00%
+Nguy co khong gian      : ANTOAN
+----------------------------------------
+========================================
+ID con vat              : 001-LonRung-BD
+Vi tri                  : (11.430996, 107.462432)
+ID vung                 : KHONG_GIAO_THOA
+Loai Vung               : KHONG_XAC_DINH
+Phan tram giao thoa     : 0.00%
+Nguy co khong gian      : ANTOAN
+----------------------------------------
+========================================
+ID con vat              : 001-LonRung-CT
+Vi tri                  : (11.426140, 107.457688)
+ID vung                 : KHONG_GIAO_THOA
+Loai Vung               : KHONG_XAC_DINH
+Phan tram giao thoa     : 0.00%
+Nguy co khong gian      : ANTOAN
+----------------------------------------
+========================================
+ID con vat              : 004-BoTot-DN
+Vi tri                  : (11.439486, 107.417148)
+ID vung                 : KHONG_GIAO_THOA
+Loai Vung               : KHONG_XAC_DINH
+Phan tram giao thoa     : 0.00%
+Nguy co khong gian      : ANTOAN
+----------------------------------------
+========================================
+ID con vat              : 008-CheoCheo-DN
+Vi tri                  : (11.430989, 107.413793)
+ID vung                 : KHONG_GIAO_THOA
+Loai Vung               : KHONG_XAC_DINH
+Phan tram giao thoa     : 0.00%
+Nguy co khong gian      : ANTOAN
+----------------------------------------
+========================================
+ID con vat              : 003-NaiRung-DL
+Vi tri                  : (11.436116, 107.403933)
+ID vung                 : KHONG_GIAO_THOA
+Loai Vung               : KHONG_XAC_DINH
+Phan tram giao thoa     : 0.00%
+Nguy co khong gian      : ANTOAN
+----------------------------------------
+========================================
+ID con vat              : 003-NaiRung-BD
+Vi tri                  : (11.445396, 107.412767)
 ID vung                 : KHONG_GIAO_THOA
 Loai Vung               : KHONG_XAC_DINH
 Phan tram giao thoa     : 0.00%
@@ -560,47 +608,39 @@ Nguy co khong gian      : ANTOAN
 ----------------------------------------
 ========================================
 ID con vat              : 007-MangLon-CT
-Vi tri                  : (11.453950, 107.460314)
+Vi tri                  : (11.324333, 107.369723)
 ID vung                 : KHONG_GIAO_THOA
 Loai Vung               : KHONG_XAC_DINH
 Phan tram giao thoa     : 0.00%
 Nguy co khong gian      : ANTOAN
 ----------------------------------------
 ========================================
-ID con vat              : 007-MangLon-CT
-Vi tri                  : (11.448854, 107.455462)
-ID vung                 : D01
-Loai Vung               : TUYEN_DUONG_DU_LICH
-Phan tram giao thoa     : 100.00%
-Nguy co khong gian      : NGUYCAP
-----------------------------------------
-========================================
-ID con vat              : 007-MangLon-CT
-Vi tri                  : (11.438576, 107.444544)
-ID vung                 : T01
-Loai Vung               : TRAM_QUAN_SAT
-Phan tram giao thoa     : 14.34%
-Nguy co khong gian      : ANTOAN
-----------------------------------------
-========================================
-ID con vat              : 007-MangLon-CT
-Vi tri                  : (11.427786, 107.431430)
+ID con vat              : 002-HuouVang-DN
+Vi tri                  : (11.440275, 107.410576)
 ID vung                 : KHONG_GIAO_THOA
 Loai Vung               : KHONG_XAC_DINH
 Phan tram giao thoa     : 0.00%
 Nguy co khong gian      : ANTOAN
 ----------------------------------------
 ========================================
-ID con vat              : 008-CheoCheo-DN
-Vi tri                  : (11.454209, 107.460698)
+ID con vat              : 002-HuouVang-BD
+Vi tri                  : (11.439759, 107.399857)
 ID vung                 : KHONG_GIAO_THOA
 Loai Vung               : KHONG_XAC_DINH
 Phan tram giao thoa     : 0.00%
 Nguy co khong gian      : ANTOAN
 ----------------------------------------
 ========================================
-ID con vat              : 008-CheoCheo-DN
-Vi tri                  : (11.454219, 107.460708)
+ID con vat              : 001-LonRung-CT
+Vi tri                  : (11.409708, 107.444732)
+ID vung                 : KHONG_GIAO_THOA
+Loai Vung               : KHONG_XAC_DINH
+Phan tram giao thoa     : 0.00%
+Nguy co khong gian      : ANTOAN
+----------------------------------------
+========================================
+ID con vat              : 005-SonDuong-CT
+Vi tri                  : (11.436923, 107.418096)
 ID vung                 : KHONG_GIAO_THOA
 Loai Vung               : KHONG_XAC_DINH
 Phan tram giao thoa     : 0.00%
@@ -608,47 +648,7 @@ Nguy co khong gian      : ANTOAN
 ----------------------------------------
 ========================================
 ID con vat              : 008-CheoCheo-DN
-Vi tri                  : (11.454229, 107.460718)
-ID vung                 : KHONG_GIAO_THOA
-Loai Vung               : KHONG_XAC_DINH
-Phan tram giao thoa     : 0.00%
-Nguy co khong gian      : ANTOAN
-----------------------------------------
-========================================
-ID con vat              : 008-CheoCheo-DN
-Vi tri                  : (11.454239, 107.460728)
-ID vung                 : KHONG_GIAO_THOA
-Loai Vung               : KHONG_XAC_DINH
-Phan tram giao thoa     : 0.00%
-Nguy co khong gian      : ANTOAN
-----------------------------------------
-========================================
-ID con vat              : 008-CheoCheo-DN
-Vi tri                  : (11.454249, 107.460738)
-ID vung                 : KHONG_GIAO_THOA
-Loai Vung               : KHONG_XAC_DINH
-Phan tram giao thoa     : 0.00%
-Nguy co khong gian      : ANTOAN
-----------------------------------------
-========================================
-ID con vat              : 008-CheoCheo-DN
-Vi tri                  : (11.454259, 107.460748)
-ID vung                 : KHONG_GIAO_THOA
-Loai Vung               : KHONG_XAC_DINH
-Phan tram giao thoa     : 0.00%
-Nguy co khong gian      : ANTOAN
-----------------------------------------
-========================================
-ID con vat              : 008-CheoCheo-DN
-Vi tri                  : (11.454269, 107.460758)
-ID vung                 : KHONG_GIAO_THOA
-Loai Vung               : KHONG_XAC_DINH
-Phan tram giao thoa     : 0.00%
-Nguy co khong gian      : ANTOAN
-----------------------------------------
-========================================
-ID con vat              : 008-CheoCheo-DN
-Vi tri                  : (11.454279, 107.460768)
+Vi tri                  : (11.438345, 107.409905)
 ID vung                 : KHONG_GIAO_THOA
 Loai Vung               : KHONG_XAC_DINH
 Phan tram giao thoa     : 0.00%

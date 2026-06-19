@@ -1,35 +1,40 @@
 package module1_DongBoHoa;
-import dinhDanh.*;
-// Lop luu du lieu da duoc dong bo
-public class DuLieuDongBo {
 
-    // Ma dinh danh con vat
-    private String idConVat;
 
-    // Toa do hien tai
-    private ToaDo toaDoHienTai;
 
-    // Ban ghi gia toc hien tai
-    private BanGhiGiaTocBD giaTocHienTai;
+import dinhDanh.TrangThaiDuLieu;
 
-    // Thoi diem dong bo
-    private long thoiDiemDongBo;
 
-    // Trang thai du lieu
-    private TrangThaiDuLieu trangThai;
+public final class DuLieuDongBo {
 
-    // Ham khoi tao du lieu dong bo
-    public DuLieuDongBo(String idConVat, ToaDo toaDoHienTai,
-                        BanGhiGiaTocBD giaTocHienTai, long thoiDiemDongBo,
+    private final String idConVat;
+    private final ToaDo toaDoHienTai;
+    private final BanGhiGiaTocBD giaTocHienTai;
+    private final long thoiDiemSuKien; 
+    private final TrangThaiDuLieu trangThai;
+
+    public DuLieuDongBo(String idConVat, 
+                        ToaDo toaDoHienTai, 
+                        BanGhiGiaTocBD giaTocHienTai, 
+                        long thoiDiemSuKien, 
                         TrangThaiDuLieu trangThai) {
-
+        
+        
+        if (idConVat == null || idConVat.isEmpty()) {
+            throw new IllegalArgumentException("ID con vat khong duoc de trong.");
+        }
+        if (giaTocHienTai == null) {
+            throw new IllegalArgumentException("Ban ghi gia toc khong duoc null.");
+        }
+        
         this.idConVat = idConVat;
-        this.toaDoHienTai = toaDoHienTai;
+        this.toaDoHienTai = toaDoHienTai; 
         this.giaTocHienTai = giaTocHienTai;
-        this.thoiDiemDongBo = thoiDiemDongBo;
+        this.thoiDiemSuKien = thoiDiemSuKien;
         this.trangThai = trangThai;
     }
 
+   
     public String getIdConVat() {
         return idConVat;
     }
@@ -42,8 +47,8 @@ public class DuLieuDongBo {
         return giaTocHienTai;
     }
 
-    public long getThoiDiemDongBo() {
-        return thoiDiemDongBo;
+    public long getThoiDiemSuKien() {
+        return thoiDiemSuKien;
     }
 
     public TrangThaiDuLieu getTrangThai() {

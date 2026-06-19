@@ -10,7 +10,7 @@ public class ChienLuocMacDinh implements ChienLuocDanhGia {
 
     @Override
     public KetQuaDanhGia thucHienDanhGia(BanGhiSinhHoc goiTin, BanGhiSinhHoc hoSo) {
-        // Trả về trạng thái CHUA_XAC_NHAN và DANG_THEO_DOI để hệ thống tiếp tục giữ hồ sơ
+      
         return new KetQuaDanhGia(
             TrangThaiThamDinh.DANG_THEO_DOI, 
             LoaiHanhDong.DANG_THEO_DOI, 

@@ -1,26 +1,38 @@
 package module1_DongBoHoa;
 
-// Lop quan ly thoi gian dong bo
-public class QuanLyThoiGian {
+import java.time.Instant;
+import java.time.ZoneId;
+import java.time.format.DateTimeFormatter;
 
-    // Lay thoi diem he thong hien tai
-    public long layThoiDiemHeThong() {
+public final class QuanLyThoiGian {
 
-        // Tra ve timestamp he thong
+    // DateTimeFormatter cua java.time la Thread-safe va cuc ky nhanh
+    private static final DateTimeFormatter FORMATTER = 
+            DateTimeFormatter.ofPattern("yyyy-MM-dd HH:mm:ss.SSS")
+                             .withZone(ZoneId.systemDefault());
+
+    private QuanLyThoiGian() {
+        throw new UnsupportedOperationException("Lop tien ich.");
+    }
+
+    public static long layThoiGianHeThongHienTai() {
         return System.currentTimeMillis();
     }
 
-    // Kiem tra hai thoi diem co hop le khong
-    public boolean laHopLe(long thoiDiem) {
-
-        // Thoi diem hop le khi lon hon 0
-        return thoiDiem > 0;
+    /**
+     * Tinh khoang cach: Bo Math.abs de phat hien du lieu loi (timestamp tuong lai).
+     */
+    public static long tinhKhoangCach(long mocTruoc, long mocSau) {
+        return mocSau - mocTruoc;
     }
 
-    // Tinh khoang cach giua hai thoi diem
-    public long tinhKhoangCach(long t1, long t2) {
+    public static boolean laMatTinHieu(long mSuKienTruoc, long mSuKienSau, long gioiHanMatGPS) {
+        // Khoang cach > gioi han thi coi la mat tin hieu
+        return tinhKhoangCach(mSuKienTruoc, mSuKienSau) > gioiHanMatGPS;
+    }
 
-        // Tra ve khoang cach tuyet doi
-        return Math.abs(t1 - t2);
+    public static String dinhDangTimestamp(long timestamp) {
+        if (timestamp <= 0) return "N/A";
+        return FORMATTER.format(Instant.ofEpochMilli(timestamp));
     }
 }

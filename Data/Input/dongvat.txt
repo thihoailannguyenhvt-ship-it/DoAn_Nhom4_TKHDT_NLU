@@ -1,0 +1,31 @@
+# File cau hinh tham so sinh hoc cho mo hinh Ornstein-Uhlenbeck
+# Dinh dang: [LOAI].theta = [gia_tri]
+# Dinh dang: [LOAI].sigma = [gia_tri]
+
+# Cheocheo: Vung song nho, nhut nhat
+CHEO_CHEO.theta = 0.25
+CHEO_CHEO.sigma = 0.002
+
+# Son duong: Than trong, vach da
+SON_DUONG.theta = 0.18
+SON_DUONG.sigma = 0.004
+
+# Mang lon: Canh giac, tam trung
+MANG_LON.theta = 0.12
+MANG_LON.sigma = 0.005
+
+# Nai rung: Thich nghi cao, tam trung
+NAI_RUNG.theta = 0.10
+NAI_RUNG.sigma = 0.006
+
+# Bo tot: Vung song on dinh
+BO_TOT.theta = 0.08
+BO_TOT.sigma = 0.008
+
+# Lon rung: Di chuyen rong, tim thuc an lien tuc
+LON_RUNG.theta = 0.06
+LON_RUNG.sigma = 0.012
+
+# Khi duoi lon: Di chuyen linh hoat, leo treo
+KHI_DUOI_LON.theta = 0.04
+KHI_DUOI_LON.sigma = 0.015

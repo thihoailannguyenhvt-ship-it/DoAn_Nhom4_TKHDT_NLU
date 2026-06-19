@@ -1,38 +1,50 @@
 package module2_PhanTichHanhVi;
-import dinhDanh.*;
+
 import java.util.LinkedList;
 import java.util.Queue;
 
+import dinhDanh.NhanTrangThai;
+
 public class QuyTacDinhBay extends QuyTac {
 
-	public QuyTacDinhBay(int mucDoUuTien) {
-		super(mucDoUuTien);
-	}
+    public QuyTacDinhBay(int mucDoUuTien) {
+        super(mucDoUuTien);
+    }
 
-	@Override
-	protected boolean duDieuKien(CuaSoTruot cuaSo) {
-		return cuaSo.layDanhSachHienTai().size() >= 2;
-	}
+    @Override
+    protected boolean duDieuKien(CuaSoTruot cuaSo) {
+        return cuaSo.layDanhSachHienTai().size() >= 2;
+    }
 
-	@Override
-	protected boolean kiemTraChiTiet(DongVat dv, CuaSoTruot cuaSo, ThuVienDinhMucSinhHoc dinhMuc) {
+    @Override
+    protected boolean kiemTraChiTiet(DongVat dv, CuaSoTruot cuaSo, ThuVienDinhMucSinhHoc dinhMuc) {
+        Queue<BangGhiSinhHoc> buffer = cuaSo.layDanhSachHienTai();
+        BoTinhToanSinhHoc boTinhToan = new BoTinhToanSinhHoc();
 
-		Queue<BangGhiSinhHoc> buffer = cuaSo.layDanhSachHienTai();
+        // 1. Tính ODBA trung bình (Mức độ vận động của con vật)
+        double odbaTB = boTinhToan.tinhODBA(buffer);
 
-		BoTinhToanSinhHoc boTinhToan = new BoTinhToanSinhHoc();
+        // 2. Tối ưu: Lấy First và Last an toàn
+        // Lưu ý: Nếu buffer không phải LinkedList, hãy dùng iterator thay vì ép kiểu (casting)
+        BangGhiSinhHoc first = ((LinkedList<BangGhiSinhHoc>) buffer).peekFirst();
+        BangGhiSinhHoc last = ((LinkedList<BangGhiSinhHoc>) buffer).peekLast();
 
-		double odbaTB = boTinhToan.tinhODBA(buffer);
+        // Sử dụng hàm đã cập nhật: trực tiếp truyền đối tượng, không cần String
+        double khoangCach = boTinhToan.tinhKhoangCach(first, last);
 
-		LinkedList<BangGhiSinhHoc> ds = new LinkedList<>(buffer);
+      
+        // Bị dính bẫy = Vùng vẫy mạnh (ODBA cao) + Không di chuyển (Khoảng cách GPS nhỏ)
+        return odbaTB > dinhMuc.getNguongBienThienDinhBay() 
+            && khoangCach < dinhMuc.getNguongKhoangCachDinhBay();
+    }
 
-		double khoangCach = boTinhToan.tinhKhoangCach(ds.getFirst().getViTriToaDo(), ds.getLast().getViTriToaDo());
+    @Override
+    protected NhanTrangThai getTrangThai() {
+        return NhanTrangThai.DINH_BAY;
+    }
 
-		return odbaTB < dinhMuc.getMucHoatDongToiThieu() && khoangCach < 0.001;
-	}
-
-	@Override
-	protected NhanTrangThai getTrangThai() {
-		// TODO Auto-generated method stub
-		return NhanTrangThai.DINH_BAY;
-	}
+    @Override
+    public String getLoaiCuaSoCanThiet() {
+        return "DINH_BAY"; 
+    }
 }

@@ -14,15 +14,7 @@ import java.time.ZoneId;
 import java.time.format.DateTimeFormatter;
 import java.util.List;
 
-/**
- * Bộ xuất kết quả Module 3 → file TXT và CSV cho Module 5 đọc vào.
- *
- * Luồng xử lý: BanGhiSinhHoc + KetQuaDanhGia → [tạo] MenhLenhThucThi (nếu
- * GUI_THANG_M5) → ghi TXT + CSV
- *
- * Chỉ xuất các bản ghi có LoaiHanhDong == GUI_THANG_M5. DANG_THEO_DOI và
- * CHUYEN_MA_TRAN_RUI_RO bị lọc bỏ ở mọi điểm gọi.
- */
+
 public class BoXuatKetQua {
 
 	// ── Hằng số ────────────────────────────────────────────────────────────
@@ -41,10 +33,7 @@ public class BoXuatKetQua {
 
 	// ── Constructor ────────────────────────────────────────────────────────
 
-	/**
-	 * @param duongDanGoc Đường dẫn gốc không có đuôi. Sẽ tạo duongDanGoc.txt và
-	 * duongDanGoc.csv
-	 */
+	
 	public BoXuatKetQua(String duongDanGoc) {
 		this.duongDanGoc = duongDanGoc;
 	}
@@ -111,13 +100,12 @@ public class BoXuatKetQua {
 				ketQua.layPhanTramGiaoThoa() // Truyền % giao thoa
 		);
 
-		// ĐỒNG BỘ THỜI GIAN ĐẸP: Đổi số long sang dạng chuỗi yyyy-MM-dd HH:mm:ss trước
-		// khi ghi file
+		
 		String strSuKien = dinhDangThoiGianHienThi(lenh.getMocThoiGianSuKien());
 		String strGhiNhan = dinhDangThoiGianHienThi(lenh.getMocThoiGianGhiNhan());
 
 		// ── Ghi TXT ──────────────────────────────────────────────────────
-		// Đã bổ sung in thêm thông tin vùng và % giao thoa
+		
 		writerTxt.write(String.format(
 				"BanGhiKetQua[maSoDongVat=%s, mucDoNghiemTrong=%s, viDo=%.6f, kinhDo=%.6f, thoiGianSuKien=%s, thoiGianGhiNhan=%s, lyDo=%s, idVung=%s, loaiVung=%s, %%GiaoThoa=%.2f%%]",
 				lenh.getMaSoDongVat(), lenh.getMucDoNghiemTrong(), lenh.getViDo(), lenh.getKinhDo(), strSuKien,
@@ -125,7 +113,7 @@ public class BoXuatKetQua {
 		writerTxt.newLine();
 
 		// ── Ghi CSV ──────────────────────────────────────────────────────
-		// Bổ sung ghi thêm 3 cột mới vào file CSV
+		
 		writerCsv.write(
 				String.join(PHAN_CACH_CSV, 
 						thoatCSV(lenh.getMaSoDongVat()), 
@@ -165,7 +153,7 @@ public class BoXuatKetQua {
 
 	// ── API batch ──────────────────────────────────────────────────────────
 
-	/** Xuất toàn bộ danh sách 1 lần. Bộ lọc GUI_THANG_M5 nằm trong ghiBanGhi(). */
+	
 	public void xuatTatCa(List<BanGhiSinhHoc> danhSachGoiTin, List<KetQuaDanhGia> danhSachKetQua) throws IOException {
 		if (danhSachGoiTin.size() != danhSachKetQua.size()) {
 			throw new IllegalArgumentException("Kich thuoc 2 danh sach khong khop: goiTin=" + danhSachGoiTin.size()
@@ -199,11 +187,7 @@ public class BoXuatKetQua {
 		return giaTri;
 	}
 
-	/**
-	 * HÀM TIỆN ÍCH BẢO VỆ: Nhận diện linh hoạt kiểu dữ liệu thời gian. Nếu
-	 * MenhLenhThucThi trả về số long (mili-giây) -> tự động chuyển đổi sang ngày
-	 * tháng đẹp. Nếu hệ thống đã cập nhật trả về String sẵn -> giữ nguyên để in ra.
-	 */
+
 	private String dinhDangThoiGianHienThi(Object timeObj) {
 		if (timeObj == null)
 			return "1970-01-01 00:00:00";

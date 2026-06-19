@@ -1,23 +1,24 @@
 package module2_PhanTichHanhVi;
-import dinhDanh.*;
+
 import java.util.ArrayList;
 import java.util.List;
-import java.util.Queue;
+import java.util.Map;
+
+import dinhDanh.NhanTrangThai;
 
 public class BoXuLyQuyTac {
 	private List<QuyTac> danhSachQuyTac = new ArrayList<>();
 
 	public void themQuyTac(QuyTac qt) {
-
 		danhSachQuyTac.add(qt);
 	}
 
-	public KetQuaHanhVi danhGiaTatCa(DongVat dv, CuaSoTruot cuaSoDinhBay, CuaSoTruot cuaSoSuyKiet,
-			ThuVienDinhMucSinhHoc dinhMuc) {
+	
+	public KetQuaHanhVi danhGiaTatCa(DongVat dv, Map<String, CuaSoTruot> quanLy, ThuVienDinhMucSinhHoc dinhMuc) {
 
 		for (QuyTac qt : danhSachQuyTac) {
-
-			CuaSoTruot cuaSo = (qt instanceof QuyTacDinhBay) ? cuaSoDinhBay : cuaSoSuyKiet;
+			
+			CuaSoTruot cuaSo = quanLy.get(qt.getLoaiCuaSoCanThiet());
 
 			KetQuaHanhVi kq = qt.danhGia(dv, cuaSo, dinhMuc);
 

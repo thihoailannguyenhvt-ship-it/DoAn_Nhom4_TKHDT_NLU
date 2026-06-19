@@ -1,8 +1,6 @@
 package module3_GiamSatVaQuanLyNguong.In;
 
-/**
- * Bản ghi gốc từ Module 1 – Nguồn dữ liệu thời gian chuẩn của hệ thống.
- */
+
 public class BanGhiModule1 {
 	private final String idConVat;
 	private final String thoiGianSuKien; // Unix timestamp (ms)

@@ -1,37 +1,57 @@
 package module1_DongBoHoa;
 
-// Lop luu thong tin toa do GPS
-public class ToaDo {
+import java.util.Objects;
 
-    // Vi do cua vi tri
-    private double viDo;
 
-    // Kinh do cua vi tri
-    private double kinhDo;
+public final class ToaDo {
 
-    // Ham khoi tao toa do
+   
+    private final double viDo;
+    private final double kinhDo;
+
+    
     public ToaDo(double viDo, double kinhDo) {
+        
+        if (viDo < -90.0 || viDo > 90.0) {
+            throw new IllegalArgumentException("Vi do khong hop le (phai tu -90 den 90): " + viDo);
+        }
+        if (kinhDo < -180.0 || kinhDo > 180.0) {
+            throw new IllegalArgumentException("Kinh do khong hop le (phai tu -180 den 180): " + kinhDo);
+        }
 
-        // Gan vi do
         this.viDo = viDo;
-
-        // Gan kinh do
         this.kinhDo = kinhDo;
     }
 
-    // Lay vi do
+   
     public double getViDo() {
         return viDo;
     }
 
-    // Lay kinh do
     public double getKinhDo() {
         return kinhDo;
     }
 
-    // Chuyen toa do thanh chuoi de in ra
+    
+    @Override
+    public boolean equals(Object obj) {
+        if (this == obj) return true;
+        if (obj == null || getClass() != obj.getClass()) return false;
+        ToaDo khac = (ToaDo) obj;
+       
+        return Double.compare(khac.viDo, this.viDo) == 0 && 
+               Double.compare(khac.kinhDo, this.kinhDo) == 0;
+    }
+
+    
+    @Override
+    public int hashCode() {
+        return Objects.hash(viDo, kinhDo);
+    }
+
+   
     @Override
     public String toString() {
-        return "(" + viDo + ", " + kinhDo + ")";
+        return String.format("(%.6f, %.6f)", viDo, kinhDo);
     }
 }

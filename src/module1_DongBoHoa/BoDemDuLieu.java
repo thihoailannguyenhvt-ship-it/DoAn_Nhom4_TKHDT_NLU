@@ -1,37 +1,54 @@
 package module1_DongBoHoa;
 
 import java.util.ArrayList;
-import java.util.LinkedList;
 import java.util.List;
 import java.util.Queue;
+import java.util.concurrent.ConcurrentLinkedQueue;
 
-// Lop quan ly bo dem du lieu gia toc
+
 public class BoDemDuLieu {
 
-    // Hang doi luu ban ghi gia toc
-    private Queue<BanGhiGiaTocBD> hangDoiGiaToc = new LinkedList<>();
+    
+    private final Queue<BanGhiGiaTocBD> hangDoiGiaToc = new ConcurrentLinkedQueue<>();
+    
+   
+    private final int kichThuocToiDa;
 
-    // Luu ban ghi gia toc vao bo dem
-    public void luuTam(BanGhiGiaTocBD duLieu) {
-
-        // Neu du lieu null thi khong luu
-        if (duLieu == null) {
-            return;
+   
+    public BoDemDuLieu(int kichThuocToiDa) {
+        if (kichThuocToiDa <= 0) {
+            throw new IllegalArgumentException("Kich thuoc bo dem phai lon hon 0. Gia tri nhan duoc: " + kichThuocToiDa);
         }
+        this.kichThuocToiDa = kichThuocToiDa;
+    }
 
-        // Them du lieu vao hang doi
+  
+    public void luuTam(BanGhiGiaTocBD duLieu) {
+        
+        if (duLieu == null) return;
+
+      
         hangDoiGiaToc.add(duLieu);
 
-        // Chi giu toi da 100 ban ghi
-        if (hangDoiGiaToc.size() > 100) {
-            hangDoiGiaToc.poll();
+        
+        while (hangDoiGiaToc.size() > kichThuocToiDa) {
+            hangDoiGiaToc.poll(); 
         }
     }
 
-    // Lay du lieu gia toc da luu ra danh sach
-    public List<BanGhiGiaTocBD> layDuLieuRa() {
+  
+    public List<BanGhiGiaTocBD> layVaLamSachBoDem() {
+        List<BanGhiGiaTocBD> ketQua = new ArrayList<>();
+       
+        BanGhiGiaTocBD item;
+        while ((item = hangDoiGiaToc.poll()) != null) {
+            ketQua.add(item);
+        }
+        return ketQua;
+    }
 
-        // Tra ve danh sach copy tu hang doi
-        return new ArrayList<>(hangDoiGiaToc);
+   
+    public int getSize() {
+        return hangDoiGiaToc.size();
     }
 }

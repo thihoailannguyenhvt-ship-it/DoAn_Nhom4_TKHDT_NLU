@@ -3,38 +3,28 @@ package module4_GeofenceDongVaNguCanhKhongGian;
 import java.util.ArrayList;
 import java.util.List;
 
-/**
- * Lớp kho lưu trữ không gian đóng vai trò quản lý toàn bộ thực thể tĩnh (Khu bảo tồn, Trạm...)
- * và trạng thái thực thể động (Geofence của từng con vật) trực tiếp trên bộ nhớ RAM.
- */
+
 public class KhoLuuTruKhongGian implements IQuanLyKhongGian {
     
-    // === [BỔ SUNG THÊM] Biến static duy nhất để giữ thực thể kho trên RAM ===
+   
     private static KhoLuuTruKhongGian instance;
 
-    // Sử dụng Interface List thay cho ArrayList ở khai báo thuộc tính để tuân thủ tính đa hình
+    
     private List<VungKhongGian> danhSachVung;
     private List<GeofenceDong> danhSachGeofence;
 
-    /**
-     * Hàm khởi tạo có tham số đầy đủ (GIỮ NGUYÊN CỦA BẠN)
-     */
+   
     public KhoLuuTruKhongGian(List<VungKhongGian> danhSachVung, List<GeofenceDong> danhSachGeofence) {
         this.danhSachVung = danhSachVung != null ? danhSachVung : new ArrayList<>();
         this.danhSachGeofence = danhSachGeofence != null ? danhSachGeofence : new ArrayList<>();
     }
 
-    /**
-     * SỬA ĐỔI: Chuyển từ public thành private để ngăn việc tạo nhiều kho trống con
-     */
+   
     private KhoLuuTruKhongGian() {
         this.danhSachVung = new ArrayList<>();
         this.danhSachGeofence = new ArrayList<>();
     }
 
-    /**
-     * === [BỔ SUNG THÊM] Hàm toàn cục để lấy ra kho lưu trữ duy nhất trên RAM ===
-     */
     public static synchronized KhoLuuTruKhongGian getInstance() {
         if (instance == null) {
             instance = new KhoLuuTruKhongGian();
@@ -42,10 +32,7 @@ public class KhoLuuTruKhongGian implements IQuanLyKhongGian {
         return instance;
     }
 
-    // =========================================================================
-    // HIỆN THỰC HÓA CÁC PHƯƠNG THỨC TỪ INTERFACE IQuanLyKhongGian (QUẢN LÝ VÙNG TĨNH)
-    // =========================================================================
-
+    
     @Override
     public void themVung(VungKhongGian vung) {
         if (vung != null) {
@@ -55,7 +42,7 @@ public class KhoLuuTruKhongGian implements IQuanLyKhongGian {
 
     @Override
     public void xoaVung(String maVung) {
-        // Sử dụng Lambda Expression để xóa vùng có mã khớp với tham số truyền vào
+      
         this.danhSachVung.removeIf(vung -> vung.getIdVung().equals(maVung));
     }
 
@@ -64,7 +51,7 @@ public class KhoLuuTruKhongGian implements IQuanLyKhongGian {
         if (vungMoi == null) return;
         for (int i = 0; i < danhSachVung.size(); i++) {
             if (danhSachVung.get(i).getIdVung().equals(vungMoi.getIdVung())) {
-                danhSachVung.set(i, vungMoi); // Thay thế vùng cũ bằng dữ liệu vùng mới
+                danhSachVung.set(i, vungMoi); 
                 return;
             }
         }

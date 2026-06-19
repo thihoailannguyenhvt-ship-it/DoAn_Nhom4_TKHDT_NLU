@@ -55,8 +55,12 @@ public class BoDieuPhoiTrungTam {
 						.ordinal()) ? kqHanhVi : kqKhongGian;
 
 				// BỔ SUNG: Khởi tạo thực thể mới từ kết quả gốc để bảo vệ tính toàn vẹn dữ liệu
+				// SỬA LỖI: dùng constructor 7-tham số và lấy idVung/loaiVung/%GiaoThoa
+				// từ goiTin (dữ liệu không gian gốc của Module 4) – constructor 4-tham số
+				// cũ luôn đặt các trường này về null/0.0, làm mất dữ liệu vùng khi xuất ra M5.
 				KetQuaDanhGia kqKetThuc = new KetQuaDanhGia(kqGoc.getTrangThai(), kqGoc.getHanhDong(),
-						kqGoc.getMucDoNghiemTrong(), kqGoc.getThongBao());
+						kqGoc.getMucDoNghiemTrong(), kqGoc.getThongBao(),
+						goiTin.layIdVung(), goiTin.layLoaiVung(), goiTin.layPhanTramGiaoThoa());
 				// BỔ SUNG: Sử dụng chính xác hàm capNhatThoiGianSuKien theo class KetQuaDanhGia
 				// của bạn
 				kqKetThuc.capNhatThoiGianSuKien(goiTin.layThoiGianSuKien());
@@ -65,8 +69,10 @@ public class BoDieuPhoiTrungTam {
 			KetQuaDanhGia kqGoc = hanhViGuiM5 ? kqHanhVi : kqKhongGian;
 
 			// BỔ SUNG: Khởi tạo thực thể mới từ kết quả gốc để bảo vệ tính toàn vẹn dữ liệu
+			// SỬA LỖI: tương tự nhánh trên – giữ lại idVung/loaiVung/%GiaoThoa từ goiTin
 			KetQuaDanhGia kqKetThuc = new KetQuaDanhGia(kqGoc.getTrangThai(), kqGoc.getHanhDong(),
-					kqGoc.getMucDoNghiemTrong(), kqGoc.getThongBao());
+					kqGoc.getMucDoNghiemTrong(), kqGoc.getThongBao(),
+					goiTin.layIdVung(), goiTin.layLoaiVung(), goiTin.layPhanTramGiaoThoa());
 			// BỔ SUNG: Sử dụng chính xác hàm capNhatThoiGianSuKien theo class KetQuaDanhGia
 			// của bạn
 			kqKetThuc.capNhatThoiGianSuKien(goiTin.layThoiGianSuKien());
@@ -79,8 +85,12 @@ public class BoDieuPhoiTrungTam {
 
 		// BỔ SUNG: Khởi tạo thực thể mới từ kết quả ma trận để đóng dấu thời gian riêng
 		// biệt cho bản ghi này
+		// SỬA LỖI: giữ lại idVung/loaiVung/%GiaoThoa từ goiTin (ma trận chỉ tra cứu theo
+		// enum nên không tự có dữ liệu vùng cụ thể; nếu kết quả này là GUI_THANG_M5 thì
+		// Module 5 vẫn cần biết con vật đang ở vùng nào).
 		KetQuaDanhGia kqMaTranKetThuc = new KetQuaDanhGia(kqMaTranGoc.getTrangThai(), kqMaTranGoc.getHanhDong(),
-				kqMaTranGoc.getMucDoNghiemTrong(), kqMaTranGoc.getThongBao());
+				kqMaTranGoc.getMucDoNghiemTrong(), kqMaTranGoc.getThongBao(),
+				goiTin.layIdVung(), goiTin.layLoaiVung(), goiTin.layPhanTramGiaoThoa());
 		// BỔ SUNG: Sử dụng chính xác hàm capNhatThoiGianSuKien theo class KetQuaDanhGia
 		// của bạn
 		kqMaTranKetThuc.capNhatThoiGianSuKien(goiTin.layThoiGianSuKien());
